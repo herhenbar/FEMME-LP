@@ -3043,9 +3043,13 @@
 
 /* 3. PRODUCTS - HORIZONTAL SWIPE */
 @media screen and (max-width: 768px) {
-    .products-container {
-        overflow: hidden !important;
-        position: relative !important;
+    .products {
+        display: flex !important;
+        overflow-x: scroll !important;
+        scroll-snap-type: x mandatory !important;
+        -webkit-overflow-scrolling: touch !important;
+        gap: 20px !important;
+        padding: 20px !important;
     }
     
     .products {
@@ -3064,10 +3068,10 @@
     }
     
     .products .product-card {
-        flex: 0 0 320px !important;
+        flex: 0 0 280px !important;
         min-width: 320px !important;
         max-width: 320px !important;
-        scroll-snap-align: center !important;
+        scroll-snap-align: start !important;
         scroll-snap-stop: always !important;
         margin: 0 !important;
     }

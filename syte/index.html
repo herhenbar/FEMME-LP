@@ -1504,16 +1504,147 @@ this.classList.remove("pulse")
 
 
 <script>
-// Mobile-only carousel for products
+// Mobile-first carousel system
+let currentIndex = 0;
+const track = document.getElementById('carouselTrack');
+const container = document.querySelector('.carousel-container');
+const totalCards = 6;
+
+// Enhanced mobile detection
+function isMobile() {
+    return window.innerWidth <= 768 || /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+}
+
+// Perfect mobile carousel
+function updateCarousel() {
+    if (isMobile() && container) {
+        // Mobile: use native scroll
+        const cardWidth = window.innerWidth <= 480 ? 280 : 300;
+        const scrollLeft = currentIndex * cardWidth;
+        container.scrollTo({
+            left: scrollLeft,
+            behavior: 'smooth'
+        });
+    } else if (track) {
+        // Desktop: use transform
+        const cardWidth = 320;
+        const offset = -currentIndex * cardWidth;
+        track.style.transform = `translateX(${offset}px)`;
+    }
+    
+    // Update dots
+    const dots = document.querySelectorAll('.dot');
+    dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentIndex);
+    });
+}
+
+function moveCarousel(direction) {
+    const maxIndex = isMobile() ? totalCards - 1 : totalCards - 3;
+    currentIndex += direction;
+    
+    if (currentIndex < 0) currentIndex = maxIndex;
+    if (currentIndex > maxIndex) currentIndex = 0;
+    
+    updateCarousel();
+}
+
+function currentSlide(n) {
+    currentIndex = n - 1;
+    const maxIndex = isMobile() ? totalCards - 1 : totalCards - 3;
+    if (currentIndex > maxIndex) currentIndex = maxIndex;
+    updateCarousel();
+}
+
+// Mobile scroll detection for benefits
+if (container && isMobile()) {
+    container.addEventListener('scroll', () => {
+        const cardWidth = window.innerWidth <= 480 ? 280 : 300;
+        const newIndex = Math.round(container.scrollLeft / cardWidth);
+        if (newIndex !== currentIndex && newIndex < totalCards) {
+            currentIndex = newIndex;
+            const dots = document.querySelectorAll('.dot');
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentIndex);
+            });
+        }
+    });
+}
+
+// Products horizontal scroll for mobile
 document.addEventListener('DOMContentLoaded', function() {
     const productsContainer = document.querySelector('.products');
     
-    if (productsContainer && window.innerWidth <= 768) {
-        // Force enable touch scrolling
-        productsContainer.style.touchAction = 'pan-x';
-        productsContainer.style.overflowX = 'auto';
-        productsContainer.style.webkitOverflowScrolling = 'touch';
+    if (productsContainer && isMobile()) {
+        let startX = 0;
+        let scrollLeft = 0;
+        
+        productsContainer.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].pageX;
+            scrollLeft = productsContainer.scrollLeft;
+        });
+        
+        productsContainer.addEventListener('touchmove', (e) => {
+            if (!startX) return;
+            const x = e.touches[0].pageX;
+            const walk = (startX - x) * 1.5;
+            productsContainer.scrollLeft = scrollLeft + walk;
+        });
+        
+        productsContainer.addEventListener('touchend', () => {
+            startX = 0;
+            scrollLeft = 0;
+        });
+        
+        // Snap to nearest card
+        let scrollTimeout;
+        productsContainer.addEventListener('scroll', () => {
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(() => {
+                const cardWidth = window.innerWidth <= 480 ? 300 : 320;
+                const scrollPosition = productsContainer.scrollLeft;
+                const targetIndex = Math.round(scrollPosition / cardWidth);
+                const targetScroll = targetIndex * cardWidth;
+                
+                productsContainer.scrollTo({
+                    left: targetScroll,
+                    behavior: 'smooth'
+                });
+            }, 150);
+        });
     }
+});
+
+// Desktop arrows function
+function scrollProducts(direction) {
+    if (!isMobile()) {
+        const container = document.querySelector('.products');
+        const scrollAmount = 340;
+        container.scrollLeft += direction * scrollAmount;
+    }
+}
+
+// Auto-play only on desktop
+let autoPlay;
+function startAutoPlay() {
+    if (!isMobile()) {
+        autoPlay = setInterval(() => moveCarousel(1), 4000);
+    }
+}
+
+function stopAutoPlay() {
+    clearInterval(autoPlay);
+}
+
+// Initialize
+updateCarousel();
+startAutoPlay();
+
+// Handle resize
+window.addEventListener('resize', () => {
+    stopAutoPlay();
+    startAutoPlay();
+    updateCarousel();
 });
 </script>
 

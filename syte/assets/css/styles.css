@@ -1047,6 +1047,14 @@
      height: 100%;
      margin-left: -0.25%;
 }
+@media (max-width: 768px) {
+  .wave-transition svg {
+    display: none !important;
+  }
+}
+
+
+
  .scroll-indicator svg {
      display: block;
      margin: 0 auto;

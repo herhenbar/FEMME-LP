@@ -1050,7 +1050,7 @@
 
 @media (max-width: 768px) {
   .wave-transition svg {
-    clip-path: inset(0 0 100% 0) !important;
+    transform: translateY(100px) !important;
   }
 }
 

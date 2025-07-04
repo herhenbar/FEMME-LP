@@ -3146,4 +3146,10 @@
     }
 }
 
+@media screen and (max-width: 768px) {
+    .wave-transition {
+        display: none !important;
+    }
+}
+
 

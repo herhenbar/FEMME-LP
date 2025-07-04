@@ -3147,11 +3147,22 @@
 }
 
 @media screen and (max-width: 768px) {
-    .wave-transition,
-    .wave-transition svg {
+    .wave-transition {
         display: none !important;
-        visibility: hidden !important;
+        opacity: 0 !important;
         height: 0 !important;
+        overflow: hidden !important;
+        position: absolute !important;
+        left: -9999px !important;
+    }
+    
+    .wave-transition * {
+        display: none !important;
+    }
+    
+    /* Remove gap between sections */
+    .section-benefits {
+        margin-top: -20px !important;
     }
 }
 

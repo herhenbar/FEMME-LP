@@ -3157,11 +3157,7 @@
    border: none !important;
    margin: 0 5px !important;
  }
- .femme-nav a {
-   border: none !important;
-   outline: none !important;
- }
-}
+
 @media (max-width: 768px) {
   .container.header-flex {
     flex-direction: row !important;
@@ -3172,10 +3168,14 @@
   }
 }
 @media (max-width: 768px) {
-  .femme-nav a {
-    font-size: 12px !important;
-    padding: 5px 8px !important;
-  }
+ .femme-nav a {
+   font-size: 10px !important;
+   padding: 2px 4px !important;
+   border: none !important;
+   box-shadow: none !important;
+   outline: none !important;
+   background: transparent !important;
+ }
 }
 
 

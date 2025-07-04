@@ -1048,13 +1048,6 @@
      margin-left: -0.25%;
 }
 
-@media (max-width: 768px) {
-  .wave-transition {
-    display: none !important;
-  }
-}
-
-
  .scroll-indicator svg {
      display: block;
      margin: 0 auto;

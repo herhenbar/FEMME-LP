@@ -3199,14 +3199,15 @@
    order: -1 !important;
    margin-bottom: 10px !important;
  }
- .femme-nav ul {
-   flex-wrap: nowrap !important;
-   gap: 2px !important;
- }
+@media (max-width: 768px) {
  .femme-nav a {
-   font-size: 9px !important;
-   padding: 2px 3px !important;
-white-space: nowrap !important;
+   font-size: 8px !important;
+   padding: 1px 2px !important;
+ }
+ .femme-nav ul {
+   gap: 1px !important;
+   width: 100% !important;
+   justify-content: space-evenly !important;
  }
 }
 

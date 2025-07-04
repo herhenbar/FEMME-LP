@@ -3146,6 +3146,15 @@
     }
 }
 
+@media screen and (max-width: 768px) {
+    .wave-transition,
+    .wave-transition svg {
+        display: none !important;
+        visibility: hidden !important;
+        height: 0 !important;
+    }
+}
+
 
 
 

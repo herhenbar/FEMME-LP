@@ -3201,11 +3201,12 @@
  }
  .femme-nav ul {
    flex-wrap: nowrap !important;
-   gap: 8px !important;
+   gap: 2px !important;
  }
  .femme-nav a {
-   font-size: 11px !important;
-   padding: 4px 6px !important;
+   font-size: 9px !important;
+   padding: 2px 3px !important;
+white-space: nowrap !important;
  }
 }
 

@@ -3162,7 +3162,15 @@
    outline: none !important;
  }
 }
-
+@media (max-width: 768px) {
+  .container.header-flex {
+    flex-direction: row !important;
+    align-items: center !important;
+  }
+  .femme-nav {
+    margin-left: 20px !important;
+  }
+}
 
 
 

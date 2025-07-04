@@ -3171,7 +3171,12 @@
     margin-left: 20px !important;
   }
 }
-
+@media (max-width: 768px) {
+  .femme-nav a {
+    font-size: 12px !important;
+    padding: 5px 8px !important;
+  }
+}
 
 
 

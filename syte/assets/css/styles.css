@@ -3190,5 +3190,22 @@
     display: none;
   }
 }
-
+@media (max-width: 768px) {
+ .header-flex {
+   flex-direction: column !important;
+   align-items: center !important;
+ }
+ .logo-solo {
+   order: -1 !important;
+   margin-bottom: 10px !important;
+ }
+ .femme-nav ul {
+   flex-wrap: nowrap !important;
+   gap: 8px !important;
+ }
+ .femme-nav a {
+   font-size: 11px !important;
+   padding: 4px 6px !important;
+ }
+}
 

@@ -3146,14 +3146,10 @@
     }
 }
 
-@media screen and (max-width: 768px) {
-    body .wave-transition {
-        display: none !important;
-    }
-    
-    body div[style*="width:80%"] {
-        display: none !important;
-    }
+@media (max-width: 1024px) {
+  svg[viewBox*="1440"] {
+    display: none !important;
+  }
 }
 
 

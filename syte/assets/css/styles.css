@@ -1050,7 +1050,8 @@
 
 @media (max-width: 768px) {
   .wave-transition svg {
-    transform: translateY(100px) !important;
+    position: absolute !important;
+    left: -9999px !important;
   }
 }
 

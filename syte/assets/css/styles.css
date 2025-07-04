@@ -3147,10 +3147,20 @@
     }
 }
 
-@media (max-width: 1024px) {
-  svg[viewBox*="1440"] {
-    display: none !important;
-  }
+@media (max-width: 768px) {
+ .femme-nav ul {
+   display: flex !important;
+   flex-direction: row !important;
+   justify-content: space-between !important;
+ }
+ .femme-nav li {
+   border: none !important;
+   margin: 0 5px !important;
+ }
+ .femme-nav a {
+   border: none !important;
+   outline: none !important;
+ }
 }
 
 

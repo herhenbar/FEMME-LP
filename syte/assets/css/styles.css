@@ -3178,6 +3178,17 @@
  }
 }
 
-
+@media (max-width: 768px) {
+  .femme-header::before {
+    content: "";
+    display: block;
+    height: 60px;
+    background: url('assets/images/logo-herhenbar.png') center/contain no-repeat;
+    margin-bottom: 10px;
+  }
+  .container.header-flex img {
+    display: none;
+  }
+}
 
 

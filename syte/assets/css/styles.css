@@ -3211,3 +3211,10 @@
     background: transparent !important;
   }
 }
+.benefits-carousel .dots {
+  position: fixed !important;
+  bottom: 20px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  z-index: 999 !important;
+}

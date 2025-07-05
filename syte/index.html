@@ -1550,7 +1550,7 @@ function moveCarousel(direction) {
 
 function currentSlide(n) {
     currentIndex = n - 1;
-    const maxIndex = 6 - 1; // 6 cards total
+    const maxIndex = isMobile() ? 5 : 2; // 6 cards total
     if (currentIndex > maxIndex) currentIndex = maxIndex;
     updateCarousel();
 }

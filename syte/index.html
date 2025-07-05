@@ -1518,7 +1518,7 @@ function isMobile() {
 function updateCarousel() {
     if (isMobile() && container) {
         // Mobile: use native scroll
-        const cardWidth = window.innerWidth <= 480 ? 280 : 300;
+const cardWidth = 300;
         const scrollLeft = currentIndex * cardWidth;
         container.scrollTo({
             left: scrollLeft,

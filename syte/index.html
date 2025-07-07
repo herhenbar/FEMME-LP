@@ -1558,7 +1558,7 @@ function currentSlide(n) {
 // Mobile scroll detection for benefits
 if (container && isMobile()) {
     container.addEventListener('scroll', () => {
-        const cardWidth = window.innerWidth <= 480 ? 280 : 300;
+const cardWidth = 300;
         const newIndex = Math.round(container.scrollLeft / cardWidth);
         if (newIndex !== currentIndex && newIndex < totalCards) {
             currentIndex = newIndex;

@@ -1709,4 +1709,8 @@ if (window.innerWidth > 768) {
 if (window.innerWidth <= 768) {
     document.querySelectorAll('.carousel-dots').forEach(el => el.style.display = 'none');
 }
+
+// MATA OS DOTS NO MOBILE - FORÇA BRUTA
+document.querySelectorAll('.dot').forEach(el => el.remove());
+document.querySelector('.carousel-dots').remove();
 </script>

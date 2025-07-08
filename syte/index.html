@@ -1714,12 +1714,14 @@ if (window.innerWidth <= 768) {
 document.querySelectorAll('.dot').forEach(el => el.remove());
 document.querySelector('.carousel-dots').remove();
 
-// NETFLIX STYLE - SETAS NO TOPO
+
+// SEU CÓDIGO QUE JÁ FUNCIONA DOS BENEFITS AQUI
+...
+
+// ADICIONE ESTE CÓDIGO AQUI EMBAIXO
 if (window.innerWidth > 768) {
-    // Esconde setas antigas
     document.querySelectorAll('.nav-arrow').forEach(arrow => arrow.style.display = 'none');
     
-    // Cria setas Netflix no topo
     const sectionTitle = document.querySelector('.section-title');
     if (sectionTitle && !sectionTitle.querySelector('.netflix-arrows')) {
         sectionTitle.insertAdjacentHTML('beforeend', 
@@ -1730,16 +1732,6 @@ if (window.innerWidth > 768) {
         );
     }
 }
-
-
-
-
-
-
-
-
-
-
 </script>
 
 

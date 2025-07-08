@@ -3221,3 +3221,9 @@
 0%, 100% { transform: translateY(-50%) translateX(0); }
 50% { transform: translateY(-50%) translateX(5px); }
 }
+@media (min-width: 769px) {
+.carousel-track { display: grid !important; grid-template-columns: repeat(3, 1fr) !important; grid-template-rows: repeat(2, 1fr) !important; gap: 30px 40px !important; transform: none !important; width: 100% !important; max-width: 1000px !important; margin: 0 auto !important; }
+.carousel-btn { display: none !important; }
+.carousel-dots { display: none !important; }
+.benefit-card { scroll-snap-align: none !important; flex: none !important; min-width: auto !important; max-width: none !important; }
+}

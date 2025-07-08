@@ -1725,5 +1725,86 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 
+<script>
+// KILL ALL EXISTING CAROUSEL CODE AND REPLACE WITH THIS
+let currentIndex = 0;
+const isMobile = () => window.innerWidth <= 768;
 
+function updateCarousel() {
+    const track = document.getElementById('carouselTrack');
+    const container = document.querySelector('.carousel-container');
+    
+    if (!track || !container) return;
+    
+    if (isMobile()) {
+        // Mobile: native scroll with snap
+        const cardWidth = 325; // card + gap
+        const scrollLeft = currentIndex * cardWidth;
+        container.scrollTo({ left: scrollLeft, behavior: 'smooth' });
+    } else {
+        // Desktop: transform
+        const cardWidth = 320;
+        track.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+    }
+    
+    // Update dots
+    document.querySelectorAll('.dot').forEach((dot, i) => {
+        dot.classList.toggle('active', i === currentIndex);
+    });
+}
+
+function moveCarousel(direction) {
+    const maxIndex = isMobile() ? 5 : 2;
+    currentIndex += direction;
+    if (currentIndex < 0) currentIndex = maxIndex;
+    if (currentIndex > maxIndex) currentIndex = 0;
+    updateCarousel();
+}
+
+function currentSlide(n) {
+    currentIndex = n - 1;
+    updateCarousel();
+}
+
+// Initialize
+document.addEventListener('DOMContentLoaded', () => {
+    const container = document.querySelector('.carousel-container');
+    if (!container) return;
+    
+    if (isMobile()) {
+        // Enable touch scroll
+        container.style.overflowX = 'auto';
+        container.style.scrollSnapType = 'x mandatory';
+        
+        // Scroll sync
+        let isScrolling = false;
+        container.addEventListener('scroll', () => {
+            if (isScrolling) return;
+            const cardWidth = 325;
+            const newIndex = Math.round(container.scrollLeft / cardWidth);
+            if (newIndex !== currentIndex && newIndex >= 0 && newIndex <= 5) {
+                currentIndex = newIndex;
+                document.querySelectorAll('.dot').forEach((dot, i) => {
+                    dot.classList.toggle('active', i === currentIndex);
+                });
+            }
+        });
+        
+        // Dot click handler
+        document.querySelectorAll('.dot').forEach((dot, i) => {
+            dot.addEventListener('click', () => {
+                isScrolling = true;
+                currentIndex = i;
+                updateCarousel();
+                setTimeout(() => isScrolling = false, 500);
+            });
+        });
+    }
+    
+    updateCarousel();
+});
+
+// Kill auto-play completely
+clearInterval(window.autoPlay);
+</script>
 

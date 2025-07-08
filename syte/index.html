@@ -1715,33 +1715,6 @@ document.querySelectorAll('.dot').forEach(el => el.remove());
 document.querySelector('.carousel-dots').remove();
 
 
-// SEU CÓDIGO QUE JÁ FUNCIONA DOS BENEFITS AQUI
-...
-
-// ADICIONE ESTE CÓDIGO AQUI EMBAIXO
-if (window.innerWidth > 768) {
-    document.querySelectorAll('.nav-arrow').forEach(arrow => arrow.style.display = 'none');
-    
-    const sectionTitle = document.querySelector('.section-title');
-    if (sectionTitle && !sectionTitle.querySelector('.netflix-arrows')) {
-        sectionTitle.insertAdjacentHTML('beforeend', 
-            '<div class="netflix-arrows" style="float: right; margin-top: -10px;">' +
-                '<button onclick="scrollProducts(-1)" style="background: rgba(212,175,55,0.9); border: none; width: 30px; height: 30px; border-radius: 4px; color: white; margin-right: 5px;">‹</button>' +
-                '<button onclick="scrollProducts(1)" style="background: rgba(212,175,55,0.9); border: none; width: 30px; height: 30px; border-radius: 4px; color: white;">›</button>' +
-            '</div>'
-        );
-    }
-}
-
-
-
-// FUNÇÃO PARA AS SETAS FUNCIONAREM
-function scrollProducts(direction) {
-    const products = document.querySelector('.products');
-    if (products) {
-        products.scrollLeft += direction * 340;
-    }
-}
 </script>
 
 

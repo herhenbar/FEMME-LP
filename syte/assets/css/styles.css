@@ -3222,7 +3222,32 @@
 }
 
 
-
+@media (max-width: 768px) {
+    .carousel-container {
+        overflow-x: auto !important;
+        scroll-snap-type: x mandatory !important;
+        -webkit-overflow-scrolling: touch !important;
+        padding: 20px 0 !important;
+    }
+    
+    .carousel-track {
+        display: flex !important;
+        gap: 25px !important;
+        padding: 0 calc(50vw - 150px) !important;
+        transform: none !important;
+        transition: none !important;
+    }
+    
+    .benefit-card {
+        scroll-snap-align: center !important;
+        flex: 0 0 300px !important;
+        min-width: 300px !important;
+    }
+    
+    .carousel-btn {
+        display: none !important;
+    }
+}
 
 
 

@@ -1724,6 +1724,24 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
-
+<script>
+// Mobile swipe fix - SEPARADO
+document.addEventListener('DOMContentLoaded', function() {
+    if (window.innerWidth <= 768) {
+        const products = document.querySelector('.products');
+        if (products) {
+            products.style.overflowX = 'auto';
+            products.style.scrollSnapType = 'x mandatory';
+            products.style.webkitOverflowScrolling = 'touch';
+            
+            products.querySelectorAll('.product-card').forEach(card => {
+                card.style.scrollSnapAlign = 'start';
+                card.style.flex = '0 0 320px';
+                card.style.minWidth = '320px';
+            });
+        }
+    }
+});
+</script>
 
 

@@ -1679,3 +1679,29 @@ padding: 10px!important;
 border-radius: 0!important
 }
 </style>
+
+
+
+
+<script>
+// FORÇA DESKTOP GRID
+if (window.innerWidth > 768) {
+    const track = document.querySelector('.carousel-track');
+    if (track) {
+        track.style.display = 'grid';
+        track.style.gridTemplateColumns = 'repeat(3, 1fr)';
+        track.style.gridTemplateRows = 'repeat(2, 1fr)';
+        track.style.gap = '30px 40px';
+        track.style.transform = 'none';
+        track.style.width = '100%';
+    }
+    
+    // REMOVE SETAS E DOTS
+    document.querySelectorAll('.carousel-btn, .carousel-dots').forEach(el => el.style.display = 'none');
+}
+
+// REMOVE DOTS NO MOBILE
+if (window.innerWidth <= 768) {
+    document.querySelectorAll('.carousel-dots').forEach(el => el.style.display = 'none');
+}
+</script>

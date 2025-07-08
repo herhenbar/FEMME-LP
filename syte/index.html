@@ -1718,28 +1718,27 @@ document.querySelector('.carousel-dots').remove();
 </script>
 
 
-// DESKTOP: RESTAURA SETAS DOS PRODUTOS
+// FORÇA SETAS DESKTOP APARECEREM
 if (window.innerWidth > 768) {
-    document.querySelectorAll('.nav-arrow').forEach(arrow => {
-        arrow.style.display = 'block';
-        arrow.style.visibility = 'visible';
-        arrow.style.opacity = '1';
-    });
-}
-
-// MOBILE: FORÇA SWIPE DOS PRODUTOS  
-if (window.innerWidth <= 768) {
-    const products = document.querySelector('.products');
-    if (products) {
-        products.style.overflowX = 'auto';
-        products.style.scrollSnapType = 'x mandatory';
-        products.style.webkitOverflowScrolling = 'touch';
-        
-        products.querySelectorAll('.product-card').forEach(card => {
-            card.style.scrollSnapAlign = 'start';
-            card.style.flex = '0 0 320px';
-            card.style.minWidth = '320px';
-        });
+    const leftArrow = document.querySelector('.nav-arrow.nav-left');
+    const rightArrow = document.querySelector('.nav-arrow.nav-right');
+    
+    if (leftArrow) {
+        leftArrow.style.display = 'block';
+        leftArrow.style.position = 'absolute';
+        leftArrow.style.left = '10px';
+        leftArrow.style.top = '50%';
+        leftArrow.style.transform = 'translateY(-50%)';
+        leftArrow.style.zIndex = '10';
+    }
+    
+    if (rightArrow) {
+        rightArrow.style.display = 'block';
+        rightArrow.style.position = 'absolute';
+        rightArrow.style.right = '10px';
+        rightArrow.style.top = '50%';
+        rightArrow.style.transform = 'translateY(-50%)';
+        rightArrow.style.zIndex = '10';
     }
 }
 

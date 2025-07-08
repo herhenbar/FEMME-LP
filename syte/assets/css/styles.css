@@ -3217,19 +3217,4 @@
   }
 }
 
-@media (max-width: 768px) and (orientation: portrait) {
-  .section-benefits .title h2 {
-    font-size: 1.8rem !important;
-    line-height: 1.1 !important;
-    white-space: nowrap !important;
-  }
-  
-  .section-benefits .title img {
-    height: 60px !important;
-    margin: 0 -15px !important;
-  }
-  
-  .section-benefits .title div[style*="display:flex"] {
-    flex-wrap: nowrap !important;
-  }
-}
+

@@ -1732,6 +1732,16 @@ if (window.innerWidth > 768) {
         );
     }
 }
+
+
+
+// FUNÇÃO PARA AS SETAS FUNCIONAREM
+function scrollProducts(direction) {
+    const products = document.querySelector('.products');
+    if (products) {
+        products.scrollLeft += direction * 340;
+    }
+}
 </script>
 
 

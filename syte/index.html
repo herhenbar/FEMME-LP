@@ -1714,3 +1714,25 @@ if (window.innerWidth <= 768) {
 document.querySelectorAll('.dot').forEach(el => el.remove());
 document.querySelector('.carousel-dots').remove();
 </script>
+
+
+// Add this AFTER your existing working script (don't replace)
+// PRODUCTS CAROUSEL FIX ONLY
+document.addEventListener('DOMContentLoaded', function() {
+    if (window.innerWidth <= 768) {
+        const products = document.querySelector('.products');
+        if (products) {
+            // Force mobile swipe for products
+            products.style.display = 'flex';
+            products.style.overflowX = 'auto';
+            products.style.scrollSnapType = 'x mandatory';
+            products.style.webkitOverflowScrolling = 'touch';
+            
+            // Each product card snaps
+            products.querySelectorAll('.product-card').forEach(card => {
+                card.style.scrollSnapAlign = 'start';
+                card.style.flex = '0 0 320px';
+            });
+        }
+    }
+});

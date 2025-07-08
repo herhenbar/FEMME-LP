@@ -1718,4 +1718,29 @@ document.querySelector('.carousel-dots').remove();
 </script>
 
 
+// DESKTOP: RESTAURA SETAS DOS PRODUTOS
+if (window.innerWidth > 768) {
+    document.querySelectorAll('.nav-arrow').forEach(arrow => {
+        arrow.style.display = 'block';
+        arrow.style.visibility = 'visible';
+        arrow.style.opacity = '1';
+    });
+}
+
+// MOBILE: FORÇA SWIPE DOS PRODUTOS  
+if (window.innerWidth <= 768) {
+    const products = document.querySelector('.products');
+    if (products) {
+        products.style.overflowX = 'auto';
+        products.style.scrollSnapType = 'x mandatory';
+        products.style.webkitOverflowScrolling = 'touch';
+        
+        products.querySelectorAll('.product-card').forEach(card => {
+            card.style.scrollSnapAlign = 'start';
+            card.style.flex = '0 0 320px';
+            card.style.minWidth = '320px';
+        });
+    }
+}
+
 

@@ -3220,3 +3220,230 @@
     justify-content: center !important;
   }
 }
+
+/* BENEFITS SECTION - DESKTOP FIRST, MOBILE OVERRIDE */
+
+/* Desktop (padrão) - Grid normal */
+.section-benefits {
+    background: linear-gradient(to bottom, #fff 0%, #f9d7e2 3%, #b4ccd4 10%, #a1bec9 35%, #8db3c1 100%) !important;
+    padding: 100px 20px 80px !important;
+}
+
+.carousel-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    overflow: visible !important;
+    position: relative;
+}
+
+.carousel-track {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    grid-template-rows: repeat(2, 1fr) !important;
+    gap: 30px 40px !important;
+    max-width: 1000px !important;
+    margin: 0 auto !important;
+    transform: none !important;
+    transition: none !important;
+    width: auto !important;
+    padding: 0 !important;
+}
+
+.benefit-card {
+    flex: none !important;
+    width: auto !important;
+    min-width: auto !important;
+    max-width: none !important;
+    background: linear-gradient(135deg, #ffffff 0%, #f8f6f4 30%, #f0e8dc 100%) !important;
+    border-left: 3px solid #d4af37 !important;
+    border-radius: 18px !important;
+    padding: 20px 16px !important;
+    min-height: 220px !important;
+    box-shadow: 0 8px 28px rgba(0,0,0,.06) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    scroll-snap-align: none !important;
+    scroll-snap-stop: none !important;
+}
+
+.benefit-card:hover {
+    transform: translateY(-10px) scale(1.01) !important;
+    border-color: #d4af37 !important;
+    box-shadow: 0 0 0 2px #f1e2b7, 0 10px 28px rgba(212, 175, 55, .35) !important;
+}
+
+.card-icon {
+    width: 75px !important;
+    height: 75px !important;
+    margin-bottom: 18px !important;
+    filter: drop-shadow(0 8px 16px rgba(107, 78, 135, .15)) !important;
+    transition: all .3s ease !important;
+    font-size: 40px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.benefit-card:hover .card-icon {
+    transform: scale(1.1) rotate(2deg) !important;
+    filter: drop-shadow(0 12px 24px rgba(107, 78, 135, .25)) !important;
+}
+
+.card-title {
+    font-size: 1.5rem !important;
+    color: #7a2d44 !important;
+    margin-bottom: 12px !important;
+    font-weight: 600 !important;
+    font-family: 'Playfair Display', serif !important;
+}
+
+.card-description {
+    font-size: 1.05rem !important;
+    color: #5a4a6b !important;
+    line-height: 1.6 !important;
+    opacity: 0.95 !important;
+    max-width: 90% !important;
+    margin: 0 auto !important;
+    font-family: 'Playfair Display', serif !important;
+}
+
+/* Desktop - esconder controles móveis */
+.carousel-btn {
+    display: none !important;
+}
+
+.carousel-dots {
+    display: none !important;
+}
+
+/* MOBILE OVERRIDE - 768px e abaixo */
+@media screen and (max-width: 768px) {
+    .carousel-container {
+        width: 100% !important;
+        overflow-x: auto !important;
+        overflow-y: hidden !important;
+        scroll-snap-type: x mandatory !important;
+        -webkit-overflow-scrolling: touch !important;
+        scroll-behavior: smooth !important;
+        padding: 30px 0 !important;
+    }
+    
+    .carousel-track {
+        display: flex !important;
+        grid-template-columns: none !important;
+        grid-template-rows: none !important;
+        gap: 25px !important;
+        padding: 0 calc(50vw - 150px) !important;
+        width: max-content !important;
+    }
+    
+    .benefit-card {
+        flex: 0 0 300px !important;
+        min-width: 300px !important;
+        max-width: 300px !important;
+        scroll-snap-align: center !important;
+        scroll-snap-stop: always !important;
+        min-height: 250px !important;
+    }
+    
+    .carousel-container::-webkit-scrollbar {
+        display: none !important;
+    }
+    
+    .carousel-container {
+        -ms-overflow-style: none !important;
+        scrollbar-width: none !important;
+    }
+    
+    .carousel-dots {
+        display: flex !important;
+        justify-content: center !important;
+        gap: 12px !important;
+        margin-top: 30px !important;
+        padding: 0 20px !important;
+    }
+    
+    .carousel-dots .dot {
+        width: 12px !important;
+        height: 12px !important;
+        border-radius: 50% !important;
+        background: rgba(212, 175, 55, 0.4) !important;
+        cursor: pointer !important;
+        transition: all 0.3s ease !important;
+    }
+    
+    .carousel-dots .dot.active {
+        background: #d4af37 !important;
+        transform: scale(1.3) !important;
+    }
+}
+
+/* TÍTULOS - Corrigir para todas as telas */
+.section-benefits .title {
+    text-align: center !important;
+    padding-top: 0 !important;
+    margin-top: -30px !important;
+}
+
+.section-benefits .title div[style*="display:flex"] {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: flex-end !important;
+    padding-top: 60px !important;
+}
+
+.section-benefits .title h2 {
+    font-family: 'Playfair Display', serif !important;
+    font-size: 3.2rem !important;
+    font-weight: 500 !important;
+    color: #5d2a3a !important;
+    letter-spacing: 0.3px !important;
+    margin: 0 !important;
+}
+
+.section-benefits .title img {
+    height: 120px !important;
+    transform: translateY(10px) !important;
+    opacity: 0.9 !important;
+    margin: 0 -36px !important;
+}
+
+.section-benefits .title p {
+    margin-top: 24px !important;
+    font-style: italic !important;
+    font-weight: 500 !important;
+    color: #5a3c46 !important;
+    letter-spacing: 0.3px !important;
+}
+
+/* Linha dourada embaixo do título */
+.section-benefits .title div[style*="transform:translateY(-118px)"] {
+    width: 60% !important;
+    max-width: 375px !important;
+    height: 2px !important;
+    background: #5d2a3a !important;
+    margin: 0 auto !important;
+    opacity: 1 !important;
+    border-radius: 1px !important;
+    transform: translateY(-20px) !important;
+}
+
+@media screen and (max-width: 768px) {
+    .section-benefits .title h2 {
+        font-size: 2.2rem !important;
+    }
+    
+    .section-benefits .title img {
+        height: 80px !important;
+        margin: 0 -20px !important;
+    }
+    
+    .section-benefits .title div[style*="transform:translateY(-118px)"] {
+        transform: translateY(-15px) !important;
+        width: 80% !important;
+    }
+}

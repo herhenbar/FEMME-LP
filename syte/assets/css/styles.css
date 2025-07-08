@@ -3221,3 +3221,46 @@
 50% { transform: translateY(-50%) translateX(5px); }
 }
 
+
+
+
+
+
+@media (min-width: 1025px) {
+  .products {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    gap: 24px;
+  }
+
+  .products::-webkit-scrollbar {
+    display: none;
+  }
+  .products {
+    -ms-overflow-style: none; /* IE e Edge */
+    scrollbar-width: none;    /* Firefox */
+  }
+
+  .nav-arrow {
+    display: block;
+    font-size: 2rem;
+    padding: 10px 16px;
+    background: none;
+    border: none;
+    color: #7a2d44;
+    cursor: pointer;
+    z-index: 10;
+    transition: 0.3s;
+  }
+
+  .nav-arrow:hover {
+    color: #d4af37;
+  }
+}
+
+@media (max-width: 1024px) {
+  .nav-arrow {
+    display: none !important;
+  }
+}

@@ -1,14 +1,3 @@
-/* DESKTOP FORCE FIX */
-.carousel-track { display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(2, 1fr); gap: 30px 40px; transform: none; width: 100%; max-width: 1000px; margin: 0 auto; }
-.carousel-btn, .carousel-dots { display: none; }
-.benefit-card { scroll-snap-align: none; flex: none; min-width: auto; max-width: none; }
-
-/* MOBILE OVERRIDE */
-@media (max-width: 768px) {
-.carousel-track { display: flex; grid-template-columns: none; grid-template-rows: none; gap: 25px; padding: 0 calc(50vw - 150px); width: max-content; }
-.benefit-card { flex: 0 0 300px; min-width: 300px; max-width: 300px; scroll-snap-align: center; }
-.carousel-container::before { content: "→→→"; position: absolute; top: 50%; right: 10px; color: #d4af37; font-size: 20px; z-index: 10; transform: translateY(-50%); animation: bounce 1s infinite; }
-}
 .btn,body {
      font-family: var(--font-body);
 }

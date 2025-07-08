@@ -1718,36 +1718,19 @@ document.querySelector('.carousel-dots').remove();
 </script>
 
 
-// CRIA SETAS NOVAS - FORÇA BRUTA
-if (window.innerWidth > 768) {
-    const productsContainer = document.querySelector('.products-container');
-    
-    if (productsContainer && !productsContainer.querySelector('.new-arrow')) {
-        // Cria seta esquerda
-        const leftArrow = document.createElement('button');
-        leftArrow.innerHTML = '‹';
-        leftArrow.className = 'new-arrow';
-        leftArrow.style.cssText = 'position: absolute; left: 10px; top: 50%; transform: translateY(-50%); background: rgba(212,175,55,0.9); border: none; width: 50px; height: 50px; border-radius: 50%; font-size: 24px; color: white; cursor: pointer; z-index: 999;';
-        leftArrow.onclick = () => scrollProducts(-1);
-        
-        // Cria seta direita  
-        const rightArrow = document.createElement('button');
-        rightArrow.innerHTML = '›';
-        rightArrow.className = 'new-arrow';
-        rightArrow.style.cssText = 'position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: rgba(212,175,55,0.9); border: none; width: 50px; height: 50px; border-radius: 50%; font-size: 24px; color: white; cursor: pointer; z-index: 999;';
-        rightArrow.onclick = () => scrollProducts(1);
-        
-        // Adiciona ao container
-        productsContainer.appendChild(leftArrow);
-        productsContainer.appendChild(rightArrow);
-    }
-}
-
+<script>
 function scrollProducts(direction) {
-    const products = document.querySelector('.products');
-    if (products) {
-        products.scrollLeft += direction * 340;
-    }
+  const container = document.querySelector('.products');
+  if (window.innerWidth >= 1025 && container) {
+    const card = container.querySelector('.product-card');
+    const scrollAmount = card.offsetWidth + 24; // card width + gap
+    container.scrollBy({
+      left: direction * scrollAmount,
+      behavior: 'smooth'
+    });
+  }
 }
+</script>
+
 
 

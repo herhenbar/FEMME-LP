@@ -3221,8 +3221,5 @@
   }
 }
 
-@media (min-width: 769px) {
-    .carousel-track { display: grid !important; grid-template-columns: repeat(3, 1fr) !important; grid-template-rows: repeat(2, 1fr) !important; gap: 30px 40px !important; }
-    .carousel-btn, .carousel-dots { display: none !important; }
-}
+
 

@@ -28,7 +28,7 @@
 </header>
 <section class=femme-hero style="background:radial-gradient(ellipse at center,#f9d7e2 0,#e5a3b7 100%)!important;background-size:cover!important;background-repeat:no-repeat!important">
 <div class="container hero-content">
-<h1>Descubra Seu Corpo.</h1>
+<h1>Descubra Seu Corpo</h1>
 <div class=divisor></div>
 <p>Conteúdo premium pra entender, escolher e se cuidar com clareza.</p>
 <div class=cta-group><a href=#combos class="btn btn-gold">Rituais Completos</a> <a href=#produtos class="btn btn-outline">Coleção Exclusiva</a></div>
@@ -1715,44 +1715,7 @@ document.querySelectorAll('.dot').forEach(el => el.remove());
 document.querySelector('.carousel-dots').remove();
 </script>
 
-alert("TESTE - JavaScript funcionando!");
-
-console.log("Container encontrado:", document.querySelector('.products-container'));
-console.log("Products encontrado:", document.querySelector('.products'));
-
-// CRIA SETAS NOVAS - FORÇA BRUTA
-if (window.innerWidth > 768) {
-    const productsContainer = document.querySelector('.products-container');
-    
-    if (productsContainer) {
-        alert("Container encontrado! Criando setas...");
-        
-        // Remove setas antigas se existirem
-        document.querySelectorAll('.new-arrow').forEach(el => el.remove());
-        
-        // Cria seta esquerda
-        const leftArrow = document.createElement('button');
-        leftArrow.innerHTML = '‹';
-        leftArrow.className = 'new-arrow';
-        leftArrow.style.cssText = 'position: absolute; left: 10px; top: 50%; transform: translateY(-50%); background: red; border: none; width: 50px; height: 50px; border-radius: 50%; font-size: 24px; color: white; cursor: pointer; z-index: 999;';
-        leftArrow.onclick = () => alert("Seta esquerda clicada!");
-        
-        // Cria seta direita  
-        const rightArrow = document.createElement('button');
-        rightArrow.innerHTML = '›';
-        rightArrow.className = 'new-arrow';
-        rightArrow.style.cssText = 'position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: red; border: none; width: 50px; height: 50px; border-radius: 50%; font-size: 24px; color: white; cursor: pointer; z-index: 999;';
-        rightArrow.onclick = () => alert("Seta direita clicada!");
-        
-        // Adiciona ao container
-        productsContainer.appendChild(leftArrow);
-        productsContainer.appendChild(rightArrow);
-        
-        alert("Setas criadas!");
-    } else {
-        alert("Container NÃO encontrado!");
-    }
-}
+alert("JavaScript rodando!");
 
 
 

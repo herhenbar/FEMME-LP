@@ -3214,6 +3214,12 @@
 }
 
 @media (max-width: 768px) {
-.carousel-container::after { content: ""; position: absolute; top: 0; right: 0; width: 50px; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.8)); pointer-events: none; }
+.carousel-container { position: relative; }
+.carousel-container::after { content: ""; position: absolute; top: 50%; right: 15px; width: 30px; height: 30px; background: rgba(212,175,55,0.8); border-radius: 50%; transform: translateY(-50%); box-shadow: 5px 0 15px rgba(212,175,55,0.3), -5px 0 15px rgba(212,175,55,0.3); animation: breathe 2s infinite; pointer-events: none; }
 .carousel-dots { display: none !important; }
+}
+
+@keyframes breathe {
+0%, 100% { opacity: 0.6; transform: translateY(-50%) scale(1); }
+50% { opacity: 1; transform: translateY(-50%) scale(1.1); }
 }

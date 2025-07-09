@@ -3270,3 +3270,19 @@
 }
 
 }
+
+@media screen and (max-width: 768px) {
+
+html, body {
+    overflow-x: hidden !important;
+    max-width: 100vw !important;
+}
+
+.wave-transition,
+.divisor-dourado,
+.divisor-rosado {
+    display: none !important;
+}
+
+}
+     

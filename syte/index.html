@@ -1555,39 +1555,6 @@ border-radius: 0!important
 
 
 
-
-</style>
-
-</style>
-
-<script>
-// FORÇA DESKTOP GRID
-if (window.innerWidth > 768) {
-    const track = document.querySelector('.carousel-track');
-    if (track) {
-        track.style.display = 'grid';
-        track.style.gridTemplateColumns = 'repeat(3, 1fr)';
-        track.style.gridTemplateRows = 'repeat(2, 1fr)';
-        track.style.gap = '30px 40px';
-        track.style.transform = 'none';
-        track.style.width = '100%';
-    }
-    
-    document.querySelectorAll('.carousel-btn, .carousel-dots').forEach(el => el.style.display = 'none');
-    
-    if (typeof stopAutoPlay === 'function') stopAutoPlay();
-    clearInterval(autoPlay);
-}
-
-if (window.innerWidth <= 768) {
-    document.querySelectorAll('.carousel-dots').forEach(el => el.style.display = 'none');
-}
-
-// MATA OS DOTS NO MOBILE - FORÇA BRUTA
-document.querySelectorAll('.dot').forEach(el => el.remove());
-document.querySelector('.carousel-dots').remove();
-</script>
-
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     if (window.innerWidth > 768) {

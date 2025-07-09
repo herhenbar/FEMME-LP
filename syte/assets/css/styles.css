@@ -3290,48 +3290,30 @@
 
 }
      
-
-
-@media screen and (max-width: 768px) {
-  /* Reset total da section */
-  .testimonial-wall * {
-    all: unset !important;
-  }
-  
-  /* Reconstruir testimonials */
+@media (max-width: 768px) {
+  /* Manter o layout flutuante original */
   .testimonial-wall {
-    position: relative !important;
-    width: 100vw !important;
-    height: 100vh !important;
-    background: inherit !important;
-  }
-  
-  /* Criar grid de testimonials */
-  .testimonial-wall::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: grid !important;
-    grid-template-columns: 1fr 1fr !important;
-    grid-template-rows: repeat(4, 1fr) !important;
-    gap: 10px !important;
-    padding: 20px !important;
-  }
-  
-  /* Forçar cada testimonial individualmente */
-  body .testimonial {
-    position: static !important;
     display: block !important;
-    width: auto !important;
-    height: auto !important;
-    margin: 10px !important;
-    padding: 15px !important;
-    background: rgba(255,255,255,0.1) !important;
-    border: 1px solid rgba(197,137,240,0.6) !important;
-    border-radius: 12px !important;
-    font-size: 14px !important;
+    position: relative !important;
+    height: 80vh !important;
   }
+  
+  /* Forçar testimonials para posição absoluta */
+  div.testimonial {
+    position: absolute !important;
+    display: block !important;
+    max-width: 45% !important;
+    background: rgba(255,255,255,0.05) !important;
+    border: 1px solid rgba(197,137,240,0.4) !important;
+  }
+  
+  /* Redistribuir manualmente */
+  div.testimonial[style*="top:10%"] { top: 5% !important; left: 2% !important; }
+  div.testimonial[style*="top:20%"] { top: 5% !important; right: 2% !important; left: auto !important; }
+  div.testimonial[style*="top:35%"] { top: 25% !important; left: 2% !important; }
+  div.testimonial[style*="top:50%"] { top: 25% !important; right: 2% !important; left: auto !important; }
+  div.testimonial[style*="top:65%"] { top: 45% !important; left: 2% !important; }
+  div.testimonial[style*="top:75%"] { top: 45% !important; right: 2% !important; left: auto !important; }
+  div.testimonial[style*="top:80%"] { top: 65% !important; left: 2% !important; }
+  div.testimonial[style*="top:15%"] { top: 65% !important; right: 2% !important; left: auto !important; }
 }

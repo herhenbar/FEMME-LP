@@ -3292,35 +3292,33 @@
      
 
 @media (max-width: 768px) {
-  .bonus-container:nth-child(4),
-  .bonus-container:nth-child(5),
-  .bonus-container:nth-child(6) {
-    display: flex;
-    flex-direction: column;
-    position: relative;
+  .hero::after,
+  .hero-wave,
+  .wave-divider {
+    width: calc(100% + 50px) !important;
+    left: -25px !important;
+    bottom: -1px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .combo-ebook-name,
+  .ebook-title-box,
+  .combo-item-title {
+    margin-bottom: 15px !important;
+    line-height: 1.2 !important;
+    padding: 10px 5px !important;
+    min-height: auto !important;
+    word-break: break-word !important;
   }
   
-  .bonus-container:nth-child(n+4) .badge-combo {
-    position: absolute;
-    top: calc(100% - 60px);
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 2;
+  .combo-grid,
+  .combos-container {
+    grid-gap: 20px !important;
+    gap: 20px !important;
   }
   
-  .bonus-container:nth-child(n+4) .price-badge {
-    order: -1;
-    margin-bottom: 10px;
-    position: relative;
-    top: auto;
-    bottom: auto;
-  }
-  
-  .bonus-container:nth-child(n+4) .bonus-image {
-    margin-bottom: 70px;
-  }
-  
-  .bonus-container:nth-child(n+4) .cta-button {
-    margin-top: auto;
+  .combo-card {
+    padding-bottom: 20px !important;
   }
 }

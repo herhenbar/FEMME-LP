@@ -1565,61 +1565,211 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 
+<!-- SOLUÇÃO NUCLEAR - COLA ISSO NO FINAL DO SEU HTML -->
+
+<style>
+/* NUCLEAR RESET - FORÇA BRUTA */
+@media screen and (max-width: 768px) {
+    /* LIMPA TUDO DO FOLD 2 */
+    .femme-fold2 * {
+        transform: none !important;
+        position: static !important;
+    }
+    
+    /* CONTAINER PRINCIPAL - FORÇA TOTAL */
+    .products-container {
+        all: unset !important;
+        display: block !important;
+        width: 100vw !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        position: relative !important;
+        left: 0 !important;
+        right: 0 !important;
+        overflow: visible !important;
+    }
+    
+    /* PRODUCTS - DESTRUIR E RECONSTRUIR */
+    .products {
+        all: unset !important;
+        display: flex !important;
+        flex-direction: row !important;
+        width: 100vw !important;
+        height: auto !important;
+        overflow-x: scroll !important;
+        overflow-y: visible !important;
+        -webkit-overflow-scrolling: touch !important;
+        scroll-behavior: smooth !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        gap: 15px !important;
+        position: relative !important;
+        left: 0 !important;
+        transform: translateX(0) !important;
+    }
+    
+    /* FORÇA iOS */
+    .products {
+        -webkit-transform: translate3d(0,0,0) !important;
+        -webkit-backface-visibility: hidden !important;
+        -webkit-perspective: 1000 !important;
+    }
+    
+    /* CARDS - RESET TOTAL */
+    .products .product-card {
+        all: unset !important;
+        display: block !important;
+        flex: 0 0 280px !important;
+        min-width: 280px !important;
+        max-width: 280px !important;
+        height: auto !important;
+        background: #fff !important;
+        border-radius: 18px !important;
+        padding: 20px !important;
+        margin: 10px 0 !important;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1) !important;
+        position: relative !important;
+        scroll-snap-align: start !important;
+    }
+    
+    /* PRIMEIRO E ÚLTIMO CARD */
+    .products .product-card:first-child {
+        margin-left: 20px !important;
+    }
+    
+    .products .product-card:last-child {
+        margin-right: 20px !important;
+    }
+    
+    /* ESCONDE TUDO QUE ATRAPALHA */
+    .nav-arrow,
+    .nav-left, 
+    .nav-right,
+    .products::before,
+    .products::after {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+    }
+}
+</style>
+
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-    // Detectar mobile
-    if (window.innerWidth <= 768) {
-        const productsContainer = document.querySelector('.products');
+// NUCLEAR JAVASCRIPT - FORÇA MÁXIMA
+(function() {
+    function forceHorizontalScroll() {
+        const products = document.querySelector('.products');
+        const container = document.querySelector('.products-container');
         
-        if (productsContainer) {
-            // Forçar scroll horizontal no mobile
-            productsContainer.style.cssText = `
-                display: flex !important;
-                flex-direction: row !important;
-                overflow-x: auto !important;
-                overflow-y: hidden !important;
-                -webkit-overflow-scrolling: touch !important;
-                scroll-snap-type: x mandatory !important;
-                gap: 20px !important;
-                padding: 0 !important;
+        if (!products || window.innerWidth > 768) return;
+        
+        // DESTRUIR TODOS OS ESTILOS INLINE
+        products.removeAttribute('style');
+        container.removeAttribute('style');
+        
+        // FORÇA NOVOS ESTILOS
+        products.style.cssText = `
+            display: flex !important;
+            flex-direction: row !important;
+            overflow-x: auto !important;
+            overflow-y: visible !important;
+            -webkit-overflow-scrolling: touch !important;
+            width: 100vw !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            gap: 15px !important;
+            transform: none !important;
+            position: relative !important;
+            left: 0 !important;
+        `;
+        
+        container.style.cssText = `
+            width: 100vw !important;
+            overflow: visible !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            position: relative !important;
+        `;
+        
+        // FORÇA CADA CARD
+        const cards = products.querySelectorAll('.product-card');
+        cards.forEach((card, i) => {
+            card.style.cssText = `
+                flex: 0 0 280px !important;
+                width: 280px !important;
+                min-width: 280px !important;
+                max-width: 280px !important;
+                display: block !important;
+                position: relative !important;
+                margin: 10px 0 !important;
             `;
             
-            // Ajustar cada card
-            const cards = productsContainer.querySelectorAll('.product-card');
-            cards.forEach((card, index) => {
-                card.style.cssText = `
-                    flex: 0 0 85vw !important;
-                    min-width: 85vw !important;
-                    max-width: 85vw !important;
-                    scroll-snap-align: center !important;
-                `;
-                
-                // Padding especial para primeiro e último
-                if (index === 0) {
-                    card.style.marginLeft = '7.5vw';
-                }
-                if (index === cards.length - 1) {
-                    card.style.marginRight = '7.5vw';
-                }
-            });
-            
-            // Remover qualquer transform ou translate
-            productsContainer.style.transform = 'none';
-            productsContainer.style.paddingLeft = '0';
-            
-            // iOS fix
-            if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
-                productsContainer.style.webkitOverflowScrolling = 'touch';
-                productsContainer.style.webkitTransform = 'translateZ(0)';
-            }
+            if (i === 0) card.style.marginLeft = '20px !important';
+            if (i === cards.length - 1) card.style.marginRight = '20px !important';
+        });
+        
+        // FORÇA SCROLL PARA INÍCIO
+        setTimeout(() => {
+            products.scrollLeft = 0;
+        }, 100);
+        
+        // ADICIONA CLASSE PARA CONFIRMAR
+        products.classList.add('mobile-scroll-fixed');
+        
+        console.log('NUCLEAR FIX APPLIED!');
+    }
+    
+    // EXECUTAR MÚLTIPLAS VEZES PARA GARANTIR
+    document.addEventListener('DOMContentLoaded', forceHorizontalScroll);
+    window.addEventListener('load', forceHorizontalScroll);
+    setTimeout(forceHorizontalScroll, 500);
+    setTimeout(forceHorizontalScroll, 1000);
+    setTimeout(forceHorizontalScroll, 2000);
+    
+    // REAPLICA SE MUDAR ORIENTAÇÃO
+    window.addEventListener('orientationchange', () => {
+        setTimeout(forceHorizontalScroll, 300);
+    });
+    
+    // DEBUG - VERIFICA SE ESTÁ APLICANDO
+    window.checkProducts = function() {
+        const products = document.querySelector('.products');
+        console.log('Products styles:', products.style.cssText);
+        console.log('ScrollWidth:', products.scrollWidth);
+        console.log('ClientWidth:', products.clientWidth);
+        console.log('Can scroll:', products.scrollWidth > products.clientWidth);
+    };
+})();
+</script>
+
+<!-- FALLBACK EXTREMO - SE NADA FUNCIONAR -->
+<style>
+@media screen and (max-width: 768px) {
+    /* OPÇÃO NUCLEAR FINAL - STACK VERTICAL */
+    .products.fallback-mode {
+        display: block !important;
+        overflow: visible !important;
+    }
+    
+    .products.fallback-mode .product-card {
+        display: block !important;
+        width: 90% !important;
+        max-width: 350px !important;
+        margin: 20px auto !important;
+        flex: none !important;
+    }
+}
+</style>
+
+<script>
+// SE NADA FUNCIONAR, ATIVA MODO FALLBACK
+setTimeout(function() {
+    if (window.innerWidth <= 768) {
+        const products = document.querySelector('.products');
+        if (products && products.scrollWidth <= products.clientWidth) {
+            console.warn('Scroll not working! Activating fallback mode...');
+            products.classList.add('fallback-mode');
         }
     }
-});
-
-// Verificar mudança de orientação
-window.addEventListener('orientationchange', function() {
-    setTimeout(function() {
-        window.location.reload();
-    }, 100);
-});
+}, 3000);
 </script>

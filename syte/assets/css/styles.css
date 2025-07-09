@@ -3290,3 +3290,20 @@
 
 }
      
+@media screen and (max-width: 768px) {
+
+/* Aproxima os florais para abraçar o título quebrado */
+.section-benefits .title img {
+    height: 60px !important;
+    margin: 0 -10px !important;
+    transform: translateY(5px) !important;
+    opacity: 1 !important;
+}
+
+/* Ajusta o container do título */
+.section-benefits .title div[style*="display:flex"] {
+    gap: 0 !important;
+    align-items: center !important;
+}
+
+}

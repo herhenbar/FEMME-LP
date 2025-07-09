@@ -3291,3 +3291,35 @@
 }
      
 
+@media (max-width: 768px) {
+  .testimonial-wall .testimonial:nth-child(n+5) {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    position: absolute !important;
+    left: -9999px !important;
+  }
+  
+  /* Reposicionar os 4 visíveis */
+  .testimonial-wall .testimonial:nth-child(1) {
+    top: 15% !important;
+    left: 10% !important;
+  }
+  
+  .testimonial-wall .testimonial:nth-child(2) {
+    top: 35% !important;
+    right: 10% !important;
+    left: auto !important;
+  }
+  
+  .testimonial-wall .testimonial:nth-child(3) {
+    top: 55% !important;
+    left: 10% !important;
+  }
+  
+  .testimonial-wall .testimonial:nth-child(4) {
+    top: 75% !important;
+    right: 10% !important;
+    left: auto !important;
+  }
+}

@@ -3290,26 +3290,37 @@
 
 }
      
+
 @media (max-width: 768px) {
-  .benefits-section .section-header {
+  .bonus-container:nth-child(4),
+  .bonus-container:nth-child(5),
+  .bonus-container:nth-child(6) {
+    display: flex;
+    flex-direction: column;
     position: relative;
-    padding: 0 40px;
   }
   
-  .benefits-section .floral-left,
-  .benefits-section .floral-right {
+  .bonus-container:nth-child(n+4) .badge-combo {
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 35px;
-    height: 35px;
+    top: calc(100% - 60px);
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
   }
   
-  .benefits-section .floral-left {
-    left: 0;
+  .bonus-container:nth-child(n+4) .price-badge {
+    order: -1;
+    margin-bottom: 10px;
+    position: relative;
+    top: auto;
+    bottom: auto;
   }
   
-  .benefits-section .floral-right {
-    right: 0;
+  .bonus-container:nth-child(n+4) .bonus-image {
+    margin-bottom: 70px;
+  }
+  
+  .bonus-container:nth-child(n+4) .cta-button {
+    margin-top: auto;
   }
 }

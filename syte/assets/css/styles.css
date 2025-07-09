@@ -3212,3 +3212,49 @@
   }
 
 
+/* FIX RÁPIDO - SÓ O QUE QUEBROU */
+
+@media screen and (max-width: 768px) {
+    
+/* 1. HEADER - Para de cortar as palavras */
+.femme-nav ul li a {
+    font-size: 10px !important;
+    padding: 4px 6px !important;
+    white-space: nowrap !important;
+    overflow: visible !important;
+    border: none !important;
+    background: rgba(255,255,255,0.2) !important;
+    border-radius: 8px !important;
+}
+
+.femme-nav ul {
+    gap: 4px !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+}
+
+/* 2. Remove bordas horrendas */
+.femme-nav a::after,
+.femme-nav a::before {
+    display: none !important;
+}
+
+/* 3. Header não corta mais */
+.header-flex {
+    flex-direction: column !important;
+    padding: 8px 10px !important;
+    gap: 8px !important;
+}
+
+.logo-solo {
+    height: 35px !important;
+    margin-bottom: 5px !important;
+}
+
+/* 4. Texto não corta mais */
+* {
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+}
+
+}

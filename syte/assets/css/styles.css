@@ -3320,3 +3320,45 @@
 
 
 
+@media screen and (max-width: 768px) {
+  /* PRESERVAR os 4 do norte que estão funcionando */
+  
+  /* ADICIONAR mais 4-6 no sul da tela */
+  .testimonial-wall > div:nth-of-type(5) { 
+    display: block !important;
+    position: absolute !important;
+    top: 50% !important; 
+    left: 5% !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+  
+  .testimonial-wall > div:nth-of-type(6) { 
+    display: block !important;
+    position: absolute !important;
+    top: 50% !important; 
+    right: 5% !important; 
+    left: auto !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+  
+  .testimonial-wall > div:nth-of-type(7) { 
+    display: block !important;
+    position: absolute !important;
+    top: 70% !important; 
+    left: 5% !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+  
+  .testimonial-wall > div:nth-of-type(8) { 
+    display: block !important;
+    position: absolute !important;
+    top: 70% !important; 
+    right: 5% !important; 
+    left: auto !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+}

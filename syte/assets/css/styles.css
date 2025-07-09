@@ -3212,3 +3212,39 @@
   }
 
 
+@media screen and (max-width: 768px) {
+    .carousel-container {
+        width: 100vw !important;
+        margin-left: calc(-50vw + 50%) !important;
+        overflow-x: scroll !important;
+        scroll-snap-type: x mandatory !important;
+        -webkit-overflow-scrolling: touch !important;
+        scrollbar-width: none !important;
+        -ms-overflow-style: none !important;
+    }
+    
+    .carousel-container::-webkit-scrollbar {
+        display: none !important;
+    }
+    
+    .carousel-track {
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        gap: 20px !important;
+        padding: 0 20px !important;
+        width: max-content !important;
+        grid-template-columns: none !important;
+        grid-template-rows: none !important;
+        transform: none !important;
+    }
+    
+    .benefit-card {
+        flex: 0 0 280px !important;
+        width: 280px !important;
+        scroll-snap-align: center !important;
+    }
+    
+    .carousel-btn, .carousel-dots {
+        display: none !important;
+    }
+}

@@ -3293,59 +3293,44 @@
 
 
 @media (max-width: 768px) {
-  /* Mostrar apenas os primeiros 8 */
+  .testimonial-wall {
+    height: 100vh !important;
+    min-height: 600px !important;
+  }
+  
+  /* Forçar display dos primeiros 8 */
+  .testimonial:nth-child(1),
+  .testimonial:nth-child(2),
+  .testimonial:nth-child(3),
+  .testimonial:nth-child(4),
+  .testimonial:nth-child(5),
+  .testimonial:nth-child(6),
+  .testimonial:nth-child(7),
+  .testimonial:nth-child(8) {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+  
+  /* Distribuir em toda tela */
+  .testimonial:nth-child(1) { top: 10% !important; left: 5% !important; }
+  .testimonial:nth-child(2) { top: 10% !important; right: 5% !important; left: auto !important; }
+  .testimonial:nth-child(3) { top: 30% !important; left: 15% !important; }
+  .testimonial:nth-child(4) { top: 30% !important; right: 15% !important; left: auto !important; }
+  .testimonial:nth-child(5) { top: 50% !important; left: 5% !important; }
+  .testimonial:nth-child(6) { top: 50% !important; right: 5% !important; left: auto !important; }
+  .testimonial:nth-child(7) { top: 70% !important; left: 15% !important; }
+  .testimonial:nth-child(8) { top: 70% !important; right: 15% !important; left: auto !important; }
+  
+  /* Esconder do 9 em diante */
   .testimonial:nth-child(n+9) {
     display: none !important;
   }
   
-  /* Redistribuir os 8 testimonials na tela */
+  /* Ajustar tamanho */
   .testimonial {
-    max-width: 180px !important;
-    font-size: 0.85rem !important;
-    padding: 12px !important;
-  }
-  
-  .testimonial:nth-child(1) { 
-    top: 5% !important; 
-    left: 5% !important; 
-  }
-  
-  .testimonial:nth-child(2) { 
-    top: 5% !important; 
-    right: 5% !important; 
-    left: auto !important;
-  }
-  
-  .testimonial:nth-child(3) { 
-    top: 25% !important; 
-    left: 10% !important; 
-  }
-  
-  .testimonial:nth-child(4) { 
-    top: 25% !important; 
-    right: 10% !important;
-    left: auto !important;
-  }
-  
-  .testimonial:nth-child(5) { 
-    top: 45% !important; 
-    left: 5% !important; 
-  }
-  
-  .testimonial:nth-child(6) { 
-    top: 45% !important; 
-    right: 5% !important;
-    left: auto !important;
-  }
-  
-  .testimonial:nth-child(7) { 
-    top: 65% !important; 
-    left: 10% !important; 
-  }
-  
-  .testimonial:nth-child(8) { 
-    top: 65% !important; 
-    right: 10% !important;
-    left: auto !important;
+    max-width: 160px !important;
+    padding: 10px !important;
+    font-size: 0.8rem !important;
   }
 }

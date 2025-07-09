@@ -3291,36 +3291,31 @@
 }
      
 
-@media screen and (max-width: 768px) {
-  /* Forçar mostrar o 5º e 6º testimonial */
-  .testimonial:nth-child(5),
-  .testimonial:nth-child(6) {
+@media screen and (max-width: 768px) and (orientation: portrait) {
+  /* FORÇAR container a mostrar TUDO */
+  .testimonial-wall {
+    height: auto !important;
+    min-height: 100vh !important;
+    overflow: visible !important;
+    position: relative !important;
+  }
+  
+  /* Garantir que o pai também não corte */
+  .testimonial-wall:parent,
+  section:has(.testimonial-wall) {
+    overflow: visible !important;
+    height: auto !important;
+  }
+  
+  /* Debug - ver quantos testimonials existem */
+  .testimonial {
     display: block !important;
     opacity: 1 !important;
     visibility: visible !important;
-    position: absolute !important;
   }
   
-  /* Posicionar os 2 novos */
-  .testimonial:nth-child(5) {
-    bottom: 20% !important;
-    left: 5% !important;
-    top: auto !important;
-  }
-  
-  .testimonial:nth-child(6) {
-    bottom: 20% !important;
-    right: 5% !important;
-    left: auto !important;
-    top: auto !important;
-  }
-  
-  /* Ajustar altura do container */
-  .testimonial-wall {
-    height: 60vh !important;
-    min-height: 500px !important;
+  /* Se ainda cortarem, forçar com viewport units */
+  body {
+    min-height: 150vh !important;
   }
 }
-
-
-

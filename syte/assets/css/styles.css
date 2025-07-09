@@ -3317,3 +3317,34 @@
   div.testimonial[style*="top:80%"] { top: 65% !important; left: 2% !important; }
   div.testimonial[style*="top:15%"] { top: 65% !important; right: 2% !important; left: auto !important; }
 }
+
+
+@media (max-width: 768px) {
+  /* Manter o layout flutuante original */
+  .testimonial-wall {
+    display: block !important;
+    position: relative !important;
+    height: 80vh !important;
+  }
+  
+  /* Forçar testimonials para posição absoluta */
+  div.testimonial {
+    position: absolute !important;
+    display: block !important;
+    max-width: 45% !important;
+    background: rgba(255,255,255,0.05) !important;
+    border: 1px solid rgba(197,137,240,0.4) !important;
+  }
+  
+  /* TODOS os remapeamentos */
+  div.testimonial[style*="top:10%"] { top: 5% !important; left: 2% !important; }
+  div.testimonial[style*="top:20%"] { top: 5% !important; right: 2% !important; left: auto !important; }
+  div.testimonial[style*="top:35%"] { top: 20% !important; left: 2% !important; }
+  div.testimonial[style*="top:50%"] { top: 20% !important; right: 2% !important; left: auto !important; }
+  div.testimonial[style*="top:65%"] { top: 40% !important; left: 2% !important; }
+  div.testimonial[style*="top:75%"] { top: 40% !important; right: 2% !important; left: auto !important; }
+  div.testimonial[style*="top:80%"] { top: 60% !important; left: 2% !important; }
+  div.testimonial[style*="top:15%"] { top: 60% !important; right: 2% !important; left: auto !important; }
+  div.testimonial[style*="top:40%"] { top: 80% !important; left: 2% !important; }
+  div.testimonial[style*="top:25%"] { top: 80% !important; right: 2% !important; left: auto !important; }
+}

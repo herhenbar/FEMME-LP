@@ -165,7 +165,7 @@ font-family: Montserrat, sans-serif
 </div>
 <div class=section-title>
 <h2>Escolha Agora Seu Guia Premium de Transformação</h2></div>
-<div class=products-container>
+<div class="products-container desktop-products">
 <button class="nav-arrow nav-left" onclick=scrollProducts(-1)>‹</button>
 <div class=products>
 <div class=product-card>
@@ -260,6 +260,275 @@ font-family: Montserrat, sans-serif
 <button class="nav-arrow nav-right" onclick=scrollProducts(1)>›</button>
 </div>
 </section>
+
+<div class="mobile-roulette" style="display: none;">
+<div class="title">
+        <h2>🎰 Escolha Seu Guia Premium</h2>
+        <p>Toque para girar e descobrir cada produto</p>
+    </div>
+
+    <div class="roulette-container">
+        <div class="card-counter">
+            <span id="currentCard">1</span> / <span id="totalCards">6</span>
+        </div>
+        
+        <div class="card-stack" id="cardStack">
+            <!-- Card 1 - Semaglutida -->
+            <div class="product-card" data-index="0">
+                <div class="badge-premium">QUERIDINHA OU VILÃ?</div>
+                <div class="product-img">
+                    <img src="https://via.placeholder.com/300x200/7a2d44/ffffff?text=Semaglutida" alt="Guia Semaglutida">
+                </div>
+                <div class="product-info">
+                    <h3>Guia<br>Semaglutida</h3>
+                    <p class="subhead-destaque">A Caneta bilionária que mudou a forma de emagrecer.</p>
+                    <p class="product-description">O guia completo sobre semaglutida (Ozempic) e as novas gerações de medicamentos para emagrecimento.</p>
+                    <div class="price-container">
+                        <span class="old-price">R$57,60</span>
+                        <span class="full-price"><span class="currency">R$</span>27,90</span>
+                    </div>
+                    <div class="combo-installments">ou 3x de R$9,96</div>
+                    <a href="#" class="btn">ENTENDER O FENÔMENO</a>
+                </div>
+            </div>
+
+            <!-- Card 2 - Detox Diva -->
+            <div class="product-card back" data-index="1">
+                <div class="badge-premium">CLÁSSICO ESSENCIAL</div>
+                <div class="product-img">
+                    <img src="https://via.placeholder.com/300x200/a94463/ffffff?text=Detox+Diva" alt="Detox Diva">
+                </div>
+                <div class="product-info">
+                    <h3>Detox<br>Diva</h3>
+                    <p class="subhead-destaque">Para quem prefere se cuidar com classe, não com culpa.</p>
+                    <p class="product-description">Receitas práticas, naturais e revitalizantes pensadas especialmente para o corpo da mulher.</p>
+                    <div class="price-container">
+                        <span class="old-price">R$52,90</span>
+                        <span class="full-price"><span class="currency">R$</span>32,90</span>
+                    </div>
+                    <div class="combo-installments">ou 4x de R$8,95</div>
+                    <a href="#" class="btn">COMEÇAR TRANSFORMAÇÃO</a>
+                </div>
+            </div>
+
+            <!-- Card 3 - Deficiências Silenciosas -->
+            <div class="product-card back" data-index="2">
+                <div class="badge-premium">BELEZA + EFICÁCIA</div>
+                <div class="product-img">
+                    <img src="https://via.placeholder.com/300x200/d4af37/ffffff?text=Defici%C3%AAncias" alt="Deficiências Silenciosas">
+                </div>
+                <div class="product-info">
+                    <h3>Deficiências<br>Silenciosas</h3>
+                    <p class="subhead-destaque">De nada adianta tentar de tudo sem equilíbrio químico.</p>
+                    <p class="product-description">Descubra e reponha vitaminas e minerais que seu corpo sinaliza através dos principais desafios femininos.</p>
+                    <div class="price-container">
+                        <span class="old-price">R$62,44</span>
+                        <span class="full-price"><span class="currency">R$</span>42,90</span>
+                    </div>
+                    <div class="combo-installments">ou 6x de R$8,05</div>
+                    <a href="#" class="btn">DESCOBRIR DEFICIÊNCIAS</a>
+                </div>
+            </div>
+
+            <!-- Card 4 - Compras Inteligentes -->
+            <div class="product-card back" data-index="3">
+                <div class="badge-premium" style="background: linear-gradient(45deg, #1a6b4f, #27ae60); color: #f4e4bc;">CURADORIA PREMIUM</div>
+                <div class="product-img">
+                    <img src="https://via.placeholder.com/300x200/1a6b4f/ffffff?text=Compras" alt="Compras Inteligentes">
+                </div>
+                <div class="product-info">
+                    <h3 style="color: #1a6b4f;">Compras<br>Inteligentes</h3>
+                    <p class="subhead-destaque">Seu personal shopper digital exclusivo.</p>
+                    <p class="product-description">Os melhores perfis do Instagram para compras femininas inteligentes. De perfumes a bolsas de grife.</p>
+                    <div style="text-align: center; margin: 20px 0;">
+                        <span style="color: #1a6b4f; font-weight: 700; font-size: 1rem;">EXCLUSIVO DO COMBO 3</span>
+                    </div>
+                    <a href="#" class="btn" style="background: linear-gradient(45deg, #1a6b4f, #27ae60); color: white;">QUERO O COMBO</a>
+                </div>
+            </div>
+
+            <!-- Card 5 - Renovação Premium -->
+            <div class="product-card back" data-index="4">
+                <div class="badge-premium" style="background: linear-gradient(45deg, #1a6b4f, #27ae60); color: #f4e4bc;">FOCO EM 3 DIAS</div>
+                <div class="product-img">
+                    <img src="https://via.placeholder.com/300x200/27ae60/ffffff?text=Renova%C3%A7%C3%A3o" alt="Renovação Premium">
+                </div>
+                <div class="product-info">
+                    <h3 style="color: #1a6b4f;">Renovação<br>Premium</h3>
+                    <p class="subhead-destaque">Para desinchar e renovar em 72 horas.</p>
+                    <p class="product-description">Receitas práticas que ajudam seu corpo a eliminar retenção rapidamente, sem extremismos.</p>
+                    <div style="text-align: center; margin: 20px 0;">
+                        <span style="color: #1a6b4f; font-weight: 700; font-size: 1rem;">SÓ DISPONÍVEL AQUI</span>
+                    </div>
+                    <a href="#" class="btn" style="background: linear-gradient(45deg, #1a6b4f, #27ae60); color: white;">INCLUIR NO COMBO</a>
+                </div>
+            </div>
+
+            <!-- Card 6 - Prazer Consciente -->
+            <div class="product-card back" data-index="5">
+                <div class="badge-premium" style="background: linear-gradient(45deg, #1a6b4f, #27ae60); color: #f4e4bc;">RECOMPENSA EXCLUSIVA</div>
+                <div class="product-img">
+                    <img src="https://via.placeholder.com/300x200/2ecc71/ffffff?text=Prazer" alt="Prazer Consciente">
+                </div>
+                <div class="product-info">
+                    <h3 style="color: #1a6b4f;">Prazer<br>Consciente</h3>
+                    <p class="subhead-destaque">O presente que você merece por se cuidar.</p>
+                    <p class="product-description">Momentos especiais que equilibram disciplina e prazer, criando rituais de autocuidado premium.</p>
+                    <div style="text-align: center; margin: 20px 0;">
+                        <span style="color: #1a6b4f; font-weight: 700; font-size: 1rem;">PROMOÇÃO LIMITADA</span>
+                    </div>
+                    <a href="#" class="btn" style="background: linear-gradient(45deg, #1a6b4f, #27ae60); color: white;">ADICIONAR AO COMBO</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="flip-indicator">
+            <div class="flip-icon">🔄</div>
+            <span>Toque para girar</span>
+        </div>
+    </div>
+
+    <div class="navigation-dots">
+        <div class="dot active" onclick="goToCard(0)"></div>
+        <div class="dot" onclick="goToCard(1)"></div>
+        <div class="dot" onclick="goToCard(2)"></div>
+        <div class="dot" onclick="goToCard(3)"></div>
+        <div class="dot" onclick="goToCard(4)"></div>
+        <div class="dot" onclick="goToCard(5)"></div>
+    </div>
+
+    <script>
+        let currentIndex = 0;
+        const totalCards = 6;
+        let isFlipping = false;
+
+        function updateCardDisplay() {
+            const cardStack = document.getElementById('cardStack');
+            const cards = document.querySelectorAll('.product-card');
+            const dots = document.querySelectorAll('.dot');
+            
+            // Update rotation
+            const rotation = currentIndex * 60; // 60 degrees per card for smooth rotation
+            cardStack.style.transform = `rotateY(${rotation}deg)`;
+            
+            // Update cards visibility and stacking
+            cards.forEach((card, index) => {
+                const offset = (index - currentIndex + totalCards) % totalCards;
+                
+                if (offset === 0) {
+                    // Current card - front and center
+                    card.style.transform = 'rotateY(0deg) translateZ(200px)';
+                    card.style.opacity = '1';
+                    card.style.zIndex = '10';
+                } else if (offset === 1) {
+                    // Next card - slightly behind and rotated
+                    card.style.transform = 'rotateY(-60deg) translateZ(100px)';
+                    card.style.opacity = '0.7';
+                    card.style.zIndex = '5';
+                } else {
+                    // Other cards - hidden behind
+                    card.style.transform = `rotateY(${-offset * 60}deg) translateZ(0px)`;
+                    card.style.opacity = '0.3';
+                    card.style.zIndex = '1';
+                }
+            });
+            
+            // Update counter and dots
+            document.getElementById('currentCard').textContent = currentIndex + 1;
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentIndex);
+            });
+        }
+
+        function nextCard() {
+            if (isFlipping) return;
+            isFlipping = true;
+            
+            currentIndex = (currentIndex + 1) % totalCards;
+            updateCardDisplay();
+            
+            setTimeout(() => {
+                isFlipping = false;
+            }, 800);
+        }
+
+        function goToCard(index) {
+            if (isFlipping || index === currentIndex) return;
+            isFlipping = true;
+            
+            currentIndex = index;
+            updateCardDisplay();
+            
+            setTimeout(() => {
+                isFlipping = false;
+            }, 800);
+        }
+
+        // Touch/Click handlers
+        document.getElementById('cardStack').addEventListener('click', nextCard);
+
+        // Touch gestures
+        let startX = 0;
+        let startY = 0;
+
+        document.getElementById('cardStack').addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+            startY = e.touches[0].clientY;
+        });
+
+        document.getElementById('cardStack').addEventListener('touchend', (e) => {
+            if (!startX || !startY) return;
+            
+            const endX = e.changedTouches[0].clientX;
+            const endY = e.changedTouches[0].clientY;
+            
+            const diffX = startX - endX;
+            const diffY = startY - endY;
+            
+            // Only trigger if horizontal swipe is dominant
+            if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
+                if (diffX > 0) {
+                    // Swipe left - next card
+                    nextCard();
+                } else {
+                    // Swipe right - previous card
+                    currentIndex = (currentIndex - 1 + totalCards) % totalCards;
+                    updateCardDisplay();
+                }
+            } else {
+                // Tap - next card
+                nextCard();
+            }
+            
+            startX = 0;
+            startY = 0;
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                e.preventDefault();
+                nextCard();
+            } else if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                currentIndex = (currentIndex - 1 + totalCards) % totalCards;
+                updateCardDisplay();
+            }
+        });
+
+        // Auto-rotate every 10 seconds (optional)
+        setInterval(() => {
+            if (!isFlipping) {
+                nextCard();
+            }
+        }, 10000);
+
+        // Initialize
+        updateCardDisplay();
+    </script>
+</div>
+
+
 <section class=combo-section-final style="background:linear-gradient(to bottom,#f1bfd8 0,#f7d2e6 40%,#fef4f8 100%)!important;padding-top:80px!important;padding-bottom:80px!important;box-shadow:inset 0 60px 40px -40px rgba(255,255,255,.3),inset 0 -60px 80px -50px rgba(180,90,130,.08)">
 <div class=combo-hook>
 <div style=text-align:center;margin-bottom:15px><span style="background:linear-gradient(135deg,#e74c3c,#c0392b);color:#fff;padding:6px 16px;border-radius:20px;font-size:1.4rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;display:inline-block">LANÇAMENTO</span></div>

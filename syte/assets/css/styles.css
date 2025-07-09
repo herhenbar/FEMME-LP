@@ -3239,16 +3239,29 @@
     display: none !important;
 }
 
-/* 3. Header não corta mais */
+/* 3. Header TUDO em uma linha horizontal */
 .header-flex {
-    flex-direction: column !important;
-    padding: 8px 10px !important;
-    gap: 8px !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 4px 8px !important;
+    gap: 0 !important;
 }
 
 .logo-solo {
-    height: 35px !important;
-    margin-bottom: 5px !important;
+    height: 30px !important;
+    margin: 0 !important;
+    flex-shrink: 0 !important;
+}
+
+.femme-nav {
+    flex: 1 !important;
+    margin-left: 10px !important;
+}
+
+/* Remove "CONTATO" para ganhar espaço */
+.femme-nav ul li:last-child {
+    display: none !important;
 }
 
 /* 4. Texto não corta mais */

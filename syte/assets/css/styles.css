@@ -3292,45 +3292,46 @@
      
 
 
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
+  /* Reset total da section */
+  .testimonial-wall * {
+    all: unset !important;
+  }
+  
+  /* Reconstruir testimonials */
   .testimonial-wall {
+    position: relative !important;
+    width: 100vw !important;
     height: 100vh !important;
-    min-height: 600px !important;
+    background: inherit !important;
   }
   
-  /* Forçar display dos primeiros 8 */
-  .testimonial:nth-child(1),
-  .testimonial:nth-child(2),
-  .testimonial:nth-child(3),
-  .testimonial:nth-child(4),
-  .testimonial:nth-child(5),
-  .testimonial:nth-child(6),
-  .testimonial:nth-child(7),
-  .testimonial:nth-child(8) {
+  /* Criar grid de testimonials */
+  .testimonial-wall::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    grid-template-rows: repeat(4, 1fr) !important;
+    gap: 10px !important;
+    padding: 20px !important;
+  }
+  
+  /* Forçar cada testimonial individualmente */
+  body .testimonial {
+    position: static !important;
     display: block !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-  }
-  
-  /* Distribuir em toda tela */
-  .testimonial:nth-child(1) { top: 10% !important; left: 5% !important; }
-  .testimonial:nth-child(2) { top: 10% !important; right: 5% !important; left: auto !important; }
-  .testimonial:nth-child(3) { top: 30% !important; left: 15% !important; }
-  .testimonial:nth-child(4) { top: 30% !important; right: 15% !important; left: auto !important; }
-  .testimonial:nth-child(5) { top: 50% !important; left: 5% !important; }
-  .testimonial:nth-child(6) { top: 50% !important; right: 5% !important; left: auto !important; }
-  .testimonial:nth-child(7) { top: 70% !important; left: 15% !important; }
-  .testimonial:nth-child(8) { top: 70% !important; right: 15% !important; left: auto !important; }
-  
-  /* Esconder do 9 em diante */
-  .testimonial:nth-child(n+9) {
-    display: none !important;
-  }
-  
-  /* Ajustar tamanho */
-  .testimonial {
-    max-width: 160px !important;
-    padding: 10px !important;
-    font-size: 0.8rem !important;
+    width: auto !important;
+    height: auto !important;
+    margin: 10px !important;
+    padding: 15px !important;
+    background: rgba(255,255,255,0.1) !important;
+    border: 1px solid rgba(197,137,240,0.6) !important;
+    border-radius: 12px !important;
+    font-size: 14px !important;
   }
 }

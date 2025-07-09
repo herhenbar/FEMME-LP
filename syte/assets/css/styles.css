@@ -3290,22 +3290,22 @@
 
 }
      
-@media screen and (max-width: 768px) {
-
-/* Ajusta os florais especificamente */
-.section-benefits .title img[alt="folha esquerda"] {
-    margin-right: -25px !important;
-    height: 50px !important;
-}
-
-.section-benefits .title img[alt="folha direita"] {
-    margin-left: -25px !important;
-    height: 50px !important;
-}
-
-/* Reduz espaçamento entre florais e título */
-.section-benefits .title div[style*="display:flex"] {
-    margin-bottom: 5px !important;
-}
-
+@media (max-width: 768px) {
+  .hero-section .wave-bottom-left {
+    left: -10px;
+    bottom: -5px;
+    width: 110%;
+    overflow: visible;
+  }
+  
+  .hero-section {
+    overflow-x: hidden;
+    position: relative;
+  }
+  
+  .hero-section .wave-bottom-left svg {
+    width: 100%;
+    height: auto;
+    transform: translateX(-5%);
+  }
 }

@@ -1774,3 +1774,30 @@ setTimeout(function() {
 }, 3000);
 </script>
 
+<!-- Cole isso no final do seu HTML, antes do </body> -->
+<script>
+if (window.innerWidth <= 768) {
+  // Pegar a wall de testimonials
+  const wall = document.querySelector('.testimonial-wall');
+  
+  // Forçar altura e overflow
+  wall.style.cssText = 'height: 100vh !important; overflow: visible !important;';
+  
+  // Pegar todos testimonials
+  const testimonials = wall.querySelectorAll('.testimonial');
+  
+  // Forçar mostrar os primeiros 8
+  testimonials.forEach((t, i) => {
+    if (i < 8) {
+      t.style.cssText = `
+        display: block !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        position: absolute !important;
+        top: ${Math.floor(i/2) * 25}% !important;
+        ${i % 2 === 0 ? 'left: 5%' : 'right: 5%'} !important;
+      `;
+    }
+  });
+}
+</script>

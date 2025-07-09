@@ -3291,34 +3291,3 @@
 }
      
 
-@media (max-width: 768px) {
-  .hero::after,
-  .hero-wave,
-  .wave-divider {
-    width: calc(100% + 50px) !important;
-    left: -25px !important;
-    bottom: -1px !important;
-  }
-}
-
-@media (max-width: 768px) {
-  .combo-ebook-name,
-  .ebook-title-box,
-  .combo-item-title {
-    margin-bottom: 15px !important;
-    line-height: 1.2 !important;
-    padding: 10px 5px !important;
-    min-height: auto !important;
-    word-break: break-word !important;
-  }
-  
-  .combo-grid,
-  .combos-container {
-    grid-gap: 20px !important;
-    gap: 20px !important;
-  }
-  
-  .combo-card {
-    padding-bottom: 20px !important;
-  }
-}

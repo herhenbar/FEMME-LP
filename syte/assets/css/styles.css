@@ -3290,58 +3290,8 @@
 
 }
      
-@media (max-width: 768px) {
-  /* Manter o layout flutuante original */
-  .testimonial-wall {
-    display: block !important;
-    position: relative !important;
-    height: 80vh !important;
-  }
-  
-  /* Forçar testimonials para posição absoluta */
-  div.testimonial {
-    position: absolute !important;
-    display: block !important;
-    max-width: 45% !important;
-    background: rgba(255,255,255,0.05) !important;
-    border: 1px solid rgba(197,137,240,0.4) !important;
-  }
-  
-  /* Redistribuir manualmente */
-  div.testimonial[style*="top:10%"] { top: 5% !important; left: 2% !important; }
-  div.testimonial[style*="top:20%"] { top: 5% !important; right: 2% !important; left: auto !important; }
-  div.testimonial[style*="top:35%"] { top: 25% !important; left: 2% !important; }
-  div.testimonial[style*="top:50%"] { top: 25% !important; right: 2% !important; left: auto !important; }
-  div.testimonial[style*="top:65%"] { top: 45% !important; left: 2% !important; }
-  div.testimonial[style*="top:75%"] { top: 45% !important; right: 2% !important; left: auto !important; }
-  div.testimonial[style*="top:80%"] { top: 65% !important; left: 2% !important; }
-  div.testimonial[style*="top:15%"] { top: 65% !important; right: 2% !important; left: auto !important; }
-}
 
 
 
-@media screen and (max-width: 768px) {
-  /* PRIMEIRO - Desativar o layout de caixas */
-  .testimonial-wall {
-    display: block !important;
-    flex-direction: unset !important;
-    align-items: unset !important;
-    justify-content: unset !important;
-  }
-  
-  /* SEGUNDO - Restaurar testimonials flutuantes */
-  .testimonial {
-    position: absolute !important;
-    display: block !important;
-    flex: none !important;
-    margin: 0 !important;
-    transform: none !important;
-  }
-  
-  /* TERCEIRO - Remover linhas conectoras */
-  .testimonial::before,
-  .testimonial::after,
-  .connection-line {
-    display: none !important;
-  }
-}
+
+

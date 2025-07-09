@@ -3247,4 +3247,21 @@
     }
 }
 
+/* Mobile-only roulette visibility */
+@media (max-width: 768px) {
+    .desktop-products {
+        display: none !important;
+    }
+    .mobile-roulette {
+        display: block !important;
+    }
+}
 
+@media (min-width: 769px) {
+    .desktop-products {
+        display: flex !important;
+    }
+    .mobile-roulette {
+        display: none !important;
+    }
+}

@@ -3212,11 +3212,8 @@
   }
 
 
-/* ===== TUDO QUE FIZ NESTE CHAT ===== */
-
 @media screen and (max-width: 768px) {
-    
-/* FORÇA MÁXIMA - Header em linha horizontal */
+
 .container.header-flex {
     display: flex !important;
     flex-direction: row !important;
@@ -3232,18 +3229,15 @@
     width: auto !important;
     margin: 0 !important;
     flex-shrink: 0 !important;
-    order: 1 !important;
 }
 
 .femme-nav {
     flex: 1 !important;
     margin-left: 10px !important;
-    order: 2 !important;
     display: flex !important;
     justify-content: flex-end !important;
 }
 
-/* Links em linha SEM bordas */
 .femme-nav ul {
     display: flex !important;
     flex-direction: row !important;
@@ -3254,11 +3248,6 @@
     flex-wrap: nowrap !important;
 }
 
-.femme-nav ul li {
-    margin: 0 !important;
-    padding: 0 !important;
-}
-
 .femme-nav ul li a {
     font-size: 9px !important;
     padding: 3px 5px !important;
@@ -3267,63 +3256,17 @@
     color: #fff !important;
     background: none !important;
     border: none !important;
-    border-radius: 0 !important;
     box-shadow: none !important;
-    outline: none !important;
     text-transform: uppercase !important;
 }
 
-/* Remove TODAS as bordas e pseudo-elementos */
 .femme-nav a::after,
-.femme-nav a::before,
-.femme-nav ul li::after,
-.femme-nav ul li::before {
+.femme-nav a::before {
     display: none !important;
-    content: none !important;
 }
 
-/* Remove "CONTATO" para ganhar espaço */
 .femme-nav ul li:last-child {
     display: none !important;
-}
-
-/* Remove qualquer borda ou background problemático */
-.femme-nav ul li a:hover,
-.femme-nav ul li a:focus,
-.femme-nav ul li a:active {
-    background: none !important;
-    border: none !important;
-    box-shadow: none !important;
-    opacity: 0.8 !important;
-}
-
-/* NUCLEAR OVERFLOW FIX */
-/* Force everything inside viewport */
-html, body {
-    overflow-x: hidden !important;
-    width: 100% !important;
-    max-width: 100vw !important;
-}
-
-/* Kill all absolute positioned decorative elements */
-*[style*="position:absolute"],
-.wave-transition,
-.divisor-dourado,
-.divisor-rosado,
-.borboletas img,
-img[style*="position:absolute"],
-.fold-preview {
-    display: none !important;
-}
-
-/* Force all containers inside */
-.femme-hero,
-.section-benefits,
-.femme-fold2,
-section,
-div {
-    max-width: 100vw !important;
-    overflow: hidden !important;
 }
 
 }

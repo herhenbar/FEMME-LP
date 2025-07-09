@@ -1565,3 +1565,61 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Detectar mobile
+    if (window.innerWidth <= 768) {
+        const productsContainer = document.querySelector('.products');
+        
+        if (productsContainer) {
+            // Forçar scroll horizontal no mobile
+            productsContainer.style.cssText = `
+                display: flex !important;
+                flex-direction: row !important;
+                overflow-x: auto !important;
+                overflow-y: hidden !important;
+                -webkit-overflow-scrolling: touch !important;
+                scroll-snap-type: x mandatory !important;
+                gap: 20px !important;
+                padding: 0 !important;
+            `;
+            
+            // Ajustar cada card
+            const cards = productsContainer.querySelectorAll('.product-card');
+            cards.forEach((card, index) => {
+                card.style.cssText = `
+                    flex: 0 0 85vw !important;
+                    min-width: 85vw !important;
+                    max-width: 85vw !important;
+                    scroll-snap-align: center !important;
+                `;
+                
+                // Padding especial para primeiro e último
+                if (index === 0) {
+                    card.style.marginLeft = '7.5vw';
+                }
+                if (index === cards.length - 1) {
+                    card.style.marginRight = '7.5vw';
+                }
+            });
+            
+            // Remover qualquer transform ou translate
+            productsContainer.style.transform = 'none';
+            productsContainer.style.paddingLeft = '0';
+            
+            // iOS fix
+            if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
+                productsContainer.style.webkitOverflowScrolling = 'touch';
+                productsContainer.style.webkitTransform = 'translateZ(0)';
+            }
+        }
+    }
+});
+
+// Verificar mudança de orientação
+window.addEventListener('orientationchange', function() {
+    setTimeout(function() {
+        window.location.reload();
+    }, 100);
+});
+</script>

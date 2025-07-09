@@ -3271,5 +3271,22 @@
 
 }
 
+@media screen and (max-width: 768px) {
 
+.carousel-dots {
+    display: none !important;
+}
+
+/* Adiciona indicador de "arraste para ver mais" */
+.carousel-container::after {
+    content: "← Arraste para ver mais →";
+    display: block !important;
+    text-align: center !important;
+    font-size: 12px !important;
+    color: #7a2d44 !important;
+    margin-top: 15px !important;
+    opacity: 0.7 !important;
+}
+
+}
      

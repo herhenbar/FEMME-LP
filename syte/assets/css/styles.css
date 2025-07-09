@@ -3291,24 +3291,25 @@
 }
      
 @media (max-width: 768px) {
-  .butterflies-container {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    gap: 10px;
-    margin: 0 auto;
-    max-width: 90%;
+  .benefits-section .section-header {
+    position: relative;
+    padding: 0 40px;
   }
   
-  .butterfly:not(.butterfly-main) {
-    display: block !important;
-    width: 25px;
-    height: 25px;
-    opacity: 0.8;
+  .benefits-section .floral-left,
+  .benefits-section .floral-right {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 35px;
+    height: 35px;
   }
   
-  .butterfly-main {
-    width: 40px;
-    height: 40px;
+  .benefits-section .floral-left {
+    left: 0;
+  }
+  
+  .benefits-section .floral-right {
+    right: 0;
   }
 }

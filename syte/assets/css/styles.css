@@ -3291,21 +3291,24 @@
 }
      
 @media (max-width: 768px) {
-  .hero-section .wave-bottom-left {
-    left: -10px;
-    bottom: -5px;
-    width: 110%;
-    overflow: visible;
+  .butterflies-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 10px;
+    margin: 0 auto;
+    max-width: 90%;
   }
   
-  .hero-section {
-    overflow-x: hidden;
-    position: relative;
+  .butterfly:not(.butterfly-main) {
+    display: block !important;
+    width: 25px;
+    height: 25px;
+    opacity: 0.8;
   }
   
-  .hero-section .wave-bottom-left svg {
-    width: 100%;
-    height: auto;
-    transform: translateX(-5%);
+  .butterfly-main {
+    width: 40px;
+    height: 40px;
   }
 }

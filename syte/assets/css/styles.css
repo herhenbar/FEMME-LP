@@ -2776,14 +2776,14 @@ html{
 
 
 @media screen and (max-width: 768px) {
-   /* Kill only the green badges above CTAs - keep red badges above images */
+   /* Kill all green badges in products 4, 5, 6 */
    .product-card:nth-child(4) .product-info::after,
    .product-card:nth-child(5) .product-info::after,
    .product-card:nth-child(6) .product-info::after {
        display: none !important;
    }
    
-   /* Kill crossed out prices */
+   /* Kill crossed out prices in bonus products */
    .product-card:nth-child(4) .old-price,
    .product-card:nth-child(5) .old-price,
    .product-card:nth-child(6) .old-price {
@@ -2795,5 +2795,14 @@ html{
    .product-card:nth-child(5) .price-container span:last-child,
    .product-card:nth-child(6) .price-container span:last-child {
        display: none !important;
+   }
+   
+   /* Keep red badges above images visible */
+   .product-card:nth-child(4) .badge-premium,
+   .product-card:nth-child(5) .badge-premium,
+   .product-card:nth-child(6) .badge-premium {
+       display: inline-block !important;
+       visibility: visible !important;
+       opacity: 1 !important;
    }
 }

@@ -1855,7 +1855,7 @@ document.addEventListener('DOMContentLoaded', function() {
       if (items[1]) {
         items[1].style.cssText = `
           display: block !important;
-          margin-top: 60px !important;
+          margin-top: 100px !important;
           padding-top: 20px !important;
           margin-bottom: 30px !important;
           clear: both !important;
@@ -1866,25 +1866,23 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
+
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  // Adicionar margem no topo da section FAQ
-  const faqSection = document.querySelector('.faq-section');
+  // Encontrar a linha divisória antes do FAQ
+  const divisorBeforeFAQ = document.querySelector('.faq-section').previousElementSibling;
   
-  if (faqSection) {
-    faqSection.style.cssText += `
-      margin-top: 80px !important;
-      padding-top: 100px !important;
+  if (divisorBeforeFAQ && divisorBeforeFAQ.classList.contains('divisor-dourado')) {
+    divisorBeforeFAQ.style.cssText += `
+      margin-top: 60px !important;
+      margin-bottom: 60px !important;
     `;
   }
   
-  // Ou se preferir, adicionar margem embaixo dos testimonials
-  const testimonialSection = document.querySelector('.testimonial-wall').parentElement;
-  
-  if (testimonialSection) {
-    testimonialSection.style.cssText += `
-      margin-bottom: 80px !important;
-    `;
+  // Ajustar só o padding interno do FAQ, não a margem
+  const faqSection = document.querySelector('.faq-section');
+  if (faqSection) {
+    faqSection.style.paddingTop = '80px !important';
   }
 });
 </script>

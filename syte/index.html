@@ -1837,36 +1837,34 @@ if (window.innerWidth > 768) {
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   if (window.innerWidth <= 768) {
-    const comboCards = document.querySelectorAll('.combo-card');
+    // Pegar o combo que funciona (assumindo que é o combo-3)
+    const workingCombo = document.querySelector('.combo-3');
+    const brokenCombo = document.querySelector('.combo-1');
     
-    comboCards.forEach(card => {
-      const listItems = card.querySelectorAll('.combo-list li');
+    if (workingCombo && brokenCombo) {
+      // Pegar o estilo computado da lista que funciona
+      const workingList = workingCombo.querySelector('.combo-list');
+      const brokenList = brokenCombo.querySelector('.combo-list');
       
-      listItems.forEach((item, index) => {
-        // Forçar cada item a ter seu próprio espaço
-        item.style.cssText = `
-          display: block !important;
-          position: relative !important;
-          margin-bottom: 20px !important;
-          padding: 15px 10px !important;
-          min-height: 60px !important;
-          z-index: ${10 - index} !important;
-          background: inherit !important;
-          clear: both !important;
-          overflow: visible !important;
-        `;
+      if (workingList && brokenList) {
+        // Copiar todos os estilos computados
+        const goodStyles = window.getComputedStyle(workingList);
         
-        // Se tem mini-desc, garantir que apareça
-        const miniDesc = item.querySelector('.mini-desc');
-        if (miniDesc) {
-          miniDesc.style.cssText = `
-            display: block !important;
-            margin-top: 5px !important;
-            position: relative !important;
-          `;
-        }
-      });
-    });
+        // Aplicar os mesmos estilos
+        brokenList.style.cssText = goodStyles.cssText;
+        
+        // Fazer o mesmo para os items
+        const goodItems = workingList.querySelectorAll('li');
+        const badItems = brokenList.querySelectorAll('li');
+        
+        badItems.forEach((item, i) => {
+          if (goodItems[i]) {
+            const itemStyle = window.getComputedStyle(goodItems[i]);
+            item.style.cssText = itemStyle.cssText;
+          }
+        });
+      }
+    }
   }
 });
 </script>

@@ -1837,31 +1837,35 @@ if (window.innerWidth > 768) {
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   if (window.innerWidth <= 768) {
-    // Encontrar TODOS os combo cards
     const comboCards = document.querySelectorAll('.combo-card');
     
     comboCards.forEach(card => {
-      // Encontrar a lista dentro do combo
-      const comboList = card.querySelector('.combo-list');
+      const listItems = card.querySelectorAll('.combo-list li');
       
-      if (comboList) {
-        // Forçar espaçamento entre os itens da lista
-        comboList.style.cssText = `
-          margin: 20px 0 !important;
-          padding: 0 !important;
+      listItems.forEach((item, index) => {
+        // Forçar cada item a ter seu próprio espaço
+        item.style.cssText = `
+          display: block !important;
+          position: relative !important;
+          margin-bottom: 20px !important;
+          padding: 15px 10px !important;
+          min-height: 60px !important;
+          z-index: ${10 - index} !important;
+          background: inherit !important;
+          clear: both !important;
+          overflow: visible !important;
         `;
         
-        // Cada item da lista
-        const items = comboList.querySelectorAll('li');
-        items.forEach(item => {
-          item.style.cssText = `
-            margin-bottom: 15px !important;
-            padding: 10px !important;
+        // Se tem mini-desc, garantir que apareça
+        const miniDesc = item.querySelector('.mini-desc');
+        if (miniDesc) {
+          miniDesc.style.cssText = `
             display: block !important;
-            clear: both !important;
+            margin-top: 5px !important;
+            position: relative !important;
           `;
-        });
-      }
+        }
+      });
     });
   }
 });

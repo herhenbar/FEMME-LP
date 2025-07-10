@@ -3238,3 +3238,18 @@
 }
      
 
+@media (max-width: 768px) {
+  .product-card .price-container,
+  .product-card .price-container + div,
+  .product-card .price-container + div + div,
+  .combo-headline {
+    display: none !important;
+  }
+
+  .combo-box > div > span,
+  .combo-box .combo-headline,
+  .combo-box .combo-headline + p {
+    display: none !important;
+  }
+}
+

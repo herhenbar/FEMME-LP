@@ -1837,34 +1837,43 @@ if (window.innerWidth > 768) {
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   if (window.innerWidth <= 768) {
-    // Pegar o combo que funciona (assumindo que é o combo-3)
-    const workingCombo = document.querySelector('.combo-3');
-    const brokenCombo = document.querySelector('.combo-1');
-    
-    if (workingCombo && brokenCombo) {
-      // Pegar o estilo computado da lista que funciona
-      const workingList = workingCombo.querySelector('.combo-list');
-      const brokenList = brokenCombo.querySelector('.combo-list');
+    // Todos os combos
+    document.querySelectorAll('.combo-card').forEach(card => {
+      // Remover QUALQUER estilo que esteja atrapalhando
+      const allElements = card.querySelectorAll('*');
       
-      if (workingList && brokenList) {
-        // Copiar todos os estilos computados
-        const goodStyles = window.getComputedStyle(workingList);
+      allElements.forEach(el => {
+        // Limpar estilos problemáticos
+        el.style.textDecoration = 'none !important';
+        el.style.opacity = '1 !important';
+        el.style.color = 'inherit !important';
+        el.style.position = 'static !important';
+        el.style.transform = 'none !important';
+      });
+      
+      // Lista de ebooks
+      const list = card.querySelector('.combo-list');
+      if (list) {
+        list.style.cssText = `
+          display: block !important;
+          margin: 20px 0 !important;
+          padding: 0 !important;
+          list-style: none !important;
+        `;
         
-        // Aplicar os mesmos estilos
-        brokenList.style.cssText = goodStyles.cssText;
-        
-        // Fazer o mesmo para os items
-        const goodItems = workingList.querySelectorAll('li');
-        const badItems = brokenList.querySelectorAll('li');
-        
-        badItems.forEach((item, i) => {
-          if (goodItems[i]) {
-            const itemStyle = window.getComputedStyle(goodItems[i]);
-            item.style.cssText = itemStyle.cssText;
-          }
+        // Cada item LIMPO
+        list.querySelectorAll('li').forEach(li => {
+          li.style.cssText = `
+            display: block !important;
+            margin: 15px 0 !important;
+            padding: 10px !important;
+            text-decoration: none !important;
+            opacity: 1 !important;
+            color: #333 !important;
+          `;
         });
       }
-    }
+    });
   }
 });
 </script>

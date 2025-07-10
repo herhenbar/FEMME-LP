@@ -2289,23 +2289,7 @@
  .product-card:nth-child(4) .product-img::after, .product-card:nth-child(5) .product-img::after, .product-card:nth-child(6) .product-img::after {
      display: none !important;
 }
-/* Add new badge to product-info area */
- .product-card:nth-child(4) .product-info::before, .product-card:nth-child(5) .product-info::before, .product-card:nth-child(6) .product-info::before {
-     content: 'SOMENTE NOS COMBOS';
-     background: linear-gradient(45deg, #1a6b4f, #27ae60, #2ecc71) !important;
-     position: absolute;
-     top: -10px;
-     right: 10px;
-     background: rgba(26, 107, 79, 0.9);
-     color: white;
-     padding: 8px 12px;
-     border-radius: 20px;
-     font-size: 0.7rem;
-     font-weight: bold;
-     text-transform: uppercase;
-     box-shadow: 0 3px 8px rgba(0,0,0,0.3);
-     z-index: 5;
-}
+
  .product-card:nth-child(4) .product-info, .product-card:nth-child(5) .product-info, .product-card:nth-child(6) .product-info {
      position: relative;
 }

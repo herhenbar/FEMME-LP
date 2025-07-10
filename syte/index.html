@@ -1929,70 +1929,54 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  // Produtos bonus (4, 5 e 6)
-  const bonusProducts = [
-    {element: document.querySelector('.product-card:nth-child(4)'), combo: '3', price: '30,00'},
-    {element: document.querySelector('.product-card:nth-child(5)'), combo: '3', price: '18,90'},
-    {element: document.querySelector('.product-card:nth-child(6)'), combo: '2 e 3', price: '28,00'}
-  ];
-  
-  bonusProducts.forEach((product, index) => {
-    if (!product.element) return;
+  // SOMENTE NO MOBILE!
+  if (window.innerWidth <= 768) {
+    const bonusProducts = [
+      {element: document.querySelector('.product-card:nth-child(4)'), combo: '3', price: '30,00'},
+      {element: document.querySelector('.product-card:nth-child(5)'), combo: '3', price: '18,90'},
+      {element: document.querySelector('.product-card:nth-child(6)'), combo: '2 e 3', price: '28,00'}
+    ];
     
-    // 1. BADGES DO TOPO (pequeno texto adicional)
-    const mainBadge = product.element.querySelector('.badge-premium');
-    if (mainBadge && !mainBadge.innerHTML.includes('combo')) {
-      const comboText = index < 2 ? `somente no combo ${product.combo}` : `disponível nos combos ${product.combo}`;
-      mainBadge.innerHTML += `<br><span style="font-size: 0.65rem; font-weight: normal; opacity: 0.9;">${comboText}</span>`;
-    }
-    
-    // 2. Remover badges antigos
-    const oldBadges = product.element.querySelectorAll('[style*="SOMENTE"], [style*="DISPONÍVEL"], .bonus-value-badge');
-    oldBadges.forEach(badge => badge.remove());
-    
-    // 3. BADGES GORDOS ACIMA DO CTA
-    const btn = product.element.querySelector('.btn');
-    if (btn) {
-      const fatBadge = document.createElement('div');
-      fatBadge.className = 'fat-price-badge';
-      fatBadge.style.cssText = `
-        background: linear-gradient(135deg, #e74c3c, #c0392b) !important;
-        color: white !important;
-        padding: 20px 30px !important;
-        border-radius: 35px !important;
-        font-weight: 900 !important;
-        text-align: center !important;
-        margin: 30px auto 25px auto !important;
-        box-shadow: 0 8px 25px rgba(231, 76, 60, 0.5) !important;
-        max-width: 85% !important;
-        transform: scale(1.1) !important;
-        border: 3px solid rgba(255,255,255,0.2) !important;
-      `;
-      fatBadge.innerHTML = `
-        <div style="font-size: 1.8rem; text-decoration: line-through; opacity: 0.9; text-decoration-thickness: 3px;">R$ ${product.price}</div>
-        <div style="font-size: 1.2rem; margin-top: 8px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700;">NO COMBO VOCÊ GANHA!</div>
-      `;
+    bonusProducts.forEach((product, index) => {
+      if (!product.element) return;
       
-      // Inserir antes do botão
-      btn.parentNode.insertBefore(fatBadge, btn);
-      
-      // Ajustar margem do botão
-      btn.style.marginTop = '15px';
-    }
-  });
-  
-  // 4. Garantir alinhamento horizontal
-  if (window.innerWidth > 768) {
-    setTimeout(() => {
-      const allFatBadges = document.querySelectorAll('.fat-price-badge');
-      if (allFatBadges.length >= 3) {
-        const maxTop = Math.max(...Array.from(allFatBadges).map(b => b.offsetTop));
-        allFatBadges.forEach(badge => {
-          badge.style.position = 'relative';
-          badge.style.top = `${maxTop - badge.offsetTop}px`;
-        });
+      // 1. ADICIONAR INFO NOS BADGES DO TOPO
+      const mainBadge = product.element.querySelector('.badge-premium');
+      if (mainBadge && !mainBadge.innerHTML.includes('combo')) {
+        const comboText = index < 2 ? `somente no combo ${product.combo}` : `disponível nos combos ${product.combo}`;
+        mainBadge.innerHTML += `<br><span style="font-size: 0.65rem; font-weight: normal;">${comboText}</span>`;
       }
-    }, 100);
+      
+      // 2. DELETAR BADGES DESLOCADOS (acima da imagem)
+      const productInfo = product.element.querySelector('.product-info');
+      if (productInfo) {
+        const floatingBadges = productInfo.querySelectorAll('::before, ::after');
+        productInfo.style.cssText += 'position: static !important;';
+        productInfo.classList.remove('has-badge');
+      }
+      
+      // 3. BADGE MENOR ACIMA DO CTA
+      const btn = product.element.querySelector('.btn');
+      if (btn) {
+        const priceBadge = document.createElement('div');
+        priceBadge.style.cssText = `
+          background: #e74c3c !important;
+          color: white !important;
+          padding: 12px 20px !important;
+          border-radius: 25px !important;
+          font-weight: bold !important;
+          text-align: center !important;
+          margin: 20px auto 15px auto !important;
+          max-width: 200px !important;
+        `;
+        priceBadge.innerHTML = `
+          <s style="font-size: 1.2rem;">R$ ${product.price}</s><br>
+          <span style="font-size: 0.9rem;">NO COMBO VOCÊ GANHA!</span>
+        `;
+        
+        btn.parentNode.insertBefore(priceBadge, btn);
+      }
+    });
   }
 });
 </script>

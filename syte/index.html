@@ -1896,3 +1896,34 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 </script>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Produtos 4, 5 e 6 (bonus)
+  const bonusProducts = document.querySelectorAll('.product-card:nth-child(n+4):nth-child(-n+6)');
+  
+  bonusProducts.forEach(product => {
+    // Encontrar o badge deslocado
+    const greenBadge = product.querySelector('[style*="SOMENTE NOS COMBOS"]');
+    
+    if (greenBadge) {
+      // Tentar reposicionar
+      greenBadge.style.cssText = `
+        position: absolute !important;
+        bottom: 120px !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        z-index: 10 !important;
+      `;
+    } else {
+      // PLANO B - Adicionar texto no badge principal
+      const mainBadge = product.querySelector('.badge-premium');
+      
+      if (mainBadge && !mainBadge.innerHTML.includes('combo')) {
+        mainBadge.innerHTML += '<br><span style="font-size: 0.65rem; font-weight: normal; opacity: 0.9;">somente nos combos</span>';
+      }
+    }
+  });
+});
+</script>

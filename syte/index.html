@@ -1801,3 +1801,58 @@ if (window.innerWidth <= 768) {
   });
 }
 </script>
+<script>
+if (window.innerWidth <= 768) {
+  // Selecionar os 3 últimos combo cards
+  const combos = document.querySelectorAll('.combo-card');
+  
+  combos.forEach((combo, index) => {
+    // Pegar o nome do ebook e o badge
+    const title = combo.querySelector('h3');
+    const badge = combo.querySelector('.combo-badge');
+    
+    if (title && badge) {
+      // Reposicionar - badge logo após o título
+      title.parentNode.insertBefore(badge, title.nextSibling);
+      
+      // Forçar estilo correto
+      badge.style.cssText = `
+        display: block !important;
+        margin: 10px auto 15px auto !important;
+        position: relative !important;
+        top: auto !important;
+      `;
+    }
+  });
+}
+</script>
+<script>
+if (window.innerWidth > 768) {
+  // Destruir o carousel no desktop
+  const track = document.querySelector('.carousel-track');
+  const container = document.querySelector('.carousel-container');
+  
+  if (track && container) {
+    // Remover classes de carousel
+    container.classList.remove('carousel-container');
+    track.classList.remove('carousel-track');
+    
+    // Forçar grid de 3x2
+    track.style.cssText = `
+      display: grid !important;
+      grid-template-columns: repeat(3, 1fr) !important;
+      grid-template-rows: repeat(2, 1fr) !important;
+      gap: 30px !important;
+      transform: none !important;
+      width: 100% !important;
+      max-width: 1200px !important;
+      margin: 0 auto !important;
+    `;
+    
+    // Esconder setas e dots
+    document.querySelectorAll('.carousel-btn, .carousel-dots').forEach(el => {
+      el.style.display = 'none';
+    });
+  }
+}
+</script>

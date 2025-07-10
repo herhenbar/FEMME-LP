@@ -1835,48 +1835,34 @@ if (window.innerWidth > 768) {
 
 
 <script>
-// Para TODOS os tamanhos de tela (mobile portrait e landscape)
 document.addEventListener('DOMContentLoaded', function() {
-  // Encontrar TODOS os containers de bônus (últimos 3 dos 6)
-  const allProducts = document.querySelectorAll('.product-card');
-  
-  // Pegar apenas os 3 últimos (índices 3, 4, 5)
-  for (let i = 3; i < 6 && i < allProducts.length; i++) {
-    const card = allProducts[i];
+  if (window.innerWidth <= 768) {
+    // Encontrar TODOS os combo cards
+    const comboCards = document.querySelectorAll('.combo-card');
     
-    // Encontrar elementos chave
-    const img = card.querySelector('.product-img');
-    const badge = card.querySelector('.badge-premium');
-    const title = card.querySelector('h3');
-    const priceContainer = card.querySelector('.price-container');
-    const btn = card.querySelector('.btn');
-    
-    if (badge && title) {
-      // Criar novo container para organizar
-      const infoTop = document.createElement('div');
-      infoTop.style.cssText = 'text-align: center; margin-bottom: 20px;';
+    comboCards.forEach(card => {
+      // Encontrar a lista dentro do combo
+      const comboList = card.querySelector('.combo-list');
       
-      // Mover badge e título para o novo container
-      infoTop.appendChild(title.cloneNode(true));
-      infoTop.appendChild(badge.cloneNode(true));
-      
-      // Limpar e reorganizar
-      const productInfo = card.querySelector('.product-info');
-      productInfo.insertBefore(infoTop, productInfo.firstChild);
-      
-      // Remover originais
-      title.remove();
-      badge.remove();
-    }
-    
-    // Forçar badge verde EMBAIXO da imagem
-    if (priceContainer) {
-      priceContainer.style.cssText = `
-        position: relative !important;
-        margin-top: 20px !important;
-        margin-bottom: 20px !important;
-      `;
-    }
+      if (comboList) {
+        // Forçar espaçamento entre os itens da lista
+        comboList.style.cssText = `
+          margin: 20px 0 !important;
+          padding: 0 !important;
+        `;
+        
+        // Cada item da lista
+        const items = comboList.querySelectorAll('li');
+        items.forEach(item => {
+          item.style.cssText = `
+            margin-bottom: 15px !important;
+            padding: 10px !important;
+            display: block !important;
+            clear: both !important;
+          `;
+        });
+      }
+    });
   }
 });
 </script>

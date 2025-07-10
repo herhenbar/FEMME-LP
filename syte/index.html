@@ -1937,3 +1937,64 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  if (window.innerWidth <= 768) {
+    // NUCLEAR: Criar CSS para matar TODOS os pseudo-elementos dos produtos 4,5,6
+    const killStyle = document.createElement('style');
+    killStyle.innerHTML = `
+      .product-card:nth-child(4) .product-info::after,
+      .product-card:nth-child(4) .product-info::before,
+      .product-card:nth-child(5) .product-info::after,
+      .product-card:nth-child(5) .product-info::before,
+      .product-card:nth-child(6) .product-info::after,
+      .product-card:nth-child(6) .product-info::before,
+      .product-card:nth-child(4) *::after,
+      .product-card:nth-child(4) *::before,
+      .product-card:nth-child(5) *::after,
+      .product-card:nth-child(5) *::before,
+      .product-card:nth-child(6) *::after,
+      .product-card:nth-child(6) *::before {
+        display: none !important;
+        content: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        position: absolute !important;
+        left: -9999px !important;
+      }
+    `;
+    document.head.appendChild(killStyle);
+    
+    // Agora adicionar só o badge vermelho
+    const bonusProducts = document.querySelectorAll('.product-card:nth-child(n+4):nth-child(-n+6)');
+    const prices = ['30,00', '18,90', '28,00'];
+    
+    bonusProducts.forEach((product, index) => {
+      const btn = product.querySelector('.btn');
+      if (btn) {
+        // Limpar qualquer badge vermelho anterior
+        const oldRed = product.querySelector('[style*="e74c3c"]');
+        if (oldRed) oldRed.remove();
+        
+        const redBadge = document.createElement('div');
+        redBadge.style.cssText = `
+          background: #e74c3c !important;
+          color: white !important;
+          padding: 12px 20px !important;
+          border-radius: 25px !important;
+          font-weight: bold !important;
+          text-align: center !important;
+          margin: 0 auto 20px auto !important;
+          max-width: 200px !important;
+        `;
+        redBadge.innerHTML = `
+          <s style="font-size: 1.2rem;">R$ ${prices[index]}</s><br>
+          <span style="font-size: 0.9rem;">NO COMBO VOCÊ GANHA!</span>
+        `;
+        
+        btn.parentNode.insertBefore(redBadge, btn);
+      }
+    });
+  }
+});
+</script>

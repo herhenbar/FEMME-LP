@@ -1927,48 +1927,4 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 </script>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  if (window.innerWidth <= 768) {
-    const bonusProducts = document.querySelectorAll('.product-card:nth-child(n+4):nth-child(-n+6)');
-    
-    bonusProducts.forEach((product, index) => {
-      // 1. DELETAR TODOS OS BADGES VERDES EXTRAS
-      const allGreenBadges = product.querySelectorAll('[style*="linear-gradient(45deg, #1a6b4f"], [style*="#1a6b4f"], [style*="#27ae60"]');
-      allGreenBadges.forEach(badge => {
-        // Só deletar se NÃO for o badge principal do topo
-        if (!badge.classList.contains('badge-premium')) {
-          badge.remove();
-        }
-      });
-      
-      // 2. CRIAR/REPOSICIONAR BADGE VERMELHO - POUCO ACIMA DO CTA
-      const existingRedBadge = product.querySelector('[style*="e74c3c"]');
-      if (existingRedBadge) existingRedBadge.remove();
-      
-      const btn = product.querySelector('.btn');
-      if (btn) {
-        const prices = ['30,00', '18,90', '28,00'];
-        const redBadge = document.createElement('div');
-        redBadge.style.cssText = `
-          background: #e74c3c !important;
-          color: white !important;
-          padding: 12px 20px !important;
-          border-radius: 25px !important;
-          font-weight: bold !important;
-          text-align: center !important;
-          margin: 0 auto 20px auto !important;
-          max-width: 200px !important;
-        `;
-        redBadge.innerHTML = `
-          <s style="font-size: 1.2rem;">R$ ${prices[index]}</s><br>
-          <span style="font-size: 0.9rem;">NO COMBO VOCÊ GANHA!</span>
-        `;
-        
-        // Inserir ANTES do botão
-        btn.parentNode.insertBefore(redBadge, btn);
-      }
-    });
-  }
-});
-</script>
+

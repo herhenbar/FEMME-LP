@@ -1907,6 +1907,35 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 
-
+<script>
+// APENAS PARA DESCOBRIR O QUE ESTÁ ACONTECENDO
+if (window.innerWidth <= 768) {
+  setTimeout(() => {
+    const product4 = document.querySelector('.product-card:nth-child(4)');
+    if (product4) {
+      console.log('=== DIAGNÓSTICO PRODUTO 4 ===');
+      
+      // 1. Verificar pseudo-elementos
+      const styles = window.getComputedStyle(product4.querySelector('.product-info'), '::after');
+      console.log('Tem ::after?', styles.content);
+      
+      // 2. Listar TODOS os elementos dentro
+      const allElements = product4.querySelectorAll('*');
+      console.log('Total de elementos:', allElements.length);
+      
+      // 3. Procurar por badges verdes
+      allElements.forEach((el, i) => {
+        const bg = window.getComputedStyle(el).background;
+        if (bg.includes('1a6b4f') || bg.includes('27ae60')) {
+          console.log(`Elemento ${i} tem background verde:`, el);
+        }
+      });
+      
+      // 4. Ver estrutura HTML atual
+      console.log('HTML atual:', product4.innerHTML);
+    }
+  }, 2000);
+}
+</script>
 
 

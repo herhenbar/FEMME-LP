@@ -2776,33 +2776,33 @@ html{
 
 
 @media screen and (max-width: 768px) {
-   /* Kill all green badges in products 4, 5, 6 */
+   /* Kill green badges above CTAs only */
    .product-card:nth-child(4) .product-info::after,
    .product-card:nth-child(5) .product-info::after,
    .product-card:nth-child(6) .product-info::after {
        display: none !important;
    }
    
-   /* Kill crossed out prices in bonus products */
+   /* Kill crossed out prices */
    .product-card:nth-child(4) .old-price,
    .product-card:nth-child(5) .old-price,
    .product-card:nth-child(6) .old-price {
        display: none !important;
    }
    
-   /* Kill "somente nos combos" text */
+   /* Kill "somente nos combos" spans */
    .product-card:nth-child(4) .price-container span:last-child,
    .product-card:nth-child(5) .price-container span:last-child,
    .product-card:nth-child(6) .price-container span:last-child {
        display: none !important;
    }
    
-   /* Keep red badges above images visible */
+   /* Force red badge-premium to stay visible */
    .product-card:nth-child(4) .badge-premium,
    .product-card:nth-child(5) .badge-premium,
    .product-card:nth-child(6) .badge-premium {
        display: inline-block !important;
-       visibility: visible !important;
-       opacity: 1 !important;
+       background: linear-gradient(45deg, #1a6b4f, #27ae60, #2ecc71) !important;
+       color: #f4e4bc !important;
    }
 }

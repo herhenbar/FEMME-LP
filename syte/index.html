@@ -1837,43 +1837,33 @@ if (window.innerWidth > 768) {
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   if (window.innerWidth <= 768) {
-    // Todos os combos
-    document.querySelectorAll('.combo-card').forEach(card => {
-      // Remover QUALQUER estilo que esteja atrapalhando
-      const allElements = card.querySelectorAll('*');
+    // Encontrar o combo 1
+    const combo1 = document.querySelector('.combo-1');
+    
+    if (combo1) {
+      const items = combo1.querySelectorAll('.combo-list li');
       
-      allElements.forEach(el => {
-        // Limpar estilos problemáticos
-        el.style.textDecoration = 'none !important';
-        el.style.opacity = '1 !important';
-        el.style.color = 'inherit !important';
-        el.style.position = 'static !important';
-        el.style.transform = 'none !important';
-      });
-      
-      // Lista de ebooks
-      const list = card.querySelector('.combo-list');
-      if (list) {
-        list.style.cssText = `
+      // Primeiro item (DS) - garantir que apareça
+      if (items[0]) {
+        items[0].style.cssText = `
           display: block !important;
-          margin: 20px 0 !important;
-          padding: 0 !important;
-          list-style: none !important;
+          margin-bottom: 25px !important;
+          position: relative !important;
+          z-index: 2 !important;
         `;
-        
-        // Cada item LIMPO
-        list.querySelectorAll('li').forEach(li => {
-          li.style.cssText = `
-            display: block !important;
-            margin: 15px 0 !important;
-            padding: 10px !important;
-            text-decoration: none !important;
-            opacity: 1 !important;
-            color: #333 !important;
-          `;
-        });
       }
-    });
+      
+      // Segundo item (SEMA) - empurrar para baixo
+      if (items[1]) {
+        items[1].style.cssText = `
+          display: block !important;
+          margin-top: 10px !important;
+          margin-bottom: 25px !important;
+          position: relative !important;
+          z-index: 1 !important;
+        `;
+      }
+    }
   }
 });
 </script>

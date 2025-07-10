@@ -2773,3 +2773,27 @@ html{
        display: none !important;
    }
 }
+
+
+@media screen and (max-width: 768px) {
+   /* Kill only the green badges above CTAs - keep red badges above images */
+   .product-card:nth-child(4) .product-info::after,
+   .product-card:nth-child(5) .product-info::after,
+   .product-card:nth-child(6) .product-info::after {
+       display: none !important;
+   }
+   
+   /* Kill crossed out prices */
+   .product-card:nth-child(4) .old-price,
+   .product-card:nth-child(5) .old-price,
+   .product-card:nth-child(6) .old-price {
+       display: none !important;
+   }
+   
+   /* Kill "somente nos combos" text */
+   .product-card:nth-child(4) .price-container span:last-child,
+   .product-card:nth-child(5) .price-container span:last-child,
+   .product-card:nth-child(6) .price-container span:last-child {
+       display: none !important;
+   }
+}

@@ -2800,33 +2800,164 @@ html{
 
 
 
-/* FIX CIRÚRGICO - SÓ O QUE ESTÁ QUEBRADO NO DESKTOP */
+/* DESKTOP TESTIMONIALS FIX - Force proper positioning */
 @media screen and (min-width: 769px) {
-    
-    /* Força os testimonials 9-12 aparecerem no desktop */
-    .testimonial:nth-child(9),
-    .testimonial:nth-child(10), 
-    .testimonial:nth-child(11),
+    /* Reset testimonial wall */
+    .testimonial-wall {
+        position: relative !important;
+        width: 100% !important;
+        height: 100vh !important;
+        overflow: hidden !important;
+    }
+
+    /* Force all testimonials to show with proper positioning */
+    .testimonial {
+        position: absolute !important;
+        opacity: 1 !important;
+        display: block !important;
+        visibility: visible !important;
+        animation: fadeInOut 12s infinite ease-in-out !important;
+    }
+
+    /* Distribute testimonials across the screen */
+    .testimonial:nth-child(1) {
+        top: 10% !important;
+        left: 5% !important;
+        animation-delay: 0s !important;
+    }
+
+    .testimonial:nth-child(2) {
+        top: 20% !important;
+        left: 45% !important;
+        animation-delay: 1s !important;
+    }
+
+    .testimonial:nth-child(3) {
+        top: 35% !important;
+        left: 15% !important;
+        animation-delay: 2s !important;
+    }
+
+    .testimonial:nth-child(4) {
+        top: 50% !important;
+        left: 60% !important;
+        animation-delay: 3s !important;
+    }
+
+    .testimonial:nth-child(5) {
+        top: 65% !important;
+        left: 30% !important;
+        animation-delay: 4s !important;
+    }
+
+    .testimonial:nth-child(6) {
+        top: 75% !important;
+        left: 70% !important;
+        animation-delay: 5s !important;
+    }
+
+    .testimonial:nth-child(7) {
+        top: 80% !important;
+        left: 10% !important;
+        animation-delay: 6s !important;
+    }
+
+    .testimonial:nth-child(8) {
+        top: 15% !important;
+        left: 75% !important;
+        animation-delay: 7s !important;
+    }
+
+    .testimonial:nth-child(9) {
+        top: 40% !important;
+        left: 80% !important;
+        animation-delay: 8s !important;
+    }
+
+    .testimonial:nth-child(10) {
+        top: 25% !important;
+        left: 25% !important;
+        animation-delay: 9s !important;
+    }
+
+    .testimonial:nth-child(11) {
+        top: 55% !important;
+        left: 8% !important;
+        animation-delay: 10s !important;
+    }
+
     .testimonial:nth-child(12) {
+        top: 30% !important;
+        left: 85% !important;
+        animation-delay: 11s !important;
+    }
+
+    /* Connection lines animations */
+    .connection-line {
+        position: absolute !important;
         display: block !important;
         opacity: 1 !important;
-        visibility: visible !important;
+        animation: pulseLine 18s infinite ease-in-out !important;
     }
-    
-    /* Corrige posições que estão sobrepostas */
-    .testimonial:nth-child(9) { 
-        left: 65% !important; 
+
+    /* Ensure proper z-index */
+    .testimonial {
+        z-index: 10 !important;
     }
-    
-    .testimonial:nth-child(12) { 
-        left: 60% !important; 
+
+    .connection-line {
+        z-index: 5 !important;
     }
 }
 
-/* Remove a regra que estava escondendo testimonials no desktop */
+/* Kill any mobile styles that might be interfering on desktop */
 @media screen and (min-width: 769px) {
-    .testimonial:nth-child(n+9):nth-child(-n+12) {
+    .testimonial {
+        max-width: 280px !important; /* Normal size for desktop */
+        font-size: inherit !important;
+        padding: 1rem !important;
+        margin: 0 !important; /* Remove margins */
+        position: absolute !important; /* Force absolute positioning */
+        width: auto !important;
+        flex: none !important;
         display: block !important;
     }
-}    
+
+    .testimonial-wall {
+        display: block !important; /* Not flex */
+        flex-direction: unset !important;
+        align-items: unset !important;
+        gap: unset !important;
+    }
+}
+
+/* Ensure animations work properly */
+@keyframes fadeInOut {
+    0%, 100% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    10%, 90% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes pulseLine {
+    0% {
+        transform: scaleX(0);
+        opacity: 0;
+    }
+    10% {
+        transform: scaleX(1);
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: scaleX(0);
+        opacity: 0;
+    }
+}  
 

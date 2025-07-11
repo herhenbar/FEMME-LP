@@ -2998,7 +2998,10 @@ section:has(.testimonial-wall) {
 
 
 @media screen and (min-width: 769px) {
-    .wave-transition {
+    .wave-transition,
+    .sombra-transicao,
+    svg[viewBox*="1440"],
+    .femme-hero + div {
         display: none !important;
     }
 }

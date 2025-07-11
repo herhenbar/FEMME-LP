@@ -2973,7 +2973,13 @@ section:has(.testimonial-wall) {
 
 
 @media screen and (max-width: 768px) {
-    .wave-transition {
+    .wave-transition,
+    .sombra-transicao,
+    .divisor-wave,
+    svg[viewBox*="1440"],
+    div[style*="wave"] {
         display: none !important;
+        visibility: hidden !important;
+        height: 0 !important;
     }
 }

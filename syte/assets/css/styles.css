@@ -2985,3 +2985,22 @@ section:has(.testimonial-wall) {
 }
 
 
+@media screen and (max-width: 768px) {
+    .connection-line {
+        display: block !important;
+        position: absolute !important;
+        height: 2px !important;
+        background: linear-gradient(90deg, transparent, #c589f0, #e0a7ff, #c589f0, transparent) !important;
+        animation: pulseLine 15s infinite ease-in-out !important;
+        opacity: 1 !important;
+    }
+    
+    .connection-line:nth-child(1) { top: 15%; left: 10%; width: 40%; }
+    .connection-line:nth-child(2) { top: 40%; left: 30%; width: 35%; }
+    .connection-line:nth-child(3) { top: 65%; left: 15%; width: 45%; }
+}
+
+@keyframes pulseLine {
+    0%, 100% { transform: scaleX(0); opacity: 0; }
+    10%, 90% { transform: scaleX(1); opacity: 1; }
+}

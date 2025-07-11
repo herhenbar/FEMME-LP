@@ -2994,8 +2994,19 @@ section:has(.testimonial-wall) {
 
 
 @media screen and (min-width: 769px) {
-    .benefit-card {
-        margin-bottom: 40px !important;
+    .wave-transition svg {
+        position: relative !important;
+    }
+    
+    .wave-transition svg::after {
+        content: "" !important;
+        position: absolute !important;
+        top: 0 !important;
+        left: -100% !important;
+        width: 100% !important;
+        height: 100% !important;
+        background: url("data:image/svg+xml,...") !important;
+        transform: scaleX(-1) !important;
     }
 }
 

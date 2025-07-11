@@ -2818,3 +2818,13 @@ html{
     .testimonial:nth-child(11) { top: 75%; left: 35%; }
     .testimonial:nth-child(12) { top: 85%; right: 15%; left: auto; }
 }
+/* Desktop testimonials fix - only adjust problematic positions */
+@media screen and (min-width: 769px) {
+    .testimonial:nth-child(9) {
+        left: 70% !important;
+    }
+    
+    .testimonial:nth-child(12) {
+        left: 75% !important;
+    }
+}

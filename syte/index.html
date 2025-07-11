@@ -2168,3 +2168,119 @@ if (window.innerWidth > 768) {
         testimonial.style.opacity = '1';
     });
 }
+<!-- ADD THIS RIGHT BEFORE </body> TAG -->
+<style>
+/* TARGETED FIX BASED ON YOUR ACTUAL HTML */
+@media screen and (min-width: 769px) {
+    /* Reset the testimonial wall completely */
+    div.testimonial-wall {
+        position: relative !important;
+        width: 100% !important;
+        height: 100vh !important;
+        overflow: hidden !important;
+        display: block !important;
+        background: transparent !important;
+    }
+
+    /* Force ALL testimonials to show and position */
+    div.testimonial-wall > div.testimonial {
+        position: absolute !important;
+        display: block !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        width: auto !important;
+        max-width: 280px !important;
+        height: auto !important;
+        padding: 1rem !important;
+        background: rgba(255, 255, 255, .05) !important;
+        border: 1px solid rgba(197, 137, 240, .4) !important;
+        border-radius: 12px !important;
+        color: #fff !important;
+        text-align: left !important;
+        animation: fadeInOut 12s infinite ease-in-out !important;
+        text-shadow: 0 0 8px rgba(0, 0, 0, .7) !important;
+        backdrop-filter: blur(6px) !important;
+        z-index: 10 !important;
+        transform: none !important;
+        margin: 0 !important;
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+        bottom: auto !important;
+    }
+
+    /* Position each testimonial specifically */
+    div.testimonial-wall > div.testimonial:nth-child(1) { top: 10% !important; left: 5% !important; animation-delay: 0s !important; }
+    div.testimonial-wall > div.testimonial:nth-child(2) { top: 20% !important; left: 45% !important; animation-delay: 1s !important; }
+    div.testimonial-wall > div.testimonial:nth-child(3) { top: 35% !important; left: 15% !important; animation-delay: 2s !important; }
+    div.testimonial-wall > div.testimonial:nth-child(4) { top: 50% !important; left: 60% !important; animation-delay: 3s !important; }
+    div.testimonial-wall > div.testimonial:nth-child(5) { top: 65% !important; left: 30% !important; animation-delay: 4s !important; }
+    div.testimonial-wall > div.testimonial:nth-child(6) { top: 75% !important; left: 70% !important; animation-delay: 5s !important; }
+    div.testimonial-wall > div.testimonial:nth-child(7) { top: 80% !important; left: 10% !important; animation-delay: 6s !important; }
+    div.testimonial-wall > div.testimonial:nth-child(8) { top: 15% !important; left: 75% !important; animation-delay: 7s !important; }
+    div.testimonial-wall > div.testimonial:nth-child(9) { top: 40% !important; left: 80% !important; animation-delay: 8s !important; }
+    div.testimonial-wall > div.testimonial:nth-child(10) { top: 25% !important; left: 25% !important; animation-delay: 9s !important; }
+    div.testimonial-wall > div.testimonial:nth-child(11) { top: 55% !important; left: 8% !important; animation-delay: 10s !important; }
+    div.testimonial-wall > div.testimonial:nth-child(12) { top: 30% !important; left: 85% !important; animation-delay: 11s !important; }
+
+    /* Fix connection lines */
+    div.testimonial-wall > div.connection-line {
+        position: absolute !important;
+        display: block !important;
+        opacity: 1 !important;
+        z-index: 5 !important;
+    }
+}
+
+/* Ensure animation works */
+@keyframes fadeInOut {
+    0%, 100% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    10%, 90% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+</style>
+
+<script>
+// FORCE IT WITH JAVASCRIPT AS BACKUP
+window.addEventListener('load', function() {
+    if (window.innerWidth > 768) {
+        const wall = document.querySelector('.testimonial-wall');
+        if (!wall) return;
+        
+        const testimonials = wall.querySelectorAll('.testimonial');
+        console.log('Found testimonials:', testimonials.length);
+        
+        // Force wall styles
+        wall.setAttribute('style', 'position: relative !important; width: 100% !important; height: 100vh !important; overflow: hidden !important; display: block !important;');
+        
+        // Position array
+        const positions = [
+            {top: '10%', left: '5%'}, {top: '20%', left: '45%'}, {top: '35%', left: '15%'},
+            {top: '50%', left: '60%'}, {top: '65%', left: '30%'}, {top: '75%', left: '70%'},
+            {top: '80%', left: '10%'}, {top: '15%', left: '75%'}, {top: '40%', left: '80%'},
+            {top: '25%', left: '25%'}, {top: '55%', left: '8%'}, {top: '30%', left: '85%'}
+        ];
+        
+        // Force each testimonial
+        testimonials.forEach((t, i) => {
+            if (positions[i]) {
+                t.setAttribute('style', `
+                    position: absolute !important;
+                    top: ${positions[i].top} !important;
+                    left: ${positions[i].left} !important;
+                    display: block !important;
+                    opacity: 1 !important;
+                    visibility: visible !important;
+                    max-width: 280px !important;
+                    animation: fadeInOut 12s ${i}s infinite ease-in-out !important;
+                `);
+            }
+        });
+    }
+});
+</script>

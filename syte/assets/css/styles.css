@@ -2800,46 +2800,191 @@ html{
 
 
 
-/* Desktop only - show all 12 testimonials */
+/* DESKTOP TESTIMONIAL FIX - NÃO TOCA NO MOBILE */
 @media screen and (min-width: 769px) {
-    .testimonial:nth-child(n+5):nth-child(-n+12) {
+    
+    /* Reset completo do testimonial wall para desktop */
+    .testimonial-wall {
+        position: relative !important;
+        width: 100% !important;
+        height: 100vh !important;
+        overflow: hidden !important;
+        background: transparent !important;
+    }
+    
+    /* Reset de todos os testimonials */
+    .testimonial {
+        position: absolute !important;
+        padding: 1rem !important;
+        background: rgba(255, 255, 255, 0.05) !important;
+        border: 1px solid rgba(197, 137, 240, 0.4) !important;
+        border-radius: 12px !important;
+        color: #fff !important;
+        max-width: 280px !important;
+        text-align: left !important;
+        animation: fadeInOut 12s infinite ease-in-out !important;
+        text-shadow: 0 0 8px rgba(0, 0, 0, 0.7) !important;
+        backdrop-filter: blur(6px) !important;
+        z-index: 10 !important;
         display: block !important;
         opacity: 1 !important;
         visibility: visible !important;
     }
     
-/* Desktop - force all 12 testimonials to animate properly */
-@media screen and (min-width: 769px) {
-    .testimonial {
-        animation: fadeInOut 12s infinite ease-in-out !important;
+    /* Força todos os 12 testimonials visíveis no desktop */
+    .testimonial:nth-child(1) { 
+        top: 10% !important; 
+        left: 5% !important; 
+        animation-delay: 0s !important; 
+    }
+    
+    .testimonial:nth-child(2) { 
+        top: 20% !important; 
+        left: 45% !important; 
+        animation-delay: 1s !important; 
+    }
+    
+    .testimonial:nth-child(3) { 
+        top: 35% !important; 
+        left: 15% !important; 
+        animation-delay: 2s !important; 
+    }
+    
+    .testimonial:nth-child(4) { 
+        top: 50% !important; 
+        left: 60% !important; 
+        animation-delay: 3s !important; 
+    }
+    
+    .testimonial:nth-child(5) { 
+        top: 65% !important; 
+        left: 30% !important; 
+        animation-delay: 4s !important; 
+    }
+    
+    .testimonial:nth-child(6) { 
+        top: 75% !important; 
+        left: 70% !important; 
+        animation-delay: 5s !important; 
+    }
+    
+    .testimonial:nth-child(7) { 
+        top: 80% !important; 
+        left: 10% !important; 
+        animation-delay: 6s !important; 
+    }
+    
+    .testimonial:nth-child(8) { 
+        top: 15% !important; 
+        left: 75% !important; 
+        animation-delay: 7s !important; 
+    }
+    
+    .testimonial:nth-child(9) { 
+        top: 40% !important; 
+        left: 80% !important; 
+        animation-delay: 8s !important; 
+    }
+    
+    .testimonial:nth-child(10) { 
+        top: 25% !important; 
+        left: 25% !important; 
+        animation-delay: 9s !important; 
+    }
+    
+    .testimonial:nth-child(11) { 
+        top: 55% !important; 
+        left: 8% !important; 
+        animation-delay: 10s !important; 
+    }
+    
+    .testimonial:nth-child(12) { 
+        top: 30% !important; 
+        left: 85% !important; 
+        animation-delay: 11s !important; 
+    }
+    
+    /* Force animation keyframes */
+    @keyframes fadeInOut {
+        0%, 100% {
+            opacity: 0 !important;
+            transform: scale(0.8) !important;
+        }
+        10%, 90% {
+            opacity: 1 !important;
+            transform: scale(1) !important;
+        }
+    }
+    
+    /* Connection lines desktop */
+    .connection-line {
+        position: absolute !important;
+        height: 2px !important;
+        background: linear-gradient(90deg, transparent, #c589f0, #e0a7ff, #c589f0, transparent) !important;
         opacity: 1 !important;
+        animation: pulseLine 18s infinite ease-in-out !important;
+        box-shadow: 0 0 8px rgba(197, 137, 240, 0.6) !important;
         display: block !important;
     }
     
-    /* Fix overflow positions */
-    .testimonial:nth-child(9) {
-        left: 65% !important;
+    @keyframes pulseLine {
+        0% {
+            transform: scaleX(0) !important;
+            opacity: 0 !important;
+        }
+        10% {
+            transform: scaleX(1) !important;
+            opacity: 1 !important;
+        }
+        90% {
+            opacity: 1 !important;
+        }
+        100% {
+            transform: scaleX(0) !important;
+            opacity: 0 !important;
+        }
     }
     
-    .testimonial:nth-child(12) {
-        left: 60% !important;
+    /* Testimonial elements */
+    .testimonial::before {
+        content: '' !important;
+        position: absolute !important;
+        width: 8px !important;
+        height: 8px !important;
+        background: #c589f0 !important;
+        border-radius: 50% !important;
+        top: -4px !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        box-shadow: 0 0 15px rgba(197, 137, 240, 0.9) !important;
     }
     
-    /* Force proper animation delays for all */
-    .testimonial:nth-child(1) { animation-delay: 0s !important; }
-    .testimonial:nth-child(2) { animation-delay: 1s !important; }
-    .testimonial:nth-child(3) { animation-delay: 2s !important; }
-    .testimonial:nth-child(4) { animation-delay: 3s !important; }
-    .testimonial:nth-child(5) { animation-delay: 4s !important; }
-    .testimonial:nth-child(6) { animation-delay: 5s !important; }
-    .testimonial:nth-child(7) { animation-delay: 6s !important; }
-    .testimonial:nth-child(8) { animation-delay: 7s !important; }
-    .testimonial:nth-child(9) { animation-delay: 8s !important; }
-    .testimonial:nth-child(10) { animation-delay: 9s !important; }
-    .testimonial:nth-child(11) { animation-delay: 10s !important; }
-    .testimonial:nth-child(12) { animation-delay: 11s !important; }
+    .testimonial::after {
+        content: '' !important;
+        position: absolute !important;
+        width: 2px !important;
+        height: 30px !important;
+        background: linear-gradient(to bottom, #c589f0, transparent) !important;
+        top: -34px !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+    }
+    
+    .testimonial-author {
+        display: block !important;
+        font-size: 0.75rem !important;
+        color: #c589f0 !important;
+        text-align: right !important;
+        font-style: italic !important;
+        margin-top: 0.5rem !important;
+    }
 }
-@media screen and (min-width: 769px) {
-    .testimonial:nth-child(9) { left: 65% !important; }
-    .testimonial:nth-child(12) { left: 60% !important; }
+
+/* GARANTIR QUE MOBILE NÃO SEJA AFETADO */
+@media screen and (max-width: 768px) {
+    .testimonial:nth-child(n+9) {
+        display: none !important;
+    }
 }
+    
+

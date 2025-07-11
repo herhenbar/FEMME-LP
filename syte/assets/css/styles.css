@@ -3015,13 +3015,13 @@ section:has(.testimonial-wall) {
     .femme-hero::after {
         content: "" !important;
         position: absolute !important;
-        bottom: 0 !important;
+        bottom: -20px !important;
         left: 0 !important;
         width: 100% !important;
         height: 40px !important;
         background: #f9d7e2 !important;
         pointer-events: none !important;
-        z-index: 5 !important;
+        z-index: 1 !important;
     }
 }
 

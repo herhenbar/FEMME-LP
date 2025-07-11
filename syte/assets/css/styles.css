@@ -2977,3 +2977,17 @@ section:has(.testimonial-wall) {
         display: none !important;
     }
 }
+@media screen and (max-width: 768px) {
+    .section-benefits,
+    #beneficios {
+        margin-top: -20px !important;
+        position: relative !important;
+        z-index: 1 !important;
+    }
+    
+    .femme-hero {
+        margin-bottom: 0 !important;
+        position: relative !important;
+        z-index: 2 !important;
+    }
+}

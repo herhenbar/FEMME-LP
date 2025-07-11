@@ -2978,6 +2978,10 @@ section:has(.testimonial-wall) {
     }
 }
 
-
+@media screen and (max-width: 768px) {
+    .product-card:nth-child(4) .product-info::after {
+        display: none !important;
+    }
+}
 
 

@@ -2973,13 +2973,19 @@ section:has(.testimonial-wall) {
 
 
 @media screen and (max-width: 768px) {
-    .wave-transition,
-    .sombra-transicao,
-    .divisor-wave,
-    svg[viewBox*="1440"],
-    div[style*="wave"] {
+    /* NUCLEAR WAVE KILLER */
+    *[class*="wave"],
+    *[class*="transition"],
+    *[class*="divisor"],
+    svg,
+    path[d*="1440"],
+    .femme-hero + *,
+    section:first-of-type + * {
         display: none !important;
-        visibility: hidden !important;
+        opacity: 0 !important;
         height: 0 !important;
+        overflow: hidden !important;
+        position: absolute !important;
+        left: -9999px !important;
     }
 }

@@ -2973,19 +2973,24 @@ section:has(.testimonial-wall) {
 
 
 @media screen and (max-width: 768px) {
-    /* NUCLEAR WAVE KILLER */
-    *[class*="wave"],
-    *[class*="transition"],
-    *[class*="divisor"],
-    svg,
-    path[d*="1440"],
-    .femme-hero + *,
-    section:first-of-type + * {
+    /* KILL THE COCKROACH */
+    .wave-transition,
+    .sombra-transicao,
+    .divisor-wave,
+    .cockroach,
+    svg[viewBox],
+    path,
+    .femme-hero::after,
+    .femme-hero + div,
+    *[style*="wave"],
+    *[style*="transition"] {
         display: none !important;
-        opacity: 0 !important;
+        visibility: hidden !important;
         height: 0 !important;
+        width: 0 !important;
         overflow: hidden !important;
         position: absolute !important;
-        left: -9999px !important;
+        left: -99999px !important;
+        z-index: -999 !important;
     }
 }

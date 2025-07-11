@@ -2973,19 +2973,14 @@ section:has(.testimonial-wall) {
 
 
 @media screen and (max-width: 768px) {
-    /* KILL THE WAVE COCKROACH */
-    .wave-transition,
-    .femme-hero + div,
-    section + .wave-transition,
-    div[style*="wave"],
-    svg[viewBox*="1440"] {
-        display: none !important;
+    /* NUCLEAR COCKROACH KILLER */
+    .wave-transition {
+        height: 0 !important;
+        overflow: hidden !important;
+        margin: 0 !important;
     }
     
-    /* SEAMLESS TRANSITION */
-    .section-benefits,
-    #beneficios {
-        margin-top: 0 !important;
-        padding-top: 0 !important;
+    .wave-transition svg {
+        display: none !important;
     }
 }

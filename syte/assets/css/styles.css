@@ -2973,14 +2973,7 @@ section:has(.testimonial-wall) {
 
 
 @media screen and (max-width: 768px) {
-    /* NUCLEAR COCKROACH KILLER */
-    .wave-transition {
-        height: 0 !important;
-        overflow: hidden !important;
-        margin: 0 !important;
-    }
-    
-    .wave-transition svg {
+    .fold-preview {
         display: none !important;
     }
 }

@@ -2839,3 +2839,7 @@ html{
     .testimonial:nth-child(11) { animation-delay: 10s !important; }
     .testimonial:nth-child(12) { animation-delay: 11s !important; }
 }
+@media screen and (min-width: 769px) {
+    .testimonial:nth-child(9) { left: 65% !important; }
+    .testimonial:nth-child(12) { left: 60% !important; }
+}

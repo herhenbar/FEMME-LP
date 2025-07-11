@@ -1951,3 +1951,14 @@ document.addEventListener('DOMContentLoaded', function() {
 	}
 });
 </script>
+
+
+// Force desktop layout for testimonials
+if (window.innerWidth > 768) {
+    const testimonials = document.querySelectorAll('.testimonial');
+    testimonials.forEach((testimonial, index) => {
+        testimonial.style.position = 'absolute';
+        testimonial.style.display = 'block';
+        testimonial.style.opacity = '1';
+    });
+}

@@ -2991,3 +2991,14 @@ section:has(.testimonial-wall) {
         z-index: 2 !important;
     }
 }
+
+
+
+
+
+
+@media screen and (min-width: 769px) {
+    .wave-transition {
+        display: none !important;
+    }
+}

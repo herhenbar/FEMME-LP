@@ -2993,10 +2993,12 @@ section:has(.testimonial-wall) {
 }
 
 
-
-
-
-
-.wave-transition {
-    display: none !important;
+@media screen and (min-width: 769px) {
+    .benefit-card {
+        margin-bottom: 40px !important;
+    }
 }
+
+
+
+

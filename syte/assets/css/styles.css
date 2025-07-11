@@ -2775,4 +2775,25 @@ html{
 }
 
 
-
+/* Desktop fix - bring back green badge on bonus 1 (card 4) */
+.product-card:nth-child(4) .product-info::after {
+   content: 'R̶$̶ ̶3̶0̶,̶0̶0̶\00A0\00A0\00A0 EXCLUSIVO DO COMBO 03' !important;
+   display: block !important;
+   position: absolute !important;
+   bottom: 110px !important;
+   left: 50% !important;
+   transform: translateX(-50%) !important;
+   background: linear-gradient(45deg, #1a6b4f, #27ae60, #2ecc71) !important;
+   border: 2px solid #1a6b4f !important;
+   box-shadow: 0 4px 15px rgba(26, 107, 79, 0.4), 0 0 20px rgba(26, 107, 79, 0.3), inset 0 1px 3px rgba(244, 228, 188, 0.2) !important;
+   color: #f4e4bc !important;
+   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+   font-size: .85rem !important;
+   letter-spacing: .4px !important;
+   font-weight: 600 !important;
+   padding: 8px 16px !important;
+   border-radius: 30px !important;
+   text-transform: uppercase !important;
+   white-space: nowrap !important;
+   z-index: 5 !important;
+}

@@ -2661,3 +2661,72 @@ document.addEventListener('DOMContentLoaded', function() {
     ) !important;
 }
 </style>
+
+
+
+<!-- ADD TO END OF HTML - THIS WILL FIND AND FIX THE DARK STRIP -->
+<script>
+// SURGICAL APPROACH - FIND THE DARK ELEMENT
+window.addEventListener('load', function() {
+    // Find all elements between hero and benefits
+    const hero = document.querySelector('.femme-hero');
+    const benefits = document.querySelector('#beneficios, .section-benefits');
+    
+    if (hero && benefits) {
+        let current = hero.nextElementSibling;
+        
+        while (current && current !== benefits) {
+            const computed = window.getComputedStyle(current);
+            const bg = computed.backgroundColor;
+            
+            // Check if it's dark (the problematic strip)
+            if (bg.includes('35') || bg.includes('dark') || bg.includes('0, 0, 0')) {
+                console.log('Found dark element:', current);
+                current.style.backgroundColor = 'transparent !important';
+                current.style.background = 'transparent !important';
+                current.style.display = 'none !important';
+            }
+            
+            // Also check the testimonial section specifically
+            if (current.classList.contains('testimonial-wall') || 
+                current.querySelector('.testimonial-wall')) {
+                current.style.background = 'transparent !important';
+                current.style.backgroundColor = 'transparent !important';
+            }
+            
+            current = current.nextElementSibling;
+        }
+    }
+    
+    // Specific fix for the wave gap
+    const wave = document.querySelector('.wave-transition');
+    if (wave) {
+        wave.style.marginBottom = '-5px';
+        wave.style.position = 'relative';
+        wave.style.zIndex = '20';
+    }
+});
+</script>
+
+<style>
+/* FORCE REMOVE ANY DARK BACKGROUNDS */
+body * {
+    background-color: transparent !important;
+}
+
+/* Only allow specific backgrounds */
+.femme-hero {
+    background: radial-gradient(ellipse at center,#f9d7e2 0,#e5a3b7 100%) !important;
+}
+
+.section-benefits {
+    background: linear-gradient(to bottom,#fff 0,#f9d7e2 3%,#b4ccd4 10%,#a1bec9 35%,#8db3c1 100%) !important;
+}
+
+/* Hide any section with dark background */
+section[style*="background:#1a1625"],
+section[style*="background: #1a1625"],
+div[style*="background:#1a1625"] {
+    display: none !important;
+}
+</style>

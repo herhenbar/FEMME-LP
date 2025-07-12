@@ -2388,3 +2388,94 @@ setTimeout(() => {
     });
 }, 1000);
 </script>
+
+
+<!-- ADD THIS TO END OF HTML FILE -->
+<script>
+// FORCE FADE ANIMATIONS - FINAL NUCLEAR OPTION
+setTimeout(() => {
+    console.log('FORCING FADE ANIMATIONS...');
+    
+    // Create keyframes if they don't exist
+    if (!document.querySelector('#forcedfades')) {
+        const style = document.createElement('style');
+        style.id = 'forcedfades';
+        style.innerHTML = `
+            @keyframes forcedFadeInOut {
+                0% { opacity: 0; transform: scale(0.8); }
+                15% { opacity: 1; transform: scale(1); }
+                85% { opacity: 1; transform: scale(1); }
+                100% { opacity: 0; transform: scale(0.8); }
+            }
+            
+            @keyframes mobileForcedFade {
+                0% { opacity: 0; }
+                20% { opacity: 1; }
+                80% { opacity: 1; }
+                100% { opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+    }
+    
+    // DESKTOP - Force fade on each testimonial
+    if (window.innerWidth > 768) {
+        const testimonials = document.querySelectorAll('.testimonial');
+        testimonials.forEach((t, i) => {
+            // Clear any existing animation
+            t.style.animation = '';
+            t.style.webkitAnimation = '';
+            
+            // Force new animation with staggered delays
+            const delay = i * 1; // 1 second between each
+            t.style.cssText += `
+                animation: forcedFadeInOut 12s ${delay}s infinite !important;
+                -webkit-animation: forcedFadeInOut 12s ${delay}s infinite !important;
+                opacity: 0;
+            `;
+            
+            // Make sure it starts
+            setTimeout(() => {
+                t.style.opacity = '';
+            }, 100);
+        });
+    }
+    
+    // MOBILE - Force fade animation
+    if (window.innerWidth <= 768) {
+        const testimonials = document.querySelectorAll('.testimonial');
+        testimonials.forEach((t, i) => {
+            // Group animations - odd/even
+            const delay = (i % 2) * 5; // 0s or 5s
+            t.style.cssText += `
+                animation: mobileForcedFade 10s ${delay}s infinite !important;
+                -webkit-animation: mobileForcedFade 10s ${delay}s infinite !important;
+            `;
+        });
+    }
+    
+    // EXTREME MEASURE - Re-apply every 100ms for 1 second to override any interference
+    let counter = 0;
+    const forceInterval = setInterval(() => {
+        const testimonials = document.querySelectorAll('.testimonial');
+        testimonials.forEach((t, i) => {
+            if (window.innerWidth > 768) {
+                const currentAnim = t.style.animation;
+                if (!currentAnim.includes('forcedFadeInOut')) {
+                    t.style.animation = `forcedFadeInOut 12s ${i}s infinite`;
+                }
+            } else {
+                const currentAnim = t.style.animation;
+                if (!currentAnim.includes('mobileForcedFade')) {
+                    const delay = (i % 2) * 5;
+                    t.style.animation = `mobileForcedFade 10s ${delay}s infinite`;
+                }
+            }
+        });
+        
+        counter++;
+        if (counter > 10) clearInterval(forceInterval);
+    }, 100);
+    
+}, 1500); // Wait 1.5 seconds for page to fully load
+</script>

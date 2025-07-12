@@ -3227,6 +3227,10 @@ section:has(.testimonial-wall) {
 
 @media (min-width: 1024px) {
   .b5 {
-    transform: translateY(-10px); /* sobe 60px */
+    position: absolute;
+    bottom: 80px;
+    right: 60px;
+    z-index: 5; /* se quiser garantir que ela fique por cima */
   }
 }
+

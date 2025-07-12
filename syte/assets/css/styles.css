@@ -3167,3 +3167,58 @@ section:has(.testimonial-wall) {
     position: relative;
     z-index: 15; /* Above the gradient */
 }
+/* FIX MOBILE CTA GETTING COVERED */
+
+/* Reduce gradient height on mobile */
+@media screen and (max-width: 768px) {
+    .femme-hero::after {
+        height: 80px !important; /* Smaller gradient on mobile */
+        background: linear-gradient(to bottom, 
+            transparent 0%, 
+            transparent 40%,
+            #f9d7e2 80%,
+            #f9d7e2 100%
+        ) !important;
+    }
+    
+    /* Ensure CTAs have space */
+    .cta-group {
+        padding-bottom: 100px !important; /* Push CTAs up from gradient */
+        position: relative !important;
+        z-index: 20 !important; /* Above gradient */
+    }
+    
+    /* Make sure hero has enough padding */
+    .femme-hero {
+        padding-bottom: 120px !important;
+    }
+    
+    /* Alternative: move gradient to wave instead */
+    .femme-hero::after {
+        display: none !important; /* Remove from hero */
+    }
+    
+    .wave-transition {
+        position: relative !important;
+    }
+    
+    .wave-transition::before {
+        content: '';
+        position: absolute;
+        top: -80px;
+        left: 0;
+        right: 0;
+        height: 80px;
+        background: linear-gradient(to bottom, 
+            transparent 0%, 
+            #f9d7e2 100%
+        );
+        z-index: 10;
+    }
+}
+
+/* Ensure buttons are clickable */
+.btn {
+    position: relative !important;
+    z-index: 30 !important;
+}

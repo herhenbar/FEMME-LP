@@ -2481,98 +2481,91 @@ setInterval(() => {
 
 
 
-<!-- ADD THIS AFTER YOUR CURRENT SCRIPTS -->
+<!-- REPLACE THE LAST SCRIPT WITH THIS -->
 <script>
-// DESKTOP ONLY - BYPASS WHATEVER IS BLOCKING ANIMATIONS
-if (window.innerWidth > 768) {
-    setTimeout(() => {
-        console.log('DESKTOP ANIMATION BYPASS...');
+// POPCORN EFFECT - INDIVIDUAL FADES
+setTimeout(() => {
+    console.log('FORCING POPCORN FADE ANIMATIONS...');
+    
+    // Inject fresh keyframes
+    const style = document.createElement('style');
+    style.innerHTML = `
+        @keyframes popcornFade {
+            0%, 100% { opacity: 0; transform: scale(0.8); }
+            20%, 80% { opacity: 1; transform: scale(1); }
+        }
         
-        // Method 1: Clone and replace (nuclear option)
-        const testimonials = document.querySelectorAll('.testimonial');
-        testimonials.forEach((t, i) => {
-            // Clone the element to remove all event listeners
-            const clone = t.cloneNode(true);
-            
-            // Add animation directly during clone
-            const delays = [0, 1.3, 2.7, 0.8, 3.5, 1.9, 4.2, 2.4, 3.1, 0.5, 4.8, 1.6];
-            const delay = delays[i] || (i * 0.7);
-            
-            clone.style.cssText = t.style.cssText + `
-                animation: popcornFade 8s ${delay}s infinite !important;
-                -webkit-animation: popcornFade 8s ${delay}s infinite !important;
-                opacity: 0 !important;
-            `;
-            
-            // Replace original with clone
-            t.parentNode.replaceChild(clone, t);
-        });
-        
-        // Method 2: Manual JavaScript animation (if CSS is completely blocked)
-        let animationBlocked = false;
-        
-        // Check if animations are working after 1 second
-        setTimeout(() => {
-            const test = document.querySelector('.testimonial');
-            const style = window.getComputedStyle(test);
-            
-            if (style.animationName === 'none' || !style.animationName) {
-                console.log('CSS Animations blocked! Using JavaScript fallback...');
-                animationBlocked = true;
-                
-                // JavaScript animation fallback
-                const jsTestimonials = document.querySelectorAll('.testimonial');
-                jsTestimonials.forEach((t, i) => {
-                    const delays = [0, 1300, 2700, 800, 3500, 1900, 4200, 2400, 3100, 500, 4800, 1600];
-                    const delay = delays[i] || (i * 700);
-                    
-                    // Start with opacity 0
-                    t.style.opacity = '0';
-                    t.style.transform = 'scale(0.8)';
-                    
-                    // Animate with JavaScript
-                    function animateTestimonial() {
-                        // Fade in
-                        t.style.transition = 'opacity 1.5s, transform 1.5s';
-                        t.style.opacity = '1';
-                        t.style.transform = 'scale(1)';
-                        
-                        // Stay visible
-                        setTimeout(() => {
-                            // Fade out
-                            t.style.opacity = '0';
-                            t.style.transform = 'scale(0.8)';
-                            
-                            // Restart
-                            setTimeout(animateTestimonial, 1500);
-                        }, 5000);
-                    }
-                    
-                    // Start animation with delay
-                    setTimeout(animateTestimonial, delay);
-                });
-            }
-        }, 1000);
-        
-    }, 2500);
-}
-
-// FIX MOBILE ALIGNMENT - Scatter them more
-if (window.innerWidth <= 768) {
-    const mobileStyle = document.createElement('style');
-    mobileStyle.innerHTML = `
-        @media screen and (max-width: 768px) {
-            /* Scatter testimonials more randomly */
-            .testimonial:nth-child(1) { top: 8% !important; left: 5% !important; }
-            .testimonial:nth-child(2) { top: 18% !important; right: 8% !important; left: auto !important; }
-            .testimonial:nth-child(3) { top: 32% !important; left: 12% !important; }
-            .testimonial:nth-child(4) { top: 38% !important; right: 5% !important; left: auto !important; }
-            .testimonial:nth-child(5) { top: 52% !important; left: 8% !important; }
-            .testimonial:nth-child(6) { top: 62% !important; right: 12% !important; left: auto !important; }
-            .testimonial:nth-child(7) { top: 75% !important; left: 15% !important; }
-            .testimonial:nth-child(8) { top: 85% !important; right: 10% !important; left: auto !important; }
+        /* Force override any existing animation */
+        .testimonial.force-animate {
+            animation: popcornFade 8s infinite !important;
+            -webkit-animation: popcornFade 8s infinite !important;
         }
     `;
-    document.head.appendChild(mobileStyle);
-}
+    document.head.appendChild(style);
+    
+    const testimonials = document.querySelectorAll('.testimonial');
+    
+    // BOTH MOBILE AND DESKTOP - Individual random-like delays
+    testimonials.forEach((t, i) => {
+        // Clear everything first
+        t.style.animation = 'none';
+        t.style.webkitAnimation = 'none';
+        t.classList.remove('force-animate');
+        
+        // Create "popcorn" effect with seemingly random delays
+        const delays = [0, 1.3, 2.7, 0.8, 3.5, 1.9, 4.2, 2.4, 3.1, 0.5, 4.8, 1.6];
+        const delay = delays[i] || (i * 0.7);
+        
+        // Apply with force
+        setTimeout(() => {
+            t.classList.add('force-animate');
+            t.style.animationDelay = `${delay}s`;
+            t.style.webkitAnimationDelay = `${delay}s`;
+            
+            // Force inline style as backup
+            t.setAttribute('style', 
+                t.getAttribute('style') + 
+                `; animation: popcornFade 8s ${delay}s infinite !important; -webkit-animation: popcornFade 8s ${delay}s infinite !important;`
+            );
+        }, 50);
+    });
+    
+    // NUCLEAR OPTION FOR DESKTOP - Try different approach
+    if (window.innerWidth > 768) {
+        // Maybe there's a CSS rule blocking animations on desktop
+        const desktopOverride = document.createElement('style');
+        desktopOverride.innerHTML = `
+            @media screen and (min-width: 769px) {
+                .testimonial {
+                    animation: popcornFade 8s infinite !important;
+                    -webkit-animation: popcornFade 8s infinite !important;
+                    will-change: opacity, transform !important;
+                }
+            }
+        `;
+        document.head.appendChild(desktopOverride);
+        
+        // Force repaint
+        testimonials.forEach(t => {
+            t.style.display = 'none';
+            t.offsetHeight; // Force repaint
+            t.style.display = 'block';
+        });
+    }
+    
+}, 2000); // Wait 2 seconds to ensure everything is loaded
+
+// BACKUP - Check every 3 seconds if animations stopped
+setInterval(() => {
+    const testimonials = document.querySelectorAll('.testimonial');
+    testimonials.forEach((t, i) => {
+        const style = window.getComputedStyle(t);
+        if (style.animationName === 'none' || !style.animationName) {
+            const delays = [0, 1.3, 2.7, 0.8, 3.5, 1.9, 4.2, 2.4, 3.1, 0.5, 4.8, 1.6];
+            const delay = delays[i] || (i * 0.7);
+            t.style.animation = `popcornFade 8s ${delay}s infinite`;
+            console.log('Re-applied animation to testimonial', i);
+        }
+    });
+}, 3000);
 </script>

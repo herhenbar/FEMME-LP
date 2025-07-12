@@ -3068,3 +3068,9 @@ section:has(.testimonial-wall) {
         overflow: visible !important;
     }
 }
+
+@media screen and (min-width: 769px) {
+    .faq-section {
+        padding: 40px 20px !important;
+    }
+}

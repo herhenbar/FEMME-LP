@@ -3076,35 +3076,27 @@ section:has(.testimonial-wall) {
 }
 
 
-
-
 @media screen and (max-width: 768px) {
     .femme-nav ul li a {
-        font-size: 8px !important;
-        padding: 2px 4px !important;
-        white-space: nowrap !important;
-        overflow: hidden !important;
-        text-overflow: ellipsis !important;
+        font-size: 9px !important;
+        padding: 2px 3px !important;
     }
     
     .femme-nav ul {
-        gap: 2px !important;
-    }
-}
-
-
-@media screen and (max-width: 768px) {
-    .femme-nav ul li a {
-        font-size: 6px !important;
-        padding: 1px 2px !important;
-        letter-spacing: 0 !important;
-    }
-    
-    .femme-nav ul {
-        gap: 1px !important;
+        gap: 3px !important;
     }
     
     .header-flex {
-        padding: 2px 5px !important;
+        padding: 3px 8px !important;
+        gap: 8px !important;
+    }
+    
+    .logo-solo {
+        margin-left: 5px !important;
+    }
+    
+    .femme-header {
+        min-height: 35px !important;
     }
 }
+

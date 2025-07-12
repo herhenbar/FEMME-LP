@@ -3124,3 +3124,17 @@ section:has(.testimonial-wall) {
         visibility: visible !important;
     }
 }
+
+
+
+@media screen and (max-width: 768px) {
+    .section-benefits .title img {
+        margin-top: -10px !important;
+        transform: scale(0.9) !important;
+    }
+    
+    .section-benefits .title div[style*="display:flex"] {
+        margin-top: -20px !important;
+        margin-bottom: 10px !important;
+    }
+}

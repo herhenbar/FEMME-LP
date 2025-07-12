@@ -3126,5 +3126,67 @@ section:has(.testimonial-wall) {
 }
 
 
+/* REMOVE DARK BLUE INTRUDER STRIP */
+.wave-transition {
+    background: transparent !important;
+    background-color: transparent !important;
+}
 
+/* Remove any dark backgrounds between sections */
+.femme-hero + *, 
+.femme-hero ~ section::before,
+.wave-transition + * {
+    background: transparent !important;
+}
+
+/* Ensure wave SVG has no dark fill */
+.wave-transition svg,
+.wave-transition svg * {
+    background: transparent !important;
+}
+
+/* If there's a testimonial section causing the dark strip */
+.testimonial-wall,
+section:has(.testimonial-wall) {
+    background: transparent !important;
+    margin-top: -2px !important; /* Pull up to close any gap */
+}
+
+/* Fix the wave gap issue - simpler approach */
+.wave-transition {
+    position: relative !important;
+    margin: -2px -10px 0 -10px !important;
+    width: calc(100% + 20px) !important;
+    height: 120px !important;
+    z-index: 10 !important;
+}
+
+.wave-transition svg {
+    position: absolute !important;
+    bottom: -1px !important;
+    left: -1% !important;
+    width: 102% !important;
+    height: 100% !important;
+}
+
+/* Ensure benefits section connects properly */
+.section-benefits,
+section[id="beneficios"] {
+    margin-top: -2px !important;
+    position: relative !important;
+    z-index: 5 !important;
+}
+
+/* Remove any ::before or ::after causing dark strips */
+.wave-transition::before,
+.wave-transition::after,
+section::before,
+section::after {
+    display: none !important;
+}
+
+/* Love the flower leak effect! Keep it */
+.section-benefits {
+    overflow: visible !important; /* Allow flower to leak out */
+}
 

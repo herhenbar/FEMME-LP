@@ -3106,6 +3106,8 @@ section:has(.testimonial-wall) {
         line-height: 1.3 !important;
         margin-bottom: 15px !important;
         padding: 0 10px !important;
+        display: block !important;
+        visibility: visible !important;
     }
     
     .section-benefits .title p {
@@ -3113,13 +3115,12 @@ section:has(.testimonial-wall) {
         line-height: 1.4 !important;
         padding: 0 15px !important;
         margin-bottom: 30px !important;
-    }
-    
-    .section-benefits .title div[style*="display:flex"] {
-        display: none !important;
+        display: block !important;
+        visibility: visible !important;
     }
     
     .section-benefits {
-        padding: 40px 15px !important;
+        display: block !important;
+        visibility: visible !important;
     }
 }

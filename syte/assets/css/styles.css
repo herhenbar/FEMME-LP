@@ -3127,14 +3127,4 @@ section:has(.testimonial-wall) {
 
 
 
-@media screen and (max-width: 768px) {
-    .section-benefits .title div[style*="display:flex"] {
-        margin-top: -40px !important;
-        margin-bottom: 5px !important;
-    }
-    
-    .section-benefits .title img {
-        height: 60px !important;
-        margin: 0 -15px !important;
-    }
-}
+

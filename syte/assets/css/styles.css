@@ -2985,3 +2985,86 @@ section:has(.testimonial-wall) {
 }
 
 
+/* iOS COMPATIBILITY FIXES */
+
+/* Fix para navegação no iOS */
+@supports (-webkit-touch-callout: none) {
+    /* Detecta iOS Safari */
+    
+    .femme-nav ul {
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        padding-right: 10px !important;
+    }
+    
+    .femme-nav ul li {
+        flex-shrink: 0 !important;
+        white-space: nowrap !important;
+    }
+    
+    .femme-nav ul li a {
+        padding: 8px 12px !important;
+        font-size: 0.85rem !important;
+        line-height: 1.2 !important;
+        display: inline-block !important;
+    }
+}
+
+/* Fix específico para iOS 14+ */
+@supports (padding: max(0px)) {
+    .femme-nav {
+        padding-left: max(10px, env(safe-area-inset-left)) !important;
+        padding-right: max(10px, env(safe-area-inset-right)) !important;
+    }
+}
+
+/* Previne text clipping em iOS */
+.femme-nav a {
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+    text-rendering: optimizeLegibility !important;
+    overflow: visible !important;
+    clip: auto !important;
+}
+
+/* Fix para diferentes tamanhos de tela iOS */
+@media screen and (max-width: 390px) { /* iPhone 12/13/14 */
+    .femme-nav ul li a {
+        font-size: 0.75rem !important;
+        padding: 6px 8px !important;
+    }
+}
+
+@media screen and (max-width: 375px) { /* iPhone 11/X */
+    .femme-nav ul li a {
+        font-size: 0.7rem !important;
+        padding: 5px 6px !important;
+    }
+}
+
+/* Garante que texto não seja cortado */
+.femme-nav ul li {
+    min-height: 30px !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+/* Fix para scroll horizontal suave no nav */
+@media screen and (max-width: 768px) {
+    .femme-nav ul {
+        scroll-snap-type: x mandatory !important;
+        gap: 5px !important;
+    }
+    
+    .femme-nav ul li {
+        scroll-snap-align: start !important;
+    }
+    
+    /* Remove qualquer máscara que possa cortar texto */
+    .femme-nav, .femme-header {
+        -webkit-mask-image: none !important;
+        mask-image: none !important;
+        overflow: visible !important;
+    }
+}

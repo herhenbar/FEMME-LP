@@ -2985,31 +2985,126 @@ section:has(.testimonial-wall) {
 }
 
 
-@media screen and (max-width: 768px) {
-    /* STAGGER THE TESTIMONIAL ANIMATIONS */
-    .testimonial:nth-child(1) { animation-delay: 0s !important; }
-    .testimonial:nth-child(2) { animation-delay: 1.5s !important; }
-    .testimonial:nth-child(3) { animation-delay: 3s !important; }
-    .testimonial:nth-child(4) { animation-delay: 4.5s !important; }
-    .testimonial:nth-child(5) { animation-delay: 6s !important; }
-    .testimonial:nth-child(6) { animation-delay: 7.5s !important; }
-    .testimonial:nth-child(7) { animation-delay: 9s !important; }
-    .testimonial:nth-child(8) { animation-delay: 10.5s !important; }
+<!-- ADD THIS AFTER YOUR LAST SCRIPT -->
+<style>
+/* FIX DESKTOP ANIMATIONS - STAGGERED LIKE CHRISTMAS LIGHTS */
+@media screen and (min-width: 769px) {
+    /* Force individual animations with different delays */
+    div.testimonial-wall > div.testimonial {
+        animation: fadeInOut 12s infinite ease-in-out !important;
+    }
     
-    /* CONNECTING SYNAPSES */
-    .connection-line:nth-child(1) { 
-        top: 25%; left: 20%; width: 60%; 
-        transform: rotate(15deg);
-        animation-delay: 2s !important; 
+    /* Stagger each testimonial with DIFFERENT timing */
+    div.testimonial-wall > div.testimonial:nth-child(1) { animation-delay: 0s !important; }
+    div.testimonial-wall > div.testimonial:nth-child(2) { animation-delay: 2s !important; }
+    div.testimonial-wall > div.testimonial:nth-child(3) { animation-delay: 4s !important; }
+    div.testimonial-wall > div.testimonial:nth-child(4) { animation-delay: 6s !important; }
+    div.testimonial-wall > div.testimonial:nth-child(5) { animation-delay: 8s !important; }
+    div.testimonial-wall > div.testimonial:nth-child(6) { animation-delay: 10s !important; }
+    div.testimonial-wall > div.testimonial:nth-child(7) { animation-delay: 1s !important; }
+    div.testimonial-wall > div.testimonial:nth-child(8) { animation-delay: 3s !important; }
+    div.testimonial-wall > div.testimonial:nth-child(9) { animation-delay: 5s !important; }
+    div.testimonial-wall > div.testimonial:nth-child(10) { animation-delay: 7s !important; }
+    div.testimonial-wall > div.testimonial:nth-child(11) { animation-delay: 9s !important; }
+    div.testimonial-wall > div.testimonial:nth-child(12) { animation-delay: 11s !important; }
+}
+
+/* FIX MOBILE - ADD SYNAPSES AND BETTER LAYOUT */
+@media screen and (max-width: 768px) {
+    .testimonial-wall {
+        position: relative !important;
+        min-height: 100vh !important;
+        padding: 20px !important;
     }
-    .connection-line:nth-child(2) { 
-        top: 50%; left: 15%; width: 70%; 
-        transform: rotate(-12deg);
-        animation-delay: 5s !important; 
+    
+    /* Position testimonials in a scattered pattern, not columns */
+    .testimonial:nth-child(1) { position: absolute !important; top: 5% !important; left: 10% !important; }
+    .testimonial:nth-child(2) { position: absolute !important; top: 15% !important; right: 10% !important; }
+    .testimonial:nth-child(3) { position: absolute !important; top: 30% !important; left: 15% !important; }
+    .testimonial:nth-child(4) { position: absolute !important; top: 40% !important; right: 15% !important; }
+    .testimonial:nth-child(5) { position: absolute !important; top: 55% !important; left: 10% !important; }
+    .testimonial:nth-child(6) { position: absolute !important; top: 65% !important; right: 10% !important; }
+    .testimonial:nth-child(7) { position: absolute !important; top: 80% !important; left: 20% !important; }
+    .testimonial:nth-child(8) { position: absolute !important; top: 90% !important; right: 15% !important; }
+    
+    /* Animate testimonials on mobile too */
+    .testimonial {
+        animation: mobileFade 10s infinite ease-in-out !important;
     }
-    .connection-line:nth-child(3) { 
-        top: 75%; left: 25%; width: 50%; 
-        transform: rotate(8deg);
-        animation-delay: 8s !important; 
+    
+    .testimonial:nth-child(odd) { animation-delay: 0s !important; }
+    .testimonial:nth-child(even) { animation-delay: 5s !important; }
+    
+    /* ADD SYNAPSE LINES ON MOBILE */
+    .connection-line {
+        display: block !important;
+        position: absolute !important;
+        height: 2px !important;
+        background: linear-gradient(90deg, transparent, #c589f0, #e0a7ff, #c589f0, transparent) !important;
+        opacity: 1 !important;
+        animation: mobilePulse 8s infinite ease-in-out !important;
+    }
+    
+    /* Position synapse lines */
+    .connection-line:nth-child(13) {
+        top: 20% !important;
+        left: 20% !important;
+        width: 60% !important;
+        transform: rotate(15deg) !important;
+    }
+    
+    .connection-line:nth-child(14) {
+        top: 50% !important;
+        left: 15% !important;
+        width: 70% !important;
+        transform: rotate(-10deg) !important;
+    }
+    
+    .connection-line:nth-child(15) {
+        top: 75% !important;
+        left: 10% !important;
+        width: 65% !important;
+        transform: rotate(20deg) !important;
     }
 }
+
+/* Mobile animations */
+@keyframes mobileFade {
+    0%, 100% { opacity: 0.3; transform: scale(0.95); }
+    50% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes mobilePulse {
+    0%, 100% { opacity: 0; transform: scaleX(0); }
+    50% { opacity: 1; transform: scaleX(1); }
+}
+</style>
+
+<script>
+// Force staggered animations on desktop
+if (window.innerWidth > 768) {
+    const testimonials = document.querySelectorAll('.testimonial');
+    testimonials.forEach((t, i) => {
+        // Force re-trigger animation with unique delays
+        t.style.animation = 'none';
+        setTimeout(() => {
+            t.style.animation = `fadeInOut 12s ${i}s infinite ease-in-out`;
+        }, 50);
+    });
+}
+
+// Add synapse lines on mobile if they don't exist
+if (window.innerWidth <= 768) {
+    const wall = document.querySelector('.testimonial-wall');
+    const existingLines = wall.querySelectorAll('.connection-line');
+    
+    if (existingLines.length < 3) {
+        // Add 3 synapse lines for mobile
+        for (let i = 0; i < 3; i++) {
+            const line = document.createElement('div');
+            line.className = 'connection-line';
+            wall.appendChild(line);
+        }
+    }
+}
+</script>

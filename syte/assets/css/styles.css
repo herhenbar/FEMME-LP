@@ -3227,6 +3227,6 @@ section:has(.testimonial-wall) {
 
 @media (min-width: 1024px) {
   .b5 {
-    transform: translateY(-60px); /* sobe 60px */
+    transform: translateY(-120px); /* sobe 60px */
   }
 }

@@ -3071,6 +3071,6 @@ section:has(.testimonial-wall) {
 
 @media screen and (min-width: 769px) {
     .faq-section {
-        padding: 40px 20px !important;
+        padding: 10px 20px !important;
     }
 }

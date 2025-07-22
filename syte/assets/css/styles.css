@@ -31,7 +31,8 @@ body{
     margin:0;
     padding:0;
     color:var(--teal-soft);
-    background:#fff
+    background:#fff;
+    overflow-x:hidden!important
 }
 .container{
     padding:0 24px;
@@ -41,7 +42,7 @@ body{
 .femme-nav ul,.price-container{
     justify-content:center
 }
-.femme-nav a{
+.btn-luxo,.femme-nav a,.gold-rectangular-cta{
     font-size:1rem
 }
 .femme-nav a::after{
@@ -87,7 +88,6 @@ body{
 .femme-hero{
     background:var(--lux-background) url('../images/fold1-floral-frame.png') no-repeat top center;
     text-align:center;
-    overflow:hidden;
     padding:160px 20px 100px
 }
 .femme-hero p{
@@ -99,7 +99,7 @@ body{
 .card-produto h3,.combo-hook h2,.femme-fold2 .fold2-title,.femme-valores-title,.price-container,.section-produtos .fold2-title,.section-title h2{
     font-family:'Playfair Display',serif
 }
-.cta-group .btn,.valor-box{
+.benefit-item p,.btn,.combo-cta,.combo-cta.rose,.combo-headline,.combo-subline,.cta-group .btn,.product-info p,.title p,.valor-box{
     font-family:Montserrat,sans-serif
 }
 .femme-header{
@@ -351,6 +351,9 @@ body{
     text-transform:uppercase!important;
     margin:0 auto 24px!important
 }
+.femme-hero h1,.femme-nav ul li a{
+    text-transform:uppercase
+}
 .product-card img{
     width:100%;
     height:auto;
@@ -398,9 +401,6 @@ body{
     margin-top:60px;
     font-size:1.1rem;
     color:#5c4a4a
-}
-.btn-luxo,.gold-rectangular-cta{
-    font-size:1rem
 }
 .combo-callout small{
     display:block;
@@ -458,12 +458,9 @@ body{
     padding:0
 }
 .femme-nav ul li a{
-    text-transform:uppercase;
-    text-transform:uppercase;
     font-size:.9rem;
     color:#fff;
     font-weight:600;
-    text-transform:uppercase;
     text-decoration:none;
     line-height:1;
     padding:6px 0;
@@ -515,7 +512,6 @@ body{
 .femme-hero h1{
     line-height:1.2;
     letter-spacing:.15em;
-    text-transform:uppercase;
     font-family:Cinzel,serif;
     font-size:3.2rem;
     font-weight:400;
@@ -524,15 +520,12 @@ body{
     color:#7a2d44;
     margin-bottom:20px
 }
+.badge-premium,.btn,.category-badge,INICIO FOLDS FALTANTES FAQ{
+    text-transform:uppercase
+}
 .card-title,.femme-fold2 h2,.product-info h3,.title h1{
     font-family:'Playfair Display',serif;
     color:#7a2d44
-}
-.btn,.combo-cta,.combo-cta.rose,.combo-headline,.combo-subline,.product-info p{
-    font-family:Montserrat,sans-serif
-}
-.badge-premium,.btn{
-    text-transform:uppercase
 }
 #produtos{
     background-color:#fff6f8
@@ -986,10 +979,8 @@ body{
     }
 }
 .wave-transition{
-    position:relative;
     width:101%;
     height:60px;
-    margin-top:-2px;
     overflow:hidden;
     margin-left:-.5%
 }
@@ -1169,7 +1160,7 @@ a.cta-primary:hover,button.cta-primary:hover{
     font-family:var(--font-head);
     letter-spacing:.04em
 }
-.benefit-card *,.benefits-section h2,.btn-outline,.btn[href="#produtos"]{
+.benefit-card *,.benefits-section h2,.btn-outline,.btn[href="#produtos"],.card-description,.card-title{
     font-family:'Playfair Display',serif!important
 }
 .femme-nav a:hover{
@@ -1332,9 +1323,6 @@ nav a:hover{
     color:#4a3420;
     margin-bottom:10px
 }
-.benefit-item p,.title p{
-    font-family:Montserrat,sans-serif
-}
 .benefit-item p{
     font-size:.95rem;
     color:#444;
@@ -1463,9 +1451,6 @@ nav a:hover{
     color:#fff;
     font-family:Montserrat,sans-serif
 }
-.card-description,.card-title{
-    font-family:'Playfair Display',serif!important
-}
 .bonus-header h2{
     font-size:2.8rem;
     font-family:Cinzel,serif;
@@ -1593,7 +1578,6 @@ nav a:hover{
     border-radius:20px;
     font-size:.75rem;
     font-weight:700;
-    text-transform:uppercase;
     letter-spacing:1px;
     margin-bottom:20px;
     display:inline-block;
@@ -1718,7 +1702,6 @@ INICIO FOLDS FALTANTES FAQ{
     font-weight:600;
     font-size:.9rem;
     margin-bottom:30px;
-    text-transform:uppercase;
     letter-spacing:1px;
     box-shadow:0 8px 25px rgba(212,175,55,.3);
     width:fit-content
@@ -1779,6 +1762,10 @@ a.btn-outline[href="#produtos"]{
     gap:30px;
     width:fit-content
 }
+.carousel-btn,.dot,.nav-arrow{
+    cursor:pointer;
+    transition:.3s
+}
 .card-description{
     color:#444!important;
     line-height:1.5!important;
@@ -1790,9 +1777,7 @@ a.btn-outline[href="#produtos"]{
     top:50%;
     transform:translateY(-50%);
     color:#fff;
-    cursor:pointer;
-    z-index:10;
-    transition:.3s
+    z-index:10
 }
 .carousel-btn{
     background:rgba(212,175,55,.9);
@@ -1822,9 +1807,7 @@ a.btn-outline[href="#produtos"]{
     width:12px;
     height:12px;
     border-radius:50%;
-    background:rgba(212,175,55,.3);
-    cursor:pointer;
-    transition:.3s
+    background:rgba(212,175,55,.3)
 }
 .dot.active{
     background:#d4af37;
@@ -2094,6 +2077,14 @@ a.btn-outline[href="#produtos"]{
     animation:2.5s ease-in-out infinite alternate badgeGlow!important;
     text-shadow:0 1px 2px rgba(0,0,0,.3)!important
 }
+.product-card:nth-child(4) .product-info::after,.product-card:nth-child(5) .product-info::after,.product-card:nth-child(6) .product-info::after{
+    text-shadow:0 1px 2px rgba(0,0,0,.3)!important;
+    letter-spacing:.4px!important;
+    font-weight:600!important;
+    text-transform:uppercase!important;
+    white-space:nowrap!important;
+    z-index:5!important
+}
 @keyframes badgeGlow{
     0%{
         filter:brightness(1) drop-shadow(0 0 5px rgba(26,107,79,.3))
@@ -2116,13 +2107,7 @@ a.btn-outline[href="#produtos"]{
     left:50%!important;
     transform:translateX(-50%)!important;
     font-size:.85rem!important;
-    letter-spacing:.4px!important;
-    padding:8px 16px!important;
-    text-transform:uppercase!important;
-    white-space:nowrap!important;
-    z-index:5!important;
-    font-weight:600!important;
-    text-shadow:0 1px 2px rgba(0,0,0,.3)!important
+    padding:8px 16px!important
 }
 .product-card:nth-child(6) .product-info::after{
     content:'R̶$̶ ̶2̶8̶,̶0̶0̶\00A0\00A0\00A0PROMOÇÃO LIMITADA'!important
@@ -2353,8 +2338,12 @@ html{
     color:#d2691e!important
 }
 @media screen and (max-width:768px){
-    .femme-hero,.femme-hero h1,.femme-hero p{
+    .benefit-card,.femme-hero,.femme-hero h1,.femme-hero p,.section-benefits .title,.section-benefits .title h2{
         text-align:center!important
+    }
+    .carousel-container,.products{
+        scroll-snap-type:x mandatory!important;
+        scroll-behavior:smooth!important
     }
     .femme-header{
         padding:4px 0!important;
@@ -2439,7 +2428,6 @@ html{
         padding:50px 15px!important
     }
     .section-benefits .title{
-        text-align:center!important;
         margin-bottom:40px!important
     }
     .section-benefits .title div[style*="display:flex"]{
@@ -2456,7 +2444,6 @@ html{
     }
     .section-benefits .title h2{
         font-size:2.2rem!important;
-        text-align:center!important;
         margin:0!important;
         color:#5d2a3a!important
     }
@@ -2477,17 +2464,17 @@ html{
         width:100%!important;
         overflow-x:auto!important;
         overflow-y:hidden!important;
-        scroll-snap-type:x mandatory!important;
         -webkit-overflow-scrolling:touch!important;
-        scroll-behavior:smooth!important;
         padding:30px 0!important;
         -ms-overflow-style:none!important;
         scrollbar-width:none!important
     }
+    .carousel-track,.products{
+        width:max-content!important
+    }
     .carousel-track{
         gap:25px!important;
         padding:0 calc(50vw - 150px)!important;
-        width:max-content!important;
         transition:none!important
     }
     .benefit-card{
@@ -2501,7 +2488,6 @@ html{
         border-radius:20px!important;
         padding:25px 20px!important;
         min-height:250px!important;
-        text-align:center!important;
         flex-direction:column!important;
         justify-content:center!important;
         box-shadow:0 8px 25px rgba(0,0,0,.1)!important
@@ -2557,18 +2543,18 @@ html{
         flex-wrap:nowrap!important;
         overflow-x:auto!important;
         overflow-y:hidden!important;
-        scroll-snap-type:x mandatory!important;
         -webkit-overflow-scrolling:touch!important;
-        scroll-behavior:smooth!important;
         gap:25px!important;
         padding:0 calc(50vw - 160px)!important;
-        width:max-content!important;
         grid-template-columns:none!important
     }
     .products .product-card{
         width:90%!important;
         margin:20px auto!important;
         display:block!important
+    }
+    .product-card:nth-child(4) .old-price,.product-card:nth-child(4) .price-container span:last-child,.product-card:nth-child(4) .product-info::after,.product-card:nth-child(5) .old-price,.product-card:nth-child(5) .price-container span:last-child,.product-card:nth-child(5) .product-info::after,.product-card:nth-child(6) .old-price,.product-card:nth-child(6) .price-container span:last-child,.product-card:nth-child(6) .product-info::after{
+        display:none!important
     }
 }
 .products::-webkit-scrollbar{
@@ -2749,478 +2735,296 @@ html{
         }
     }
 }
-
-
-@media screen and (max-width: 768px) {
-   /* Kill all green badges in products 4, 5, 6 */
-   .product-card:nth-child(4) .product-info::after,
-   .product-card:nth-child(5) .product-info::after,
-   .product-card:nth-child(6) .product-info::after {
-       display: none !important;
-   }
-   
-   /* Kill crossed out prices in bonus products */
-   .product-card:nth-child(4) .old-price,
-   .product-card:nth-child(5) .old-price,
-   .product-card:nth-child(6) .old-price {
-       display: none !important;
-   }
-   
-   /* Kill "somente nos combos" text */
-   .product-card:nth-child(4) .price-container span:last-child,
-   .product-card:nth-child(5) .price-container span:last-child,
-   .product-card:nth-child(6) .price-container span:last-child {
-       display: none !important;
-   }
+.product-card:nth-child(4) .product-info::after{
+    content:'R̶$̶ ̶3̶0̶,̶0̶0̶\00A0\00A0\00A0 EXCLUSIVO DO COMBO 03'!important;
+    display:block!important;
+    position:absolute!important;
+    bottom:110px!important;
+    left:50%!important;
+    transform:translateX(-50%)!important;
+    background:linear-gradient(45deg,#1a6b4f,#27ae60,#2ecc71)!important;
+    border:2px solid #1a6b4f!important;
+    box-shadow:0 4px 15px rgba(26,107,79,.4),0 0 20px rgba(26,107,79,.3),inset 0 1px 3px rgba(244,228,188,.2)!important;
+    color:#f4e4bc!important;
+    font-size:.85rem!important;
+    padding:8px 16px!important;
+    border-radius:30px!important
 }
-
-
-/* Desktop fix - bring back green badge on bonus 1 (card 4) */
-.product-card:nth-child(4) .product-info::after {
-   content: 'R̶$̶ ̶3̶0̶,̶0̶0̶\00A0\00A0\00A0 EXCLUSIVO DO COMBO 03' !important;
-   display: block !important;
-   position: absolute !important;
-   bottom: 110px !important;
-   left: 50% !important;
-   transform: translateX(-50%) !important;
-   background: linear-gradient(45deg, #1a6b4f, #27ae60, #2ecc71) !important;
-   border: 2px solid #1a6b4f !important;
-   box-shadow: 0 4px 15px rgba(26, 107, 79, 0.4), 0 0 20px rgba(26, 107, 79, 0.3), inset 0 1px 3px rgba(244, 228, 188, 0.2) !important;
-   color: #f4e4bc !important;
-   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
-   font-size: .85rem !important;
-   letter-spacing: .4px !important;
-   font-weight: 600 !important;
-   padding: 8px 16px !important;
-   border-radius: 30px !important;
-   text-transform: uppercase !important;
-   white-space: nowrap !important;
-   z-index: 5 !important;
-}
-
-
-
-/* DESKTOP TESTIMONIALS FIX - Force proper positioning */
-@media screen and (min-width: 769px) {
-    /* Reset testimonial wall */
-    .testimonial-wall {
-        position: relative !important;
-        width: 100% !important;
-        height: 100vh !important;
-        overflow: hidden !important;
+@keyframes fadeInOut{
+    0%,100%{
+        opacity:0;
+        transform:scale(.8)
     }
-
-    /* Force all testimonials to show with proper positioning */
-    .testimonial {
-        position: absolute !important;
-        opacity: 1 !important;
-        display: block !important;
-        visibility: visible !important;
-        animation: fadeInOut 12s infinite ease-in-out !important;
-    }
-
-    /* Distribute testimonials across the screen */
-    .testimonial:nth-child(1) {
-        top: 10% !important;
-        left: 5% !important;
-        animation-delay: 0s !important;
-    }
-
-    .testimonial:nth-child(2) {
-        top: 20% !important;
-        left: 45% !important;
-        animation-delay: 1s !important;
-    }
-
-    .testimonial:nth-child(3) {
-        top: 35% !important;
-        left: 15% !important;
-        animation-delay: 2s !important;
-    }
-
-    .testimonial:nth-child(4) {
-        top: 50% !important;
-        left: 60% !important;
-        animation-delay: 3s !important;
-    }
-
-    .testimonial:nth-child(5) {
-        top: 65% !important;
-        left: 30% !important;
-        animation-delay: 4s !important;
-    }
-
-    .testimonial:nth-child(6) {
-        top: 75% !important;
-        left: 70% !important;
-        animation-delay: 5s !important;
-    }
-
-    .testimonial:nth-child(7) {
-        top: 80% !important;
-        left: 10% !important;
-        animation-delay: 6s !important;
-    }
-
-    .testimonial:nth-child(8) {
-        top: 15% !important;
-        left: 75% !important;
-        animation-delay: 7s !important;
-    }
-
-    .testimonial:nth-child(9) {
-        top: 40% !important;
-        left: 80% !important;
-        animation-delay: 8s !important;
-    }
-
-    .testimonial:nth-child(10) {
-        top: 25% !important;
-        left: 25% !important;
-        animation-delay: 9s !important;
-    }
-
-    .testimonial:nth-child(11) {
-        top: 55% !important;
-        left: 8% !important;
-        animation-delay: 10s !important;
-    }
-
-    .testimonial:nth-child(12) {
-        top: 30% !important;
-        left: 85% !important;
-        animation-delay: 11s !important;
-    }
-
-    /* Connection lines animations */
-    .connection-line {
-        position: absolute !important;
-        display: block !important;
-        opacity: 1 !important;
-        animation: pulseLine 18s infinite ease-in-out !important;
-    }
-
-    /* Ensure proper z-index */
-    .testimonial {
-        z-index: 10 !important;
-    }
-
-    .connection-line {
-        z-index: 5 !important;
+    10%,90%{
+        opacity:1;
+        transform:scale(1)
     }
 }
-
-/* Kill any mobile styles that might be interfering on desktop */
-@media screen and (min-width: 769px) {
-    .testimonial {
-        max-width: 280px !important; /* Normal size for desktop */
-        font-size: inherit !important;
-        padding: 1rem !important;
-        margin: 0 !important; /* Remove margins */
-        position: absolute !important; /* Force absolute positioning */
-        width: auto !important;
-        flex: none !important;
-        display: block !important;
+@keyframes pulseLine{
+    0%,100%{
+        transform:scaleX(0);
+        opacity:0
     }
-
-    .testimonial-wall {
-        display: block !important; /* Not flex */
-        flex-direction: unset !important;
-        align-items: unset !important;
-        gap: unset !important;
+    10%{
+        transform:scaleX(1);
+        opacity:1
+    }
+    90%{
+        opacity:1
     }
 }
-
-/* Ensure animations work properly */
-@keyframes fadeInOut {
-    0%, 100% {
-        opacity: 0;
-        transform: scale(0.8);
+section:has(.testimonial-wall){
+    overflow:hidden!important
+}
+@supports (-webkit-touch-callout:none){
+    .femme-nav ul{
+        flex-wrap:nowrap!important;
+        overflow-x:auto!important;
+        -webkit-overflow-scrolling:touch!important;
+        padding-right:10px!important
     }
-    10%, 90% {
-        opacity: 1;
-        transform: scale(1);
+    .femme-nav ul li{
+        flex-shrink:0!important;
+        white-space:nowrap!important
+    }
+    .femme-nav ul li a{
+        padding:8px 12px!important;
+        font-size:.85rem!important;
+        line-height:1.2!important;
+        display:inline-block!important
     }
 }
-
-@keyframes pulseLine {
-    0% {
-        transform: scaleX(0);
-        opacity: 0;
-    }
-    10% {
-        transform: scaleX(1);
-        opacity: 1;
-    }
-    90% {
-        opacity: 1;
-    }
-    100% {
-        transform: scaleX(0);
-        opacity: 0;
-    }
-}  
-
-/* Add to your CSS */
-body {
-    overflow-x: hidden !important;
-}
-
-/* Or more targeted */
-section:has(.testimonial-wall) {
-    overflow: hidden !important;
-}
-
-
-@media screen and (min-width: 769px) {
-    .benefit-card {
-        margin-bottom: 40px !important;
+@supports (padding:max(0px)){
+    .femme-nav{
+        padding-left:max(10px,env(safe-area-inset-left))!important;
+        padding-right:max(10px,env(safe-area-inset-right))!important
     }
 }
-
-@media screen and (max-width: 768px) {
-    .product-card:nth-child(4) .product-info::after {
-        display: none !important;
+.femme-nav a{
+    -webkit-font-smoothing:antialiased!important;
+    -moz-osx-font-smoothing:grayscale!important;
+    text-rendering:optimizeLegibility!important;
+    overflow:visible!important;
+    clip:auto!important
+}
+@media screen and (max-width:390px){
+    .femme-nav ul li a{
+        font-size:.75rem!important;
+        padding:6px 8px!important
     }
 }
-
-
-/* iOS COMPATIBILITY FIXES */
-
-/* Fix para navegação no iOS */
-@supports (-webkit-touch-callout: none) {
-    /* Detecta iOS Safari */
-    
-    .femme-nav ul {
-        flex-wrap: nowrap !important;
-        overflow-x: auto !important;
-        -webkit-overflow-scrolling: touch !important;
-        padding-right: 10px !important;
-    }
-    
-    .femme-nav ul li {
-        flex-shrink: 0 !important;
-        white-space: nowrap !important;
-    }
-    
-    .femme-nav ul li a {
-        padding: 8px 12px !important;
-        font-size: 0.85rem !important;
-        line-height: 1.2 !important;
-        display: inline-block !important;
+@media screen and (max-width:375px){
+    .femme-nav ul li a{
+        font-size:.7rem!important;
+        padding:5px 6px!important
     }
 }
-
-/* Fix específico para iOS 14+ */
-@supports (padding: max(0px)) {
-    .femme-nav {
-        padding-left: max(10px, env(safe-area-inset-left)) !important;
-        padding-right: max(10px, env(safe-area-inset-right)) !important;
+.femme-nav ul li{
+    min-height:30px!important;
+    display:flex!important;
+    align-items:center!important
+}
+@media screen and (min-width:769px){
+    .testimonial-wall{
+        position:relative!important;
+        width:100%!important;
+        height:100vh!important;
+        overflow:hidden!important
+    }
+    .connection-line,.testimonial{
+        position:absolute!important;
+        display:block!important;
+        opacity:1!important
+    }
+    .testimonial{
+        visibility:visible!important;
+        animation:12s ease-in-out infinite fadeInOut!important;
+        z-index:10!important;
+        max-width:280px!important;
+        font-size:inherit!important;
+        padding:1rem!important;
+        margin:0!important;
+        position:absolute!important;
+        width:auto!important;
+        flex:none!important;
+        display:block!important
+    }
+    .testimonial:first-child{
+        top:10%!important;
+        left:5%!important;
+        animation-delay:0s!important
+    }
+    .testimonial:nth-child(2){
+        top:20%!important;
+        left:45%!important;
+        animation-delay:1s!important
+    }
+    .testimonial:nth-child(3){
+        top:35%!important;
+        left:15%!important;
+        animation-delay:2s!important
+    }
+    .testimonial:nth-child(4){
+        top:50%!important;
+        left:60%!important;
+        animation-delay:3s!important
+    }
+    .testimonial:nth-child(5){
+        top:65%!important;
+        left:30%!important;
+        animation-delay:4s!important
+    }
+    .testimonial:nth-child(6){
+        top:75%!important;
+        left:70%!important;
+        animation-delay:5s!important
+    }
+    .testimonial:nth-child(7){
+        top:80%!important;
+        left:10%!important;
+        animation-delay:6s!important
+    }
+    .testimonial:nth-child(8){
+        top:15%!important;
+        left:75%!important;
+        animation-delay:7s!important
+    }
+    .testimonial:nth-child(9){
+        top:40%!important;
+        left:80%!important;
+        animation-delay:8s!important
+    }
+    .testimonial:nth-child(10){
+        top:25%!important;
+        left:25%!important;
+        animation-delay:9s!important
+    }
+    .testimonial:nth-child(11){
+        top:55%!important;
+        left:8%!important;
+        animation-delay:10s!important
+    }
+    .testimonial:nth-child(12){
+        top:30%!important;
+        left:85%!important;
+        animation-delay:11s!important
+    }
+    .connection-line{
+        animation:18s ease-in-out infinite pulseLine!important;
+        z-index:5!important
+    }
+    .testimonial-wall{
+        display:block!important;
+        flex-direction:unset!important;
+        align-items:unset!important;
+        gap:unset!important
+    }
+    .benefit-card{
+        margin-bottom:40px!important
+    }
+    .faq-section{
+        padding:10px 20px!important
     }
 }
-
-/* Previne text clipping em iOS */
-.femme-nav a {
-    -webkit-font-smoothing: antialiased !important;
-    -moz-osx-font-smoothing: grayscale !important;
-    text-rendering: optimizeLegibility !important;
-    overflow: visible !important;
-    clip: auto !important;
+.femme-hero{
+    position:relative;
+    overflow:hidden
 }
-
-/* Fix para diferentes tamanhos de tela iOS */
-@media screen and (max-width: 390px) { /* iPhone 12/13/14 */
-    .femme-nav ul li a {
-        font-size: 0.75rem !important;
-        padding: 6px 8px !important;
-    }
+.femme-hero::after{
+    content:'';
+    position:absolute;
+    bottom:0;
+    left:0;
+    right:0;
+    height:150px;
+    background:linear-gradient(to bottom,transparent 0,transparent 30%,#f9d7e2 60%,#f9d7e2 100%);
+    z-index:10;
+    pointer-events:none
 }
-
-@media screen and (max-width: 375px) { /* iPhone 11/X */
-    .femme-nav ul li a {
-        font-size: 0.7rem !important;
-        padding: 5px 6px !important;
-    }
+.wave-transition{
+    position:relative;
+    z-index:5;
+    margin-top:-100px
 }
-
-/* Garante que texto não seja cortado */
-.femme-nav ul li {
-    min-height: 30px !important;
-    display: flex !important;
-    align-items: center !important;
+.section-benefits{
+    overflow:visible!important;
+    position:relative;
+    z-index:15
 }
-
-/* Fix para scroll horizontal suave no nav */
-@media screen and (max-width: 768px) {
-    .femme-nav ul {
-        scroll-snap-type: x mandatory !important;
-        gap: 5px !important;
+@media screen and (max-width:768px){
+    .product-card:nth-child(4) .product-info::after{
+        display:none!important
     }
-    
-    .femme-nav ul li {
-        scroll-snap-align: start !important;
+    .femme-nav ul{
+        scroll-snap-type:x mandatory!important;
+        gap:5px!important;
+        gap:3px!important
     }
-    
-    /* Remove qualquer máscara que possa cortar texto */
-    .femme-nav, .femme-header {
-        -webkit-mask-image: none !important;
-        mask-image: none !important;
-        overflow: visible !important;
+    .femme-nav ul li{
+        scroll-snap-align:start!important
     }
-}
-
-@media screen and (min-width: 769px) {
-    .faq-section {
-        padding: 10px 20px !important;
+    .femme-header,.femme-nav{
+        -webkit-mask-image:none!important;
+        mask-image:none!important;
+        overflow:visible!important
     }
-}
-
-
-@media screen and (max-width: 768px) {
-    .femme-nav ul li a {
-        font-size: 9px !important;
-        padding: 2px 3px !important;
+    .femme-nav ul li a{
+        font-size:9px!important;
+        padding:2px 3px!important
     }
-    
-    .femme-nav ul {
-        gap: 3px !important;
+    .header-flex{
+        padding:3px 8px!important;
+        gap:8px!important
     }
-    
-    .header-flex {
-        padding: 3px 8px !important;
-        gap: 8px !important;
+    .logo-solo{
+        margin-left:5px!important
     }
-    
-    .logo-solo {
-        margin-left: 5px !important;
+    .femme-header{
+        min-height:35px!important
     }
-    
-    .femme-header {
-        min-height: 35px !important;
+    .section-benefits,.section-benefits .title h2,.section-benefits .title p{
+        display:block!important;
+        visibility:visible!important
     }
-}
-
-@media screen and (max-width: 768px) {
-    .section-benefits .title h2 {
-        font-size: 1.8rem !important;
-        line-height: 1.3 !important;
-        margin-bottom: 15px !important;
-        padding: 0 10px !important;
-        display: block !important;
-        visibility: visible !important;
+    .section-benefits .title h2{
+        font-size:1.8rem!important;
+        line-height:1.3!important;
+        margin-bottom:15px!important;
+        padding:0 10px!important
     }
-    
-    .section-benefits .title p {
-        font-size: 1rem !important;
-        line-height: 1.4 !important;
-        padding: 0 15px !important;
-        margin-bottom: 30px !important;
-        display: block !important;
-        visibility: visible !important;
+    .section-benefits .title p{
+        font-size:1rem!important;
+        line-height:1.4!important;
+        padding:0 15px!important;
+        margin-bottom:30px!important
     }
-    
-    .section-benefits {
-        display: block !important;
-        visibility: visible !important;
+    .cta-group,.wave-transition{
+        position:relative!important
+    }
+    .femme-hero::after{
+        height:80px!important;
+        background:linear-gradient(to bottom,transparent 0,transparent 40%,#f9d7e2 80%,#f9d7e2 100%)!important;
+        display:none!important
+    }
+    .cta-group{
+        padding-bottom:100px!important;
+        z-index:20!important
+    }
+    .femme-hero{
+        padding-bottom:120px!important
+    }
+    .wave-transition::before{
+        content:'';
+        position:absolute;
+        top:-80px;
+        left:0;
+        right:0;
+        height:80px;
+        background:linear-gradient(to bottom,transparent 0,#f9d7e2 100%);
+        z-index:10
     }
 }
-
-/* Love the flower leak effect! Keep it */
-.section-benefits {
-    overflow: visible !important; /* Allow flower to leak out */
+.btn{
+    position:relative!important;
+    z-index:30!important
 }
-
-/* SIMPLE PINK GRADIENT TO HIDE THE FLAW */
-.femme-hero {
-    position: relative;
-    overflow: hidden; /* Contains the gradient */
-}
-
-/* Pink gradient at the bottom of hero fold */
-.femme-hero::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 150px; /* Adjust height as needed */
-    background: linear-gradient(to bottom, 
-        transparent 0%, 
-        transparent 30%,
-        #f9d7e2 60%,  /* Pink from hero background */
-        #f9d7e2 100%
-    );
-    z-index: 10;
-    pointer-events: none; /* Allows clicks through */
-}
-
-/* Make sure wave sits under the gradient */
-.wave-transition {
-    position: relative;
-    z-index: 5;
-    margin-top: -100px; /* Pull it up under the gradient */
-}
-
-/* Keep the flower leak working */
-.section-benefits {
-    overflow: visible !important; /* Flower can leak out */
-    position: relative;
-    z-index: 15; /* Above the gradient */
-}
-/* FIX MOBILE CTA GETTING COVERED */
-
-/* Reduce gradient height on mobile */
-@media screen and (max-width: 768px) {
-    .femme-hero::after {
-        height: 80px !important; /* Smaller gradient on mobile */
-        background: linear-gradient(to bottom, 
-            transparent 0%, 
-            transparent 40%,
-            #f9d7e2 80%,
-            #f9d7e2 100%
-        ) !important;
-    }
-    
-    /* Ensure CTAs have space */
-    .cta-group {
-        padding-bottom: 100px !important; /* Push CTAs up from gradient */
-        position: relative !important;
-        z-index: 20 !important; /* Above gradient */
-    }
-    
-    /* Make sure hero has enough padding */
-    .femme-hero {
-        padding-bottom: 120px !important;
-    }
-    
-    /* Alternative: move gradient to wave instead */
-    .femme-hero::after {
-        display: none !important; /* Remove from hero */
-    }
-    
-    .wave-transition {
-        position: relative !important;
-    }
-    
-    .wave-transition::before {
-        content: '';
-        position: absolute;
-        top: -80px;
-        left: 0;
-        right: 0;
-        height: 80px;
-        background: linear-gradient(to bottom, 
-            transparent 0%, 
-            #f9d7e2 100%
-        );
-        z-index: 10;
-    }
-}
-
-/* Ensure buttons are clickable */
-.btn {
-    position: relative !important;
-    z-index: 30 !important;
-}
-
-

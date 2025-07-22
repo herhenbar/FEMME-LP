@@ -3224,7 +3224,31 @@ section:has(.testimonial-wall) {
 }
 
 
+.produtos-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+}
 
+.produto-card {
+  position: relative;
+  flex: 1;
+}
+
+.badge-bonus {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: #FFD700;
+  color: #000;
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 14px;
+  transform: rotate(15deg);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
 
 
 

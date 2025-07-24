@@ -2695,3 +2695,20 @@ setInterval(() => {
 
 
 
+<script>
+// Android CTA Fix
+document.addEventListener('DOMContentLoaded', function() {
+    const ctaButtons = document.querySelectorAll('.combo-cta.rose');
+    ctaButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            // Find combo 3 by class if ID doesn't work
+            const combo3 = document.querySelector('.combo-3') || document.querySelector('[class*="combo-3"]');
+            if (combo3) {
+                const yOffset = combo3.offsetTop - 50;
+                window.scrollTo({top: yOffset, behavior: 'smooth'});
+            }
+        });
+    });
+});
+</script>

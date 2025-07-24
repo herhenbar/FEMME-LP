@@ -2694,48 +2694,11 @@ setInterval(() => {
 
 
 <script>
-// ANDROID CTA FIX - FORCE SCROLL TO COMBO 3
-document.addEventListener('DOMContentLoaded', function() {
-    // Function to detect Android
-    function isAndroid() {
-        return /Android/i.test(navigator.userAgent);
+document.querySelector('.combo-cta.rose').onclick = function(e) {
+    e.preventDefault();
+    const combo3 = document.querySelector('.combo-3') || document.querySelector('.combo-card:nth-child(3)');
+    if (combo3) {
+        combo3.scrollIntoView({behavior: 'smooth', block: 'center'});
     }
-    
-    // Function to smoothly scroll to element
-    function smoothScrollTo(element) {
-        if (element) {
-            try {
-                element.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'center',
-                    inline: 'nearest'
-                });
-                return true;
-            } catch (e) {
-                const targetPosition = element.offsetTop - (window.innerHeight / 4);
-                window.scrollTo({top: targetPosition, behavior: 'smooth'});
-                return true;
-            }
-        }
-        return false;
-    }
-    
-    // Find and fix the main CTA button
-    const mainCta = document.querySelector('.combo-cta.rose');
-    if (mainCta) {
-        mainCta.removeAttribute('href');
-        
-        mainCta.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            let combo3 = document.querySelector('.combo-card.combo-3') || 
-                        document.querySelector('.combo-3');
-            
-            if (combo3) {
-                combo3.style.boxShadow = '0 0 30px rgba(212, 175, 55, 0.8)';
-                smoothScrollTo(combo3);
-            }
-        });
-    }
-});
+};
 </script>

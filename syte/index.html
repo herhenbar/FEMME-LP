@@ -2232,24 +2232,34 @@ document.addEventListener('DOMContentLoaded', function() {
 	// 1. FIXAR CTA PARA IR DIRETO AO COMBO 3
 	if(window.innerWidth <= 768) {
 		// Encontrar o CTA grande acima do fold 3
-		const ctaButton = document.querySelector('.combo-cta.rose');
-		if(ctaButton) {
-			ctaButton.onclick = function(e) {
-				e.preventDefault();
-				// Ir direto para o combo 3
-				const combo3 = document.querySelector('.combo-3');
-				if(combo3) {
-					combo3.scrollIntoView({
-						behavior: 'smooth',
-						block: 'center'
-					});
-					// Destacar o combo 3
-					combo3.style.animation = 'pulse 2s';
-					combo3.style.boxShadow = '0 0 30px rgba(212, 175, 55, 0.8)';
-				}
-			};
-		}
-	}
+		// Android-compatible CTA scroll fix
+const ctaButton = document.querySelector('.combo-cta.rose');
+if(ctaButton) {
+    ctaButton.onclick = function(e) {
+        e.preventDefault();
+        const combo3 = document.querySelector('.combo-3');
+        if(combo3) {
+            // Android-safe scroll method
+            const rect = combo3.getBoundingClientRect();
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const targetY = rect.top + scrollTop - (window.innerHeight / 4);
+            
+            // Use both methods for maximum compatibility
+            if ('scrollBehavior' in document.documentElement.style) {
+                window.scrollTo({ top: targetY, behavior: 'smooth' });
+            } else {
+                // Fallback for older Android browsers
+                window.scrollTo(0, targetY);
+            }
+            
+            // Highlight effect
+            setTimeout(() => {
+                combo3.style.animation = 'pulse 2s';
+                combo3.style.boxShadow = '0 0 30px rgba(212, 175, 55, 0.8)';
+            }, 300);
+        }
+    };
+}
 	// 2. AJUSTAR ESPAÇO FAQ (mais simples)
 	const faqHeader = document.querySelector('.faq-header');
 	if(faqHeader) {

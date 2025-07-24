@@ -2696,19 +2696,15 @@ setInterval(() => {
 
 
 <script>
-// Android CTA Fix
-document.addEventListener('DOMContentLoaded', function() {
-    const ctaButtons = document.querySelectorAll('.combo-cta.rose');
-    ctaButtons.forEach(button => {
-        button.addEventListener('click', function(e) {
-            e.preventDefault();
-            // Find combo 3 by class if ID doesn't work
-            const combo3 = document.querySelector('.combo-3') || document.querySelector('[class*="combo-3"]');
-            if (combo3) {
-                const yOffset = combo3.offsetTop - 50;
-                window.scrollTo({top: yOffset, behavior: 'smooth'});
-            }
-        });
-    });
-});
+// Force ALL combo CTAs to work on Android
+document.addEventListener('click', function(e) {
+    if(e.target.textContent.includes('SIM! QUERO')) {
+        e.preventDefault();
+        e.stopPropagation();
+        var combos = document.getElementById('combos-final') || document.querySelector('.combos-wrapper');
+        if(combos) {
+            window.scrollTo(0, combos.offsetTop - 50);
+        }
+    }
+}, true);
 </script>
